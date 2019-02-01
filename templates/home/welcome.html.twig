@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="container my-5 p-5 text-center text-light bg-dark">
+        <h1 class="m-5">Bienvenue !</h1>
+        <div class="row mb-5">
+            <div class="col-6">
+                <a href="{{ path('security_registration') }}" class="btn btn-danger">Inscription</a>
+            </div>
+            <div class="col-6">
+                <a href="{{ path('security_login') }}" class="btn btn-success">Connexion</a>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

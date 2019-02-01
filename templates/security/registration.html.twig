@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme formRegistration 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+<div class="container mt-5 mb-5 p-5 text-center text-light bg-dark">
+    <div class="text-left">
+        <a href="{{ path('home_welcome') }}" class="btn btn-warning">Retour</a>
+    </div>
+    <h1 class="m-5 text-danger">Inscription</h1>
+    <div class="container text-left col-6">
+        {{ form_start(formRegistration, {'attr' : {'class':'flex-column'}}) }}
+        {{ form_row(formRegistration.username, {'label':'Votre pseudo', 'attr' : {'placeholder':'pseudo ...'}}) }}
+        {{ form_row(formRegistration.firstname, {'label':'Votre prénom', 'attr' : {'placeholder':'prénom ...'}}) }}
+        {{ form_row(formRegistration.lastname, {'label':'Votre nom', 'attr' : {'placeholder':'nom ...'}}) }}
+        {{ form_row(formRegistration.email, {'label':'Votre adresse email', 'attr' : {'placeholder':'adresse email ...'}}) }}
+        {{ form_row(formRegistration.password, {'label':'Votre mot de passe', 'attr' : {'placeholder':'mot de passe ...'}}) }}
+        {{ form_row(formRegistration.confirm_password, {'label':'Confirmation de votre mot de passe', 'attr' : {'placeholder':'répétez votre mot de passe ...'}}) }}
+        <div class="text-center">
+            <button type="submit" class="btn btn-danger col-3 mb-5">Inscription</button>
+        </div>
+        {{ form_end(formRegistration) }}
+    </div>
+</div>
+
+
+{% endblock %}
+
