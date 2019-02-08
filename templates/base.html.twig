@@ -22,7 +22,7 @@
                 <p class="mb-auto mt-auto"><a href="{{ path('security_login') }}" >Connectez-vous</a> ou <a href="{{ path('security_registration') }}">inscrivez-vous</a> pour acceder à vos albums et vos photos...</p>
                 {% else %}
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{ path('home_welcome') }}">Accueil <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{{ path('home_connected') }}">Accueil <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path('home_albums') }}">Mes Albums</a>

@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container">
+    {{ form_start(formPhoto) }}
+    {{ form_widget(formPhoto) }}
+    <button class="btn btn-success">Valider</button>
+    {{ form_end(formPhoto) }}
+</div>
+{% endblock %}
