@@ -1,10 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
+<div class="container">
     <div class="jumbotron">
-        <a href="{{ path('security_logout') }}" class="btn btn-warning">Déconnexion</a>
-        <h1 class="display-3">Hello, {{ app.user.username() }}!</h1>
+        <h1 class="display-3">Hello, <span class="text-white">{{ app.user.username() }} !</span></h1>
         <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
         <hr class="my-4">
         <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
@@ -12,5 +11,7 @@
             <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
         </p>
     </div>
+</div>
+
 
 {% endblock %}

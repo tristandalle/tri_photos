@@ -28,4 +28,20 @@ class HomeController extends AbstractController
             "user" => $user
         ]);
     }
+
+    /**
+     * @Route("/albums", name="home_albums")
+     */
+    public function showAlbumsAction()
+    {
+        return $this->render('home/albums.html.twig');
+    }
+
+    /**
+     * @Route("/album", name="home_one_album")
+     */
+    public function showOneAlbumAction()
+    {
+        return $this->render('home/one-album.html.twig');
+    }
 }
