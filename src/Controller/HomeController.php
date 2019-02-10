@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Repository\PhotoRepository;
 use App\Repository\UserRepository;
+use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -43,5 +45,20 @@ class HomeController extends AbstractController
     public function showOneAlbumAction()
     {
         return $this->render('home/one-album.html.twig');
+    }
+
+    /**
+     * @Route("/photos", name="home_all_photos")
+     */
+    public function showAllPhotosAction(PhotoRepository $photoRepository, UserRepository $userRepository, ObjectManager $manager)
+    {
+        $currentUser = $this->getUser();
+        $photos = $photoRepository->findBy([
+            'author' => $currentUser
+        ]);
+
+        return $this->render('home/all-photos.html.twig',[
+            'photos' => $photos
+        ]);
     }
 }
