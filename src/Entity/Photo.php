@@ -36,6 +36,11 @@ class Photo
      */
     private $author;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Album", inversedBy="photos")
+     */
+    private $album;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -73,6 +78,18 @@ class Photo
     public function setAuthor(?User $author): self
     {
         $this->author = $author;
+
+        return $this;
+    }
+
+    public function getAlbum(): ?Album
+    {
+        return $this->album;
+    }
+
+    public function setAlbum(?Album $album): self
+    {
+        $this->album = $album;
 
         return $this;
     }

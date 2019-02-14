@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Photo;
 use App\Form\PhotoType;
+use App\Repository\AlbumRepository;
 use App\Repository\PhotoRepository;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -26,8 +27,8 @@ class ImageController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid())
         {
-            $file = $form->get('file')->getData();
             $photo->setAuthor($this->getUser());
+            $file = $form->get('file')->getData();
             $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
             try {
                 $file->move(
@@ -64,7 +65,6 @@ class ImageController extends AbstractController
         $photos = $photoRepository->findBy([
             'author' => $currentUser
         ]);
-dump($photos);
         return $this->render('image/all-photos.html.twig',[
             'photos' => $photos
         ]);
@@ -73,12 +73,18 @@ dump($photos);
     /**
      * @Route("/edit/{id}", name="image_one_photo")
      */
-    public function showOnePhotoAction($id, PhotoRepository $photoRepository)
+    public function showOnePhotoAction($id, PhotoRepository $photoRepository, AlbumRepository $albumRepository)
     {
         $photoToEdit = $photoRepository->find($id);
+        $currentUser = $this->getUser();
+        $userAlbums = $albumRepository->findBy([
+            'author' => $currentUser
+
+        ]);
         dump($photoToEdit);
-        return $this->render('image/one-photo.html.twig',[
-            'photo' => $photoToEdit
+        return $this->render('image/one-photo.html.twig', [
+            'photo' => $photoToEdit,
+            'albums' => $userAlbums
         ]);
     }
 
@@ -94,5 +100,20 @@ dump($photos);
         $manager->remove($photoToRemove[0]);
         $manager->flush();
         return $this->redirectToRoute('image_all_photos');
+    }
+
+    /**
+     * @Route("/add_album/{photoId}", name="image_add_to_album")
+     */
+    public function addPhotoToAlbumAction($photoId, Request $request, PhotoRepository $photoRepository, AlbumRepository $albumRepository, ObjectManager $manager)
+    {
+        $albumCompletedId = $request->request->get("select-album");
+        $albumCompleted = $albumRepository->find($albumCompletedId);
+        $photoToAdd = $photoRepository->find($photoId);
+        $photoToAdd->setAlbum($albumCompleted);
+        $manager->persist($photoToAdd);
+        $manager->flush();
+
+        return $this->redirectToRoute('album_all_albums');
     }
 }

@@ -1,12 +1,28 @@
 {% extends 'base.html.twig' %}
 
  {% block body %}
+    <section id="one-photo">
+        <div class="container bg-dark">
+            <div class="container-one-photo">
+                <img src="{{ asset('uploads/images/' ~ photo.file) }}" alt="">
+            </div>
+            <div class="buttons">
+                <a href="{{ path('image_all_photos') }}" class="btn btn-warning">Retour</a>
+                <form action="{{ path('image_add_to_album', {'photoId' :photo.id, }) }}" method="post">
+                    <label for="select-album">Ajouter cette photo à l'un de vos album</label>
+                    <select name="select-album" id="select-album" required>
+                        <option value="" disabled selected>Liste de vos albums : </option>
+                        {% for album in albums %}
+                            <option value="{{ album.id }}">{{ album.title }}</option>
+                        {% endfor %}
+                    </select>
+                    <button type="submit" class="btn btn-success">Valider</button>
+                </form>
 
-    <div class="container">
-        <div class="" style="height: 30em; display: flex;">
-            <img src="{{ asset('uploads/images/' ~ photo.file) }}" alt="" class="h-100 m-auto">
-        </div>
-        <a href="{{ path('image_remove_photo', {'photo' :photo.file}) }}" class="btn btn-danger">Supprimer</a>
+                <a href="{{ path('image_remove_photo', {'photo' :photo.file}) }}" class="btn btn-danger">Supprimer</a>
+            </div>
 
-    </div>
+
+            </div>
+    </section>
 {% endblock %}

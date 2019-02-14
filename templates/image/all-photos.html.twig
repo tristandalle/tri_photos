@@ -3,7 +3,7 @@
  {% block body %}
      <section id="all-photos">
          <div class="container bg-dark">
-             <h2>Salut <span>{{ app.user.username() }}</span> ! Vous avez {{ photos|length }} photos :</h2>
+             <h1>Salut <span>{{ app.user.username() }}</span> ! Vous avez {{ photos|length }} photo{% if photos|length > 1 %}s{% endif %} :</h1>
 
              {% for photo in photos %}
                  <div class="container-photo">
@@ -18,7 +18,7 @@
              {% endfor %}
 
              <div class="buttons">
-                 <a class="btn btn-primary btn-lg" href="{{ path('home_albums') }}" role="button">Voir mes albums</a>
+                 <a class="btn btn-primary btn-lg" href="{{ path('album_all_albums') }}" role="button">Voir mes albums</a>
                  <a class="btn btn-success btn-lg" href="{{ path('image_add') }}" role="button">Ajouter une photo</a>
              </div>
          </div>

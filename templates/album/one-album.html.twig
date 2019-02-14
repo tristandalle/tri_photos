@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{%  block body %}
+<section id="one-album">
+    <div class="container bg-dark">
+        <h1>{{ album.title }}</h1>
+        <p>{{ album.description }}</p>
+        {% for photo in album.photos %}
+            <div class="container-photo">
+                <a href="{{ path('image_one_photo', {'id' :photo.id}) }}">
+                    <img src="{{ asset('uploads/images/' ~ photo.file) }}" alt="" >
+                </a>
+                <div class="hover-photo">
+                    <a href="{{ path('image_one_photo', {'id' :photo.id}) }}" class="link-photo"></a>
+                    <a href="{{ path('image_remove_photo', {'photo' :photo.file}) }}" class="link-erase-photo"><i class="far fa-trash-alt"></i></a>
+                </div>
+            </div>
+        {% endfor %}
+
+        <div class="buttons">
+            <a href="{{ path('album_all_albums') }}" class="btn btn-warning">Retour aux albums</a>
+            <a href="{{ path('image_all_photos') }}" class="btn btn-success">Ajouter des photos à cet album</a>
+            <a href="" class="btn btn-danger">Supprimer cet album</a>
+        </div>
+    </div>
+</section>
+
+
+{%  endblock %}

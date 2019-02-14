@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Album;
 use App\Entity\User;
 use App\Form\LoginType;
 use App\Form\RegistrationType;

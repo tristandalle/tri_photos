@@ -1,0 +1,39 @@
+#all-albums {
+
+  .container {
+    padding: 2rem;
+    margin: 5rem auto;
+
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+
+      span {
+        color: #FFF;
+      }
+    }
+
+    .card-container {
+      display: flex;
+
+      .card {
+        width: 20rem;
+        margin: 2rem;
+      }
+    }
+
+    .carousel-item{
+      background-color: #000;
+      img{
+        max-width: 20rem;
+        max-height: 14rem;
+        margin: auto;
+      }
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
