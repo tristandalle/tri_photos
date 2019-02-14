@@ -6,13 +6,18 @@
  */
 
 // any CSS you require will output into a single css file (app.scss in this case)
-//require('../css/app.scss');
+require('../css/app.scss');
+require('../css/all-photos.scss');
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
+// require jQuery normally
 const $ = require('jquery');
-
+// create global $ and jQuery variables
 global.$ = global.jQuery = $;
 
+
+require('popper.js');
 require('bootstrap');
+
 
 console.log('Hello Webpack Encore! Edit me in assets/js/app.js');

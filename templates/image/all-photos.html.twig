@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+ {% block body %}
+     <section id="all-photos">
+         <div class="container bg-dark">
+             <h2>Salut <span>{{ app.user.username() }}</span> ! Vous avez {{ photos|length }} photos :</h2>
+
+             {% for photo in photos %}
+                 <div class="container-photo">
+                     <a href="{{ path('image_one_photo', {'id' :photo.id}) }}">
+                         <img src="{{ ('uploads/images/' ~ photo.file) }}" alt="" >
+                     </a>
+                     <div class="hover-photo">
+                         <a href="{{ path('image_one_photo', {'id' :photo.id}) }}" class="link-photo"></a>
+                         <a href="{{ path('image_remove_photo', {'photo' :photo.file}) }}" class="link-erase-photo"><i class="far fa-trash-alt"></i></a>
+                     </div>
+                 </div>
+             {% endfor %}
+
+             <div class="buttons">
+                 <a class="btn btn-primary btn-lg" href="{{ path('home_albums') }}" role="button">Voir mes albums</a>
+                 <a class="btn btn-success btn-lg" href="{{ path('image_add') }}" role="button">Ajouter une photo</a>
+             </div>
+         </div>
+     </section>
+
+ {% endblock %}

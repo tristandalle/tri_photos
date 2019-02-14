@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+ {% block body %}
+
+    <div class="container">
+        <div class="" style="height: 30em; display: flex;">
+            <img src="{{ asset('uploads/images/' ~ photo.file) }}" alt="" class="h-100 m-auto">
+        </div>
+        <a href="{{ path('image_remove_photo', {'photo' :photo.file}) }}" class="btn btn-danger">Supprimer</a>
+
+    </div>
+{% endblock %}

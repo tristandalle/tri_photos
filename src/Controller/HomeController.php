@@ -46,19 +46,4 @@ class HomeController extends AbstractController
     {
         return $this->render('home/one-album.html.twig');
     }
-
-    /**
-     * @Route("/photos", name="home_all_photos")
-     */
-    public function showAllPhotosAction(PhotoRepository $photoRepository, UserRepository $userRepository, ObjectManager $manager)
-    {
-        $currentUser = $this->getUser();
-        $photos = $photoRepository->findBy([
-            'author' => $currentUser
-        ]);
-
-        return $this->render('home/all-photos.html.twig',[
-            'photos' => $photos
-        ]);
-    }
 }
