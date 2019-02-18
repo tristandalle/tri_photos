@@ -4,7 +4,7 @@
     <section id="one-photo">
         <div class="container bg-dark">
             <div class="container-one-photo">
-                <img src="{{ asset('uploads/images/' ~ photo.file) }}" alt="">
+                <img src="{{ path('file_download', {'id' :photo.id}) }}" alt="">
             </div>
             <div class="buttons">
                 <a href="{{ path('image_all_photos') }}" class="btn btn-warning">Retour</a>

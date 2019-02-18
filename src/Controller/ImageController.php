@@ -26,8 +26,10 @@ class ImageController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid())
+
         {
             $photo->setAuthor($this->getUser());
+
             $file = $form->get('file')->getData();
             $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
             try {
@@ -57,6 +59,16 @@ class ImageController extends AbstractController
     }
 
     /**
+     * @Route("/download/{id}", name="file_download")
+     */
+    function downloadForDisplayPhoto($id, PhotoRepository $photoRepository)
+    {
+        $fileName = $photoRepository->find($id)->getFile();
+        $filePath = $this->getParameter('images_directory'). '/'.$fileName;
+        return $this->file($filePath);
+    }
+
+    /**
      * @Route("/photos", name="image_all_photos")
      */
     public function showAllPhotosAction(PhotoRepository $photoRepository)
@@ -79,9 +91,13 @@ class ImageController extends AbstractController
         $currentUser = $this->getUser();
         $userAlbums = $albumRepository->findBy([
             'author' => $currentUser
-
         ]);
-        dump($photoToEdit);
+        $author = $photoToEdit->getAuthor();
+        if ($currentUser != $author)
+        {
+            http_response_code(404);
+            die();
+        }
         return $this->render('image/one-photo.html.twig', [
             'photo' => $photoToEdit,
             'albums' => $userAlbums

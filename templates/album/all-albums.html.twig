@@ -33,11 +33,27 @@
                {% endif %}
                 {% for album in albums %}
                     <div class="card">
-                        <img src="{{ ('uploads/images/' ~ album.photos[0].file) }}" class="card-img-top" alt="...">
+                        {% if album.photos|length == 0 %}
+                            <div class="empty-album">
+                                <a href="{{ path('image_all_photos') }}">
+                                    <i class="fas fa-download"></i>
+                                </a>
+                            </div>
+                        {% else %}
+                            <div class="cover-album">
+                                <a href="{{ path('image_all_photos') }}">
+                                    <img src="{{ ('uploads/images/' ~ album.photos[0].file) }}" class="card-img-top" alt="...">
+                                </a>
+                            </div>
+                        {% endif %}
                         <div class="card-body">
                             <h5 class="card-title">{{ album.title }} ({{ album.photos|length }} photo{% if album.photos|length > 1 %}s{% endif %})</h5>
                             <p class="card-text">{{ album.description }}</p>
-                            <a href="{{ path('album_one_album', {'id' :album.id}) }}" class="btn btn-primary">Voir l'album</a>
+                            <div class="buttons">
+                                <a href="{{ path('album_one_album', {'id' :album.id}) }}" class="btn btn-primary">Voir l'album</a>
+                                <a href="" class="btn btn-danger" title="supprimer l'album (les photos ne seront pas supprimées)"><i class="far fa-trash-alt"></i></a>
+                            </div>
+                           
                         </div>
                     </div>
                 {% endfor %}

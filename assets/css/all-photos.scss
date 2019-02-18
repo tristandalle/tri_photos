@@ -58,13 +58,8 @@
 
     .buttons {
       display: flex;
-      justify-content: flex-end;
-
-      .btn {
-
-
-
-      }
+      justify-content: space-between;
+      margin-top: 2rem;
     }
   }
 }
