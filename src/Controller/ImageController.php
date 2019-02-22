@@ -95,7 +95,7 @@ class ImageController extends AbstractController
         $author = $photoToEdit->getAuthor();
         if ($currentUser != $author)
         {
-            http_response_code(404);
+            http_response_code(401);
             die();
         }
         return $this->render('image/one-photo.html.twig', [
@@ -105,15 +105,12 @@ class ImageController extends AbstractController
     }
 
     /**
-     * @Route("/remove/{photo}", name="image_remove_photo")
+     * @Route("/remove/{id}", name="image_remove_photo")
      */
-    public function removePhotoAction($photo, ObjectManager $manager, PhotoRepository $photoRepository)
+    public function removePhotoAction($id, ObjectManager $manager, PhotoRepository $photoRepository)
     {
-        $photoToRemove = $photoRepository->findBy([
-            'file' => $photo
-        ]);
-        dump($photoToRemove[0]);
-        $manager->remove($photoToRemove[0]);
+        $photoToRemove = $photoRepository->find($id);
+        $manager->remove($photoToRemove);
         $manager->flush();
         return $this->redirectToRoute('image_all_photos');
     }
@@ -131,5 +128,20 @@ class ImageController extends AbstractController
         $manager->flush();
 
         return $this->redirectToRoute('album_all_albums');
+    }
+
+    /**
+     * @Route("/remove_album/{id}/{albumId}", name="image_remove_to_album")
+     */
+    public function removePhotoToAlbumAction($id,PhotoRepository $photoRepository, ObjectManager $manager, $albumId)
+    {
+        $photoToRemoveFromAlbum = $photoRepository->find($id);
+        $photoToRemoveFromAlbum->setAlbum(null);
+        $manager->persist($photoToRemoveFromAlbum);
+        $manager->flush();
+
+        return $this->redirectToRoute('album_one_album', array(
+            'id' => $albumId
+        ));
     }
 }

@@ -2,40 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="778ffb5b-5b66-46cd-a0e6-061369f9045b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/assets/css/home-welcome.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/css/home.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/css/all-albums.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/all-albums.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/all-photos.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/all-photos.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/one-album.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/one-album.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/images/0b2dc00caa1681825a039e4b35b245c1.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/uploads/images/0b2dc00caa1681825a039e4b35b245c1.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/images/0bab4a79f09aea9c3c2a5f55ac100863.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/uploads/images/0bab4a79f09aea9c3c2a5f55ac100863.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/images/0e9eafd19f1903b2b3513bd59b760b46.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/uploads/images/0e9eafd19f1903b2b3513bd59b760b46.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/images/15f767b246cb99f6f8e3d2fab2bb56d1.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/uploads/images/15f767b246cb99f6f8e3d2fab2bb56d1.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/images/192706824a657e5f6645dca48635e398.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/uploads/images/192706824a657e5f6645dca48635e398.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/images/225b60dd1ff19d83313f813b24a03b29.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/uploads/images/225b60dd1ff19d83313f813b24a03b29.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/images/493b8fce9f09d3dee8885d959afa712d.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/uploads/images/493b8fce9f09d3dee8885d959afa712d.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/images/4c368cdc56ca917b6082fd6b43ac7221.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/uploads/images/4c368cdc56ca917b6082fd6b43ac7221.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/images/4ce3e871bfcfdca03c33289d682e53bf.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/uploads/images/4ce3e871bfcfdca03c33289d682e53bf.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/images/51e003c341e8be43cbed5841874a7f5f.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/uploads/images/51e003c341e8be43cbed5841874a7f5f.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/images/5f71cfe0d72328ca75d6f2e7db163a6a.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/uploads/images/5f71cfe0d72328ca75d6f2e7db163a6a.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/images/6aeaba0490dcc7b48bafaf470db2a8f1.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/uploads/images/6aeaba0490dcc7b48bafaf470db2a8f1.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/images/73485ca14d9c916d74de0a3ebe8b98c5.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/uploads/images/73485ca14d9c916d74de0a3ebe8b98c5.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/images/7ddbdeb1afd3f7b3f523a65feac1f71e.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/uploads/images/7ddbdeb1afd3f7b3f523a65feac1f71e.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/images/84c54a9a3ab3c30fc4ac7c6faaf4f299.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/uploads/images/84c54a9a3ab3c30fc4ac7c6faaf4f299.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/images/9aa41fb82c0ad790fc1458f585ac3f22.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/uploads/images/9aa41fb82c0ad790fc1458f585ac3f22.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/images/9ddb6f01da30436721f83c381620ac9d.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/uploads/images/9ddb6f01da30436721f83c381620ac9d.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/images/a83bb1e1cae13389fd1ff0ece2eb65fd.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/uploads/images/a83bb1e1cae13389fd1ff0ece2eb65fd.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/images/aa1b06525085a315c982770a605fbf1d.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/uploads/images/aa1b06525085a315c982770a605fbf1d.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/images/b148a0fd33d4cca07e3fd8274e064a3c.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/uploads/images/b148a0fd33d4cca07e3fd8274e064a3c.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/images/b42e7ffc9d06c15a68787ddb08c09a44.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/uploads/images/b42e7ffc9d06c15a68787ddb08c09a44.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/images/b7c1fb2ad16dc2cb1588aa806c3a0730.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/uploads/images/b7c1fb2ad16dc2cb1588aa806c3a0730.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/images/bac200b58bf2326607130bab081a8ad8.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/uploads/images/bac200b58bf2326607130bab081a8ad8.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/images/f63d1ad7ca95b1fa6fca758ee89445ff.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/uploads/images/f63d1ad7ca95b1fa6fca758ee89445ff.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/images/f9047ad8f900bbf100ffcb7d4c3f969d.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/uploads/images/f9047ad8f900bbf100ffcb7d4c3f969d.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/images/f9aec60f4baf32c650cdccac8d8705a8.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/uploads/images/f9aec60f4baf32c650cdccac8d8705a8.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/images/fec449bca8cc50dcfd7895a69f3929a5.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/uploads/images/fec449bca8cc50dcfd7895a69f3929a5.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AlbumController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AlbumController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/ImageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ImageController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Photo.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Photo.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/album/all-albums.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/album/all-albums.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/album/one-album.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/album/one-album.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/home.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home/welcome.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/welcome.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/image/all-photos.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/image/all-photos.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/image/one-photo.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/image/one-photo.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tri_photos" beforeDir="false" afterPath="$PROJECT_DIR$/tri_photos" afterDir="false" />
@@ -58,10 +37,11 @@
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.13" value="1" />
+          <entry key="project.open.time.133" value="1" />
           <entry key="project.open.time.27" value="1" />
           <entry key="project.open.time.8" value="1" />
           <entry key="project.open.time.89" value="1" />
-          <entry key="project.opened" value="7" />
+          <entry key="project.opened" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -81,12 +61,12 @@
           <entry key=".env file" value="1" />
           <entry key="CSS" value="10" />
           <entry key="Image" value="2" />
-          <entry key="JSON" value="13" />
-          <entry key="JavaScript" value="23" />
-          <entry key="PHP" value="56" />
+          <entry key="JSON" value="14" />
+          <entry key="JavaScript" value="24" />
+          <entry key="PHP" value="64" />
           <entry key="PLAIN_TEXT" value="4" />
-          <entry key="SCSS" value="18" />
-          <entry key="Twig" value="61" />
+          <entry key="SCSS" value="24" />
+          <entry key="Twig" value="70" />
           <entry key="YAML" value="10" />
         </counts>
       </usages-collector>
@@ -107,111 +87,107 @@
           <entry key=".env file" value="14" />
           <entry key="CSS" value="50" />
           <entry key="JSON" value="29" />
-          <entry key="JavaScript" value="294" />
-          <entry key="PHP" value="4135" />
+          <entry key="JavaScript" value="304" />
+          <entry key="PHP" value="4880" />
           <entry key="PLAIN_TEXT" value="3" />
-          <entry key="SCSS" value="876" />
-          <entry key="Twig" value="5805" />
+          <entry key="SCSS" value="1228" />
+          <entry key="Twig" value="6516" />
           <entry key="YAML" value="85" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.6670968">
+    <splitter split-orientation="horizontal" split-proportion="0.57466066">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/assets/css/all-albums.scss">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="469">
+                  <caret line="83" column="35" selection-start-line="83" selection-start-column="28" selection-end-line="83" selection-end-column="35" />
+                </state>
+              </provider>
+            </entry>
+          </file>
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/templates/album/all-albums.html.twig">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="176">
-                  <caret line="37" column="71" selection-start-line="37" selection-start-column="71" selection-end-line="37" selection-end-column="71" />
+                <state relative-caret-position="416">
+                  <caret line="49" column="151" selection-start-line="49" selection-start-column="107" selection-end-line="49" selection-end-column="151" />
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/config/packages/security.yaml">
+            <entry file="file://$PROJECT_DIR$/templates/album/one-album.html.twig">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-312" />
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/config/services.yaml">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="175">
-                  <caret line="8" selection-start-line="8" selection-end-line="8" />
+                <state relative-caret-position="572">
+                  <caret line="22" column="183" selection-start-line="20" selection-start-column="12" selection-end-line="22" selection-end-column="183" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/Controller/ImageController.php">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="468">
-                  <caret line="96" column="25" selection-start-line="96" selection-start-column="25" selection-end-line="96" selection-end-column="25" />
+                <state relative-caret-position="676">
+                  <caret line="32" column="76" selection-start-line="32" selection-start-column="46" selection-end-line="32" selection-end-column="76" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/templates/home/home.html.twig">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="378">
+                  <caret line="21" column="76" selection-start-line="21" selection-start-column="72" selection-end-line="21" selection-end-column="76" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/assets/css/one-photo.scss">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="520">
+                  <caret line="20" column="5" selection-start-line="17" selection-start-column="4" selection-end-line="20" selection-end-column="5" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/templates/home/welcome.html.twig">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="260">
+                  <caret line="10" selection-start-line="10" selection-end-line="10" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/assets/js/app.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="260">
+                  <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
                   <folding>
-                    <element signature="e#34#55#0#PHP" expanded="true" />
+                    <element signature="n#!!doc" expanded="true" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/templates/image/add-photo.html.twig">
+            <entry file="file://$PROJECT_DIR$/assets/css/app.scss">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="208">
-                  <caret line="8" column="30" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
+                <state>
+                  <caret selection-end-line="3" />
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Form/PhotoType.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="338">
-                  <caret line="16" column="39" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="39" />
-                  <folding>
-                    <element signature="e#28#49#0#PHP" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Entity/Photo.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="491">
-                  <caret line="55" column="19" selection-start-line="55" selection-start-column="19" selection-end-line="55" selection-end-column="19" />
-                  <folding>
-                    <element signature="e#29#83#0#PHP" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Repository/PhotoRepository.php">
+            <entry file="file://$PROJECT_DIR$/assets/css/home-welcome.scss">
               <provider selected="true" editor-type-id="text-editor" />
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/templates/image/all-photos.html.twig">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="176">
-                  <caret line="10" column="70" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="70" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/templates/image/one-photo.html.twig">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="156">
-                  <caret line="6" column="71" selection-start-line="6" selection-start-column="71" selection-end-line="6" selection-end-column="71" />
-                </state>
-              </provider>
             </entry>
           </file>
         </leaf>
@@ -219,19 +195,19 @@
       <split-second>
         <leaf>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/assets/css/all-albums.scss">
+            <entry file="file://$PROJECT_DIR$/assets/css/home-welcome.scss">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="360">
-                  <caret line="38" column="30" selection-start-line="38" selection-start-column="30" selection-end-line="38" selection-end-column="30" />
+                <state relative-caret-position="312">
+                  <caret line="12" column="3" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/templates/album/one-album.html.twig">
+            <entry file="file://$PROJECT_DIR$/assets/css/home.scss">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="546">
-                  <caret line="21" column="51" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="51" />
+                <state relative-caret-position="417">
+                  <caret line="39" column="26" selection-start-line="39" selection-start-column="26" selection-end-line="39" selection-end-column="26" />
                 </state>
               </provider>
             </entry>
@@ -268,8 +244,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/.env" />
-        <option value="$PROJECT_DIR$/config/packages/twig.yaml" />
         <option value="$PROJECT_DIR$/src/Form/RegistrationType.php" />
         <option value="$PROJECT_DIR$/templates/security/registration.html.twig" />
         <option value="$PROJECT_DIR$/src/Form/LoginType.php" />
@@ -285,11 +259,8 @@
         <option value="$PROJECT_DIR$/assets/css/bootstrap.min.css" />
         <option value="$PROJECT_DIR$/templates/home/one-album.html.twig" />
         <option value="$PROJECT_DIR$/templates/home/albums.html.twig" />
-        <option value="$PROJECT_DIR$/assets/css/app.scss" />
         <option value="$PROJECT_DIR$/assets/css/welcome.css" />
-        <option value="$PROJECT_DIR$/templates/home/welcome.html.twig" />
         <option value="$PROJECT_DIR$/public/welcome.css" />
-        <option value="$PROJECT_DIR$/templates/home/home.html.twig" />
         <option value="$PROJECT_DIR$/templates/home/all-photos.html.twig" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/webpack.config.js" />
@@ -303,21 +274,27 @@
         <option value="$PROJECT_DIR$/templates/base.html.twig" />
         <option value="$PROJECT_DIR$/public/tri-photos-carousel.js" />
         <option value="$PROJECT_DIR$/assets/css/one-photo.scss" />
-        <option value="$PROJECT_DIR$/assets/js/app.js" />
-        <option value="$PROJECT_DIR$/src/Controller/AlbumController.php" />
         <option value="$PROJECT_DIR$/assets/css/all-photos.scss" />
         <option value="$PROJECT_DIR$/assets/css/one-album.scss" />
         <option value="$PROJECT_DIR$/src/Form/PhotosType.php" />
-        <option value="$PROJECT_DIR$/src/Entity/Photo.php" />
         <option value="$PROJECT_DIR$/templates/image/add-photo.html.twig" />
         <option value="$PROJECT_DIR$/src/Form/PhotoType.php" />
-        <option value="$PROJECT_DIR$/templates/album/one-album.html.twig" />
-        <option value="$PROJECT_DIR$/assets/css/all-albums.scss" />
-        <option value="$PROJECT_DIR$/templates/album/all-albums.html.twig" />
         <option value="$PROJECT_DIR$/config/services.yaml" />
         <option value="$PROJECT_DIR$/templates/image/all-photos.html.twig" />
         <option value="$PROJECT_DIR$/templates/image/one-photo.html.twig" />
         <option value="$PROJECT_DIR$/src/Controller/ImageController.php" />
+        <option value="$PROJECT_DIR$/src/Entity/Album.php" />
+        <option value="$PROJECT_DIR$/src/Entity/Photo.php" />
+        <option value="$PROJECT_DIR$/src/Controller/AlbumController.php" />
+        <option value="$PROJECT_DIR$/templates/album/all-albums.html.twig" />
+        <option value="$PROJECT_DIR$/templates/album/one-album.html.twig" />
+        <option value="$PROJECT_DIR$/templates/home/welcome.html.twig" />
+        <option value="$PROJECT_DIR$/assets/css/app.scss" />
+        <option value="$PROJECT_DIR$/assets/css/home-welcome.scss" />
+        <option value="$PROJECT_DIR$/templates/home/home.html.twig" />
+        <option value="$PROJECT_DIR$/assets/js/app.js" />
+        <option value="$PROJECT_DIR$/assets/css/home.scss" />
+        <option value="$PROJECT_DIR$/assets/css/all-albums.scss" />
       </list>
     </option>
   </component>
@@ -452,6 +429,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -468,101 +446,24 @@
               <item name="TriPhotos" type="b2602c69:ProjectViewProjectNode" />
               <item name="TriPhotos" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="uploads" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TriPhotos" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TriPhotos" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TriPhotos" type="b2602c69:ProjectViewProjectNode" />
               <item name="TriPhotos" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
               <item name="uploads" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TriPhotos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TriPhotos" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TriPhotos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TriPhotos" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TriPhotos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TriPhotos" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="uploads" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TriPhotos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TriPhotos" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="uploads" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TriPhotos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TriPhotos" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TriPhotos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TriPhotos" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TriPhotos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TriPhotos" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Entity" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TriPhotos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TriPhotos" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Form" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TriPhotos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TriPhotos" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Repository" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TriPhotos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TriPhotos" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TriPhotos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TriPhotos" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="album" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TriPhotos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TriPhotos" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TriPhotos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TriPhotos" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="image" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TriPhotos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TriPhotos" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="security" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -575,11 +476,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\P9\TriPhotos\assets\uploads" />
       <recent name="C:\wamp64\www\P9\TriPhotos\assets\uploads\images" />
       <recent name="C:\wamp64\www\P9\TriPhotos\public" />
       <recent name="C:\wamp64\www\P9\TriPhotos\templates\album" />
       <recent name="C:\wamp64\www\P9\TriPhotos\templates\image" />
-      <recent name="C:\wamp64\www\P9\TriPhotos\public\build\css" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\P9\TriPhotos\public\uploads" />
@@ -613,18 +514,19 @@
       <workItem from="1549570227603" duration="12364000" />
       <workItem from="1549617454828" duration="154000" />
       <workItem from="1549618000311" duration="275000" />
-      <workItem from="1550167661401" duration="32666000" />
+      <workItem from="1550167661401" duration="33961000" />
+      <workItem from="1550823676078" duration="18499000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="148011000" />
+    <option name="totallyTimeSpent" value="167805000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17377399" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17537314" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -637,7 +539,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49946696" visible="true" weight="0.11013216" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49946696" visible="true" weight="0.12334802" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50053304" side_tool="true" weight="0.3286334" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -652,28 +554,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/security/index.html.twig" />
-    <entry file="file://$PROJECT_DIR$/templates/registration/index.html.twig" />
-    <entry file="file://$PROJECT_DIR$/templates/home/index.html.twig" />
-    <entry file="file://$PROJECT_DIR$/templates/home/welcome.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Repository/UserRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/home/home.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="10" column="112" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="112" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/build/entrypoints.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
@@ -705,13 +585,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="6" column="9" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/bootstrap/scss/_variables.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="555">
@@ -726,17 +599,10 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/public/images/photos/20181207_192947.jpg" />
-    <entry file="file://$PROJECT_DIR$/public/uploads/.gitignore">
+    <entry file="file://$PROJECT_DIR$/assets/uploads/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="3" selection-start-column="3" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/app.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>
@@ -747,51 +613,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/SecurityController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="485">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/tri-photos-carousel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26">
-          <caret line="1" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/one-photo.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="6" column="23" selection-end-line="22" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/public/tri-photos-carousel.js" />
     <entry file="file://$PROJECT_DIR$/src/Controller/HomeController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
           <caret line="22" column="43" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="43" />
-          <folding>
-            <element signature="e#34#54#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="676">
-          <caret line="32" column="76" selection-start-line="32" selection-start-column="46" selection-end-line="32" selection-end-column="76" />
         </state>
       </provider>
     </entry>
@@ -806,25 +632,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="312">
           <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Album.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-312">
-          <folding>
-            <element signature="e#30#78#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/AlbumController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-160">
-          <caret line="41" column="47" selection-start-line="41" selection-start-column="31" selection-end-line="41" selection-end-column="47" />
-          <folding>
-            <element signature="e#34#55#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -849,31 +656,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/album/add-album.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="6" column="28" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Test.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-624" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Repository/PhotoRepository.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/PhotosType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
-          <folding>
-            <element signature="e#28#49#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Test.php" />
+    <entry file="file://$PROJECT_DIR$/src/Form/PhotosType.php" />
     <entry file="file://$PROJECT_DIR$/vendor/symfony/form/Extension/Core/Type/CollectionType.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="130">
@@ -888,55 +672,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Photo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="491">
-          <caret line="55" column="19" selection-start-line="55" selection-start-column="19" selection-end-line="55" selection-end-column="19" />
-          <folding>
-            <element signature="e#29#83#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/PhotoType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="16" column="39" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="39" />
-          <folding>
-            <element signature="e#28#49#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/all-albums.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="38" column="30" selection-start-line="38" selection-start-column="30" selection-end-line="38" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/album/one-album.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="21" column="51" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/album/all-albums.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="37" column="71" selection-start-line="37" selection-start-column="71" selection-end-line="37" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/packages/security.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-312" />
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/config/services.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
+        <state relative-caret-position="208">
           <caret line="8" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
@@ -948,27 +689,175 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/album/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/album/add-album.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="6" column="28" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="13" column="19" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/SecurityController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-232">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/image/all-photos.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="10" column="70" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="70" />
+        <state relative-caret-position="364">
+          <caret line="14" column="79" selection-start-line="14" selection-start-column="79" selection-end-line="14" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/PhotoRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-206" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/AlbumRepository.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/PhotoType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="16" column="39" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="39" />
+          <folding>
+            <element signature="e#28#49#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/image/one-photo.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="6" column="71" selection-start-line="6" selection-start-column="71" selection-end-line="6" selection-end-column="71" />
+        <state relative-caret-position="546">
+          <caret line="21" column="59" selection-start-line="21" selection-start-column="59" selection-end-line="21" selection-end-column="59" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/ImageController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="96" column="25" selection-start-line="96" selection-start-column="25" selection-end-line="96" selection-end-column="25" />
+        <state relative-caret-position="522">
+          <caret line="143" column="28" selection-start-line="143" selection-start-column="28" selection-end-line="143" selection-end-column="28" />
           <folding>
             <element signature="e#34#55#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Album.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="99" column="39" selection-start-line="99" selection-start-column="39" selection-end-line="99" selection-end-column="39" />
+          <folding>
+            <element signature="e#30#78#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Photo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="574">
+          <caret line="95" selection-start-line="95" selection-end-line="95" />
+          <folding>
+            <element signature="e#29#83#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/AlbumController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="496">
+          <caret line="82" column="9" selection-start-line="82" selection-start-column="9" selection-end-line="82" selection-end-column="9" />
+          <folding>
+            <element signature="e#34#55#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/home/welcome.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/app.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/album/all-albums.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="49" column="151" selection-start-line="49" selection-start-column="107" selection-end-line="49" selection-end-column="151" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/one-photo.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="520">
+          <caret line="20" column="5" selection-start-line="17" selection-start-column="4" selection-end-line="20" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/album/one-album.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="22" column="183" selection-start-line="20" selection-start-column="12" selection-end-line="22" selection-end-column="183" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/home/home.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="21" column="76" selection-start-line="21" selection-start-column="72" selection-end-line="21" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/home-welcome.scss">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/home.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="417">
+          <caret line="39" column="26" selection-start-line="39" selection-start-column="26" selection-end-line="39" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="676">
+          <caret line="32" column="76" selection-start-line="32" selection-start-column="46" selection-end-line="32" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/all-albums.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="469">
+          <caret line="83" column="35" selection-start-line="83" selection-start-column="28" selection-end-line="83" selection-end-column="35" />
         </state>
       </provider>
     </entry>

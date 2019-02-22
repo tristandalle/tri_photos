@@ -1,17 +1,31 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<div class="container">
-    <div class="jumbotron">
-        <h1 class="display-3">Hello, <span class="text-white">{{ app.user.username() }} !</span></h1>
-        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-        <hr class="my-4">
-        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-        <p class="lead">
-            <a class="btn btn-primary btn-lg" href="{{ path('image_add') }}" role="button">Ajouter une photo</a>
-        </p>
-    </div>
-</div>
+
+    <section id="home">
+        <div class="container">
+            <div class="jumbotron">
+                <h1 class="display-3">Hello, <span>{{ app.user.username() }}</span> !</h1>
+                <p class="lead">Bienvenue dans votre gallerie TriPhotos</p>
+                <hr>
+                    <ul>
+                        <p>Vous avez actuellement :</p>
+                        <li>
+                            <span>{{ app.user.photos|length }} photo{% if app.user.photos|length > 1 %}s{% endif %}</span>
+                        </li>
+                        <li>
+                            <span>{{ app.user.albums|length }} album{% if app.user.albums|length > 1 %}s{% endif %}</span>
+                        </li>
+                    </ul>
+            </div>
+            <div class="buttons">
+                <a href="{{ path('image_all_photos') }}" class="btn btn-info">Vos photos</a>
+                <a href="{{ path('album_all_albums') }}" class="btn btn-info">Vos albums</a>
+                <a href="{{ path('image_add') }}" class="btn btn-info" >Ajouter une photo</a>
+            </div>
+
+        </div>
+    </section>
 
 
 {% endblock %}

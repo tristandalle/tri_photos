@@ -3,15 +3,15 @@
 {% block body %}
     <section id="all-albums">
         <div class="container bg-dark">
-            <h1>Cher <span>{{ app.user.username() }}</span>, vous avez créé {{ albums|length }} album{% if albums|length > 1 %}s{% endif %} :</h1>
-            <div class="card-container">
-                {% if photosWithoutAlbum|length >= 1 %}
-                <div class="card">
+            <h1><span>{{ app.user.username() }}</span>, vous avez créé {{ albums|length }} album{% if albums|length > 1 %}s{% endif %}</h1>
+            <div class="card-container row">
+                {% if photos|length >= 1 %}
+                <div class="card bg-dark">
                     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
-                            {% for photoWithoutAlbum in photosWithoutAlbum %}
+                            {% for photo in photos %}
                             <div class="carousel-item">
-                                <img src={{ ('uploads/images/' ~ photoWithoutAlbum.file) }} class="d-block" alt="...">
+                                <img src="{{ path('file_download', {'id' :photo.id}) }}" class="d-block" alt="...">
                             </div>
                             {% endfor %}
                         </div>
@@ -25,9 +25,9 @@
                         </a>
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">Photos non triées ({{ photosWithoutAlbum|length }})</h5>
-                        <p class="card-text">Cet album créé automatiquement contient toutes vos photos qui ne sont pas classées dans un album</p>
-                        <a href="{{ path('image_all_photos') }}" class="btn btn-primary">Voir toutes mes photos</a>
+                        <h5 class="card-title">Toutes mes photos <span>({{ photos|length }})</span></h5>
+                        <p class="card-text">Cet album créé automatiquement contient toutes vos photos</p>
+                        <a href="{{ path('image_all_photos') }}" class="btn btn-secondary">Voir toutes mes photos</a>
                     </div>
                 </div>
                {% endif %}
@@ -35,23 +35,23 @@
                     <div class="card">
                         {% if album.photos|length == 0 %}
                             <div class="empty-album">
-                                <a href="{{ path('image_all_photos') }}">
+                                <a href="{{ path('album_one_album', {'id' :album.id}) }}">
                                     <i class="fas fa-download"></i>
                                 </a>
                             </div>
                         {% else %}
                             <div class="cover-album">
-                                <a href="{{ path('image_all_photos') }}">
-                                    <img src="{{ ('uploads/images/' ~ album.photos[0].file) }}" class="card-img-top" alt="...">
+                                <a href="{{ path('album_one_album', {'id' :album.id}) }}">
+                                    <img src="{{ path('file_download', {'id' :album.photos[0].id}) }}" class="card-img-top" alt="...">
                                 </a>
                             </div>
                         {% endif %}
                         <div class="card-body">
-                            <h5 class="card-title">{{ album.title }} ({{ album.photos|length }} photo{% if album.photos|length > 1 %}s{% endif %})</h5>
+                            <h5 class="card-title">{{ album.title }} <span>({{ album.photos|length }} photo{% if album.photos|length > 1 %}s{% endif %})</span></h5>
                             <p class="card-text">{{ album.description }}</p>
                             <div class="buttons">
                                 <a href="{{ path('album_one_album', {'id' :album.id}) }}" class="btn btn-primary">Voir l'album</a>
-                                <a href="" class="btn btn-danger" title="supprimer l'album (les photos ne seront pas supprimées)"><i class="far fa-trash-alt"></i></a>
+                                <a href="{{ path('album_remove_album', {'id' :album.id}) }}" class="btn btn-danger" title="Supprimer l'album (les photos ne seront pas supprimées)"><i class="far fa-trash-alt"></i></a>
                             </div>
                            
                         </div>

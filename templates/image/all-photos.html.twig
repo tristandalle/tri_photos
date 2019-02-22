@@ -8,11 +8,11 @@
              {% for photo in photos %}
                  <div class="container-photo">
                      <a href="{{ path('image_one_photo', {'id' :photo.id}) }}">
-                         <img src="{{ ('uploads/images/' ~ photo.file) }}" alt="" >
+                         <img src="{{ path('file_download', {'id' :photo.id}) }}" alt="" >
                      </a>
                      <div class="hover-photo">
                          <a href="{{ path('image_one_photo', {'id' :photo.id}) }}" class="link-photo"></a>
-                         <a href="{{ path('image_remove_photo', {'photo' :photo.file}) }}" class="link-erase-photo"><i class="far fa-trash-alt"></i></a>
+                         <a href="{{ path('image_remove_photo', {'id' :photo.id}) }}" class="link-erase-photo"><i class="far fa-trash-alt"></i></a>
                      </div>
                  </div>
              {% endfor %}

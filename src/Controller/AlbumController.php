@@ -47,16 +47,13 @@ class AlbumController extends AbstractController
         $albums = $albumRepository->findBy([
             'author' => $currentUser
         ]);
-        $photosWithoutAlbum = $photoRepository->findBy([
-                'author' => $currentUser,
-                'album' => null
-            ]
-        );
-        dump($photosWithoutAlbum);
+        $photos = $photoRepository->findBy([
+                'author' => $currentUser
+            ]);
 
         return $this->render('album/all-albums.html.twig',[
             'albums' => $albums,
-            'photosWithoutAlbum' => $photosWithoutAlbum
+            'photos' => $photos
         ]);
     }
 
@@ -70,4 +67,23 @@ class AlbumController extends AbstractController
             'album' => $albumToEdit
         ]);
     }
+
+    /**
+     * @Route("/album/remove/{id}", name="album_remove_album")
+     */
+    public function removeAlbumAction($id, AlbumRepository $albumRepository, PhotoRepository $photoRepository, ObjectManager $manager)
+    {
+        $albumToRemove = $albumRepository->find($id);
+        $photosFromAlbum = $photoRepository->findBy([
+            'album' => $albumToRemove
+        ]);
+        foreach ($photosFromAlbum as  $photoFromAlbum)
+        {
+            $photoFromAlbum->setAlbum(null);
+        }
+        $manager->remove($albumToRemove);
+        $manager->flush();
+        return $this->redirectToRoute('album_all_albums');
+    }
+
 }
