@@ -1,9 +1,5 @@
 #one-photo {
-
   .container {
-    padding: 2rem;
-    margin: 5rem auto;
-
     .container-one-photo {
       height: 30rem;
       display: flex;
@@ -15,9 +11,28 @@
       }
     }
 
+    p {
+      text-align: left;
+    }
+
     .buttons{
       display: flex;
       justify-content: space-between;
+
+      form {
+        label {
+          vertical-align: middle;
+        }
+
+        select {
+          height: 100%;
+        }
+
+        .btn {
+          height: 100%;
+          vertical-align: baseline;
+        }
+      }
     }
   }
 }

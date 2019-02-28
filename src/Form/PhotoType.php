@@ -13,13 +13,13 @@ class PhotoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('file', FileType::class, [
-                /*'multiple' => true,*/
+            ->add('file', FileType::class/*, [
+                'multiple' => true,
                 'label' => false,
                 'attr' => ['placeholder' => 'formats acceptés : jpg ou png',
                     'accept' => 'image/*',
-                    /*'multiple' => 'multiple'*/],
-            ])
+                    'multiple' => 'multiple'],
+            ]*/)
         ;
     }
 

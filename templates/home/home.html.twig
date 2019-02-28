@@ -2,30 +2,29 @@
 
 {% block body %}
 
-    <section id="home">
-        <div class="container">
-            <div class="jumbotron">
-                <h1 class="display-3">Hello, <span>{{ app.user.username() }}</span> !</h1>
-                <p class="lead">Bienvenue dans votre gallerie TriPhotos</p>
-                <hr>
-                    <ul>
-                        <p>Vous avez actuellement :</p>
-                        <li>
-                            <span>{{ app.user.photos|length }} photo{% if app.user.photos|length > 1 %}s{% endif %}</span>
-                        </li>
-                        <li>
-                            <span>{{ app.user.albums|length }} album{% if app.user.albums|length > 1 %}s{% endif %}</span>
-                        </li>
-                    </ul>
-            </div>
-            <div class="buttons">
-                <a href="{{ path('image_all_photos') }}" class="btn btn-info">Vos photos</a>
-                <a href="{{ path('album_all_albums') }}" class="btn btn-info">Vos albums</a>
-                <a href="{{ path('image_add') }}" class="btn btn-info" >Ajouter une photo</a>
-            </div>
+<section id="home">
+    <div class="container">
 
+            <h1 class="display-3">Votre gallerie <a href="{{ path('home_welcome') }}"><strong>TriPhotos</strong></a></h1>
+            <h2><span>{{ app.user.username() }}</span></h2>
+            <hr>
+            <ul>
+                <p>Vous avez actuellement :</p>
+                <li>
+                    <span>{{ app.user.photos|length }}</span> photo{% if app.user.photos|length > 1 %}s{% endif %}
+                </li>
+                <li>
+                    <span>{{ app.user.albums|length }}</span> album{% if app.user.albums|length > 1 %}s{% endif %}
+                </li>
+            </ul>
+
+        <div class="buttons">
+            <a href="{{ path('image_all_photos') }}" type="button" class="btn btn-info">Vos photos</a>
+            <a href="{{ path('album_all_albums') }}" type="button" class="btn btn-primary">Vos albums</a>
+            <a href="{{ path('image_add') }}" type="button" class="btn btn-success" >Ajouter une photo</a>
         </div>
-    </section>
+    </div>
+</section>
 
 
 {% endblock %}

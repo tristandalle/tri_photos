@@ -1,8 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {%  block body %}
+
 <section id="one-album">
-    <div class="container bg-dark">
+    <div class="container">
+        <div class="return">
+            <a href="{{ path('album_all_albums') }}" class="btn btn-warning" type="button"><i class="fas fa-caret-left"></i> Retour</a>
+        </div>
         <h1>{{ album.title }}</h1>
         <p>{{ album.description }}</p>
         {% for photo in album.photos %}
@@ -18,12 +22,9 @@
         {% endfor %}
 
         <div class="buttons">
-            <a href="{{ path('album_all_albums') }}" class="btn btn-warning">Retour aux albums</a>
-            <a href="{{ path('image_all_photos') }}" class="btn btn-success">Ajouter des photos à cet album</a>
-            <a href="{{ path('album_remove_album', {'id' :album.id}) }}" class="btn btn-danger" title="Supprimer l'album (les photos ne seront pas supprimées)">Supprimer cet album</a>
+            <a href="{{ path('album_remove_album', {'id' :album.id}) }}" class="btn btn-danger" type="button" title="Supprimer l'album (les photos ne seront pas supprimées)">Supprimer cet album</a>
         </div>
     </div>
 </section>
-
 
 {%  endblock %}

@@ -1,10 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+
+<section id="add-album">
     <div class="container">
         {{ form_start(formAlbum) }}
         {{ form_widget(formAlbum) }}
         <button type="submit" class="btn btn-success">Valider</button>
         {{ form_end(formAlbum) }}
     </div>
+</section>
+
 {% endblock %}

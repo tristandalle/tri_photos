@@ -17,7 +17,7 @@ class ImageController extends AbstractController
     /**
      * @Route("/add", name="image_add")
      */
-    public function addPhotoAction(Request $request, ObjectManager $manager)
+    public function addPhotoAction(Request $request, ObjectManager $manager, AlbumRepository $albumRepository)
     {
         $photo = new Photo();
 
@@ -28,7 +28,12 @@ class ImageController extends AbstractController
         if ($form->isSubmitted() && $form->isValid())
 
         {
+            if ($request->request->get("select-album") != null) {
+                $albumCompleted = $albumRepository->find($request->request->get("select-album"));
+                $photo->setAlbum($albumCompleted);
+            }
             $photo->setAuthor($this->getUser());
+
 
             $file = $form->get('file')->getData();
             $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
@@ -127,7 +132,9 @@ class ImageController extends AbstractController
         $manager->persist($photoToAdd);
         $manager->flush();
 
-        return $this->redirectToRoute('album_all_albums');
+        return $this->redirectToRoute('image_one_photo', array(
+            'id' => $photoId
+        ));
     }
 
     /**

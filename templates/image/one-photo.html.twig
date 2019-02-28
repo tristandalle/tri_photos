@@ -1,28 +1,37 @@
 {% extends 'base.html.twig' %}
 
  {% block body %}
-    <section id="one-photo">
-        <div class="container bg-dark">
-            <div class="container-one-photo">
-                <img src="{{ path('file_download', {'id' :photo.id}) }}" alt="">
-            </div>
+
+<section id="one-photo">
+    <div class="container">
+        <div class="return">
+            <a href="{{ path('image_all_photos') }}" class="btn btn-warning" type="button"><i class="fas fa-caret-left"></i> Retour</a>
+        </div>
+        <div class="container-one-photo">
+            <img src="{{ path('file_download', {'id' :photo.id}) }}" alt="">
+        </div>
+        {% if photo.album is not null %}
+            <p>Cette photo est classée dans l'album "{{ photo.album.title }}"</p>
+            {% else %}
+            <p>Cette photo n'est pas encore classée dans un album</p>
+        {% endif %}
+        <div class="buttons">
+            <form action="{{ path('image_add_to_album', {'photoId' :photo.id, }) }}" method="post">
+                <label for="select-album">Déplacer cette photo vers l'album <i class="fas fa-arrow-right"></i></label>
+                <select name="select-album" id="select-album" required>
+                    <option value="" disabled selected>Liste de vos albums : </option>
+                    {% for album in albums %}
+                        <option value="{{ album.id }}" {% if photo.album is not null %}{% if album.id == photo.album.id %}disabled{% endif %}{% endif %}>{{ album.title }}</option>
+                    {% endfor %}
+                    <option value="null" {% if photo.album is null %}disabled{% endif %}>-aucun (déclasser)-</option>
+                </select>
+                <button type="submit" class="btn btn-success">Valider</button>
+            </form>
             <div class="buttons">
-                <a href="{{ path('image_all_photos') }}" class="btn btn-warning">Retour</a>
-                <form action="{{ path('image_add_to_album', {'photoId' :photo.id, }) }}" method="post">
-                    <label for="select-album">Ajouter cette photo à l'un de vos album</label>
-                    <select name="select-album" id="select-album" required>
-                        <option value="" disabled selected>Liste de vos albums : </option>
-                        {% for album in albums %}
-                            <option value="{{ album.id }}">{{ album.title }}</option>
-                        {% endfor %}
-                    </select>
-                    <button type="submit" class="btn btn-success">Valider</button>
-                </form>
-
-                <a href="{{ path('image_remove_photo', {'id' :photo.id}) }}" class="btn btn-danger">Supprimer</a>
+                <a href="{{ path('image_remove_photo', {'id' :photo.id}) }}" class="btn btn-danger" type="button" title="Supprimer la photo)">Supprimer cette photo</a>
             </div>
+        </div>
+    </div>
+</section>
 
-
-            </div>
-    </section>
 {% endblock %}
