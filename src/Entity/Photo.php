@@ -41,6 +41,11 @@ class Photo
      */
     private $album;
 
+    /**
+     * @ORM\Column(type="smallint", nullable=true)
+     */
+    private $rating;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -90,6 +95,18 @@ class Photo
     public function setAlbum(?Album $album): self
     {
         $this->album = $album;
+
+        return $this;
+    }
+
+    public function getRating(): ?int
+    {
+        return $this->rating;
+    }
+
+    public function setRating(?int $rating): self
+    {
+        $this->rating = $rating;
 
         return $this;
     }

@@ -19,6 +19,11 @@
                     <div class="hover-photo">
                         <a href="{{ path('image_one_photo', {'id' :photo.id}) }}" class="link-photo"></a>
                         <a href="{{ path('image_remove_photo', {'id' :photo.id}) }}" class="link-erase-photo"><i class="far fa-trash-alt"></i></a>
+                        <div class="rating">
+                            <a href="{{ path('image_rating', {'id' :photo.id, 'rating' :1}) }}"><i class="{% if photo.rating >= 1 %}fas{% else %}far{% endif %} fa-star "></i></a>
+                            <a href="{{ path('image_rating', {'id' :photo.id, 'rating' :2}) }}"><i class="{% if photo.rating >= 2 %}fas{% else %}far{% endif %} fa-star "></i></a>
+                            <a href="{{ path('image_rating', {'id' :photo.id, 'rating' :3}) }}"><i class="{% if photo.rating == 3 %}fas{% else %}far{% endif %} fa-star "></i></a>
+                        </div>
                     </div>
                 </div>
             {% endfor %}

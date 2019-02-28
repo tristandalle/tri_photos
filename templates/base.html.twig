@@ -45,45 +45,6 @@
             </ul>
         </div>
     </nav>
-    {#<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="{{ path('home_welcome') }}">TriPhotos</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarColor03">
-            <ul class="navbar-nav w-100">
-                {% if not app.user %}
-                <p class="mb-auto mt-auto"><a href="{{ path('security_login') }}" >Connectez-vous</a> ou <a href="{{ path('security_registration') }}">inscrivez-vous</a> pour acceder à vos albums et vos photos...</p>
-                {% else %}
-                <li class="nav-item active">
-                    <a class="nav-link" href="{{ path('home_connected') }}">Accueil <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path('album_all_albums') }}">Mes Albums</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path('image_all_photos') }}">Mes Photos</a>
-                </li>
-                {% endif %}
-                {% if not app.user %}
-                <li class="nav-item ml-auto">
-                    <a href="{{ path('security_registration') }}" class="btn btn-danger">Inscription</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ path('security_login') }}" class="btn btn-success">Connexion</a>
-                </li>
-                {% else %}
-                <li class="nav-item ml-auto">
-                    <a href="#" class="btn btn-info">Mon Compte</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ path('security_logout') }}" class="btn btn-warning">Déconnexion</a>
-                </li>
-                {% endif %}
-            </ul>
-        </div>
-    </nav>#}
     {% block body %}{% endblock %}
         {% block javascripts %}
             {#<script src="{{ asset('build/js/app.js') }}"></script>#}

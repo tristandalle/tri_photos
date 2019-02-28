@@ -151,4 +151,23 @@ class ImageController extends AbstractController
             'id' => $albumId
         ));
     }
+
+    /**
+     * @Route("/rating/{id}/{rating}", name="image_rating")
+     */
+    public function ratingPhotoAction($id, $rating, PhotoRepository $photoRepository, ObjectManager $manager)
+    {
+        $photoToRating = $photoRepository->find($id);
+        $photoActualRating = $photoToRating->getRating();
+        if ($rating == $photoActualRating) {
+            $rating--;
+        }
+        $photoToRating->setRating($rating);
+        $manager->persist($photoToRating);
+        $manager->flush();
+
+        return $this->redirectToRoute('image_one_photo', [
+            'id' => $id
+        ]);
+    }
 }

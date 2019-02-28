@@ -1,3 +1,4 @@
+@import "variables";
 #all-photos {
   .container {
 
@@ -24,7 +25,6 @@
 
         img{
           height: 100%;
-
         }
 
         .hover-photo{
@@ -52,6 +52,16 @@
 
             i{
               margin: auto;
+            }
+          }
+
+          .rating {
+            position: absolute;
+            bottom: 0.5rem;
+            left: 0.5rem;
+
+            a {
+              color: $color-warning;
             }
           }
         }

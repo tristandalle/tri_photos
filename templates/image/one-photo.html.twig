@@ -9,6 +9,11 @@
         </div>
         <div class="container-one-photo">
             <img src="{{ path('file_download', {'id' :photo.id}) }}" alt="">
+            <div class="rating">
+                <a href="{{ path('image_rating', {'id' :photo.id, 'rating' :1}) }}"><i class="{% if photo.rating >= 1 %}fas{% else %}far{% endif %} fa-star "></i></a>
+                <a href="{{ path('image_rating', {'id' :photo.id, 'rating' :2}) }}"><i class="{% if photo.rating >= 2 %}fas{% else %}far{% endif %} fa-star "></i></a>
+                <a href="{{ path('image_rating', {'id' :photo.id, 'rating' :3}) }}"><i class="{% if photo.rating == 3 %}fas{% else %}far{% endif %} fa-star "></i></a>
+            </div>
         </div>
         {% if photo.album is not null %}
             <p>Cette photo est classée dans l'album "{{ photo.album.title }}"</p>
@@ -16,7 +21,7 @@
             <p>Cette photo n'est pas encore classée dans un album</p>
         {% endif %}
         <div class="buttons">
-            <form action="{{ path('image_add_to_album', {'photoId' :photo.id, }) }}" method="post">
+            <form action="{{ path('image_add_to_album', {'photoId' :photo.id }) }}" method="post">
                 <label for="select-album">Déplacer cette photo vers l'album <i class="fas fa-arrow-right"></i></label>
                 <select name="select-album" id="select-album" required>
                     <option value="" disabled selected>Liste de vos albums : </option>
@@ -27,9 +32,9 @@
                 </select>
                 <button type="submit" class="btn btn-success">Valider</button>
             </form>
-            <div class="buttons">
+
                 <a href="{{ path('image_remove_photo', {'id' :photo.id}) }}" class="btn btn-danger" type="button" title="Supprimer la photo)">Supprimer cette photo</a>
-            </div>
+
         </div>
     </div>
 </section>

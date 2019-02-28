@@ -9,6 +9,7 @@
         </div>
         <h1>{{ album.title }}</h1>
         <p>{{ album.description }}</p>
+        <div class="container-photos">
         {% for photo in album.photos %}
             <div class="container-photo">
                 <a href="{{ path('image_one_photo', {'id' :photo.id}) }}">
@@ -17,10 +18,15 @@
                 <div class="hover-photo">
                     <a href="{{ path('image_one_photo', {'id' :photo.id}) }}" class="link-photo"></a>
                     <a href="{{ path('image_remove_to_album', {'id' :photo.id, 'albumId' :album.id}) }}" class="link-erase-photo" title="Retirer cet photo de l'album (elle ne sera pas supprimée de vos photos)"><i class="fas fa-folder-minus"></i></a>
+                    <div class="rating">
+                        <a href="{{ path('image_rating', {'id' :photo.id, 'rating' :1}) }}"><i class="{% if photo.rating >= 1 %}fas{% else %}far{% endif %} fa-star "></i></a>
+                        <a href="{{ path('image_rating', {'id' :photo.id, 'rating' :2}) }}"><i class="{% if photo.rating >= 2 %}fas{% else %}far{% endif %} fa-star "></i></a>
+                        <a href="{{ path('image_rating', {'id' :photo.id, 'rating' :3}) }}"><i class="{% if photo.rating == 3 %}fas{% else %}far{% endif %} fa-star "></i></a>
+                    </div>
                 </div>
             </div>
         {% endfor %}
-
+        </div>
         <div class="buttons">
             <a href="{{ path('album_remove_album', {'id' :album.id}) }}" class="btn btn-danger" type="button" title="Supprimer l'album (les photos ne seront pas supprimées)">Supprimer cet album</a>
         </div>
