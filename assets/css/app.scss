@@ -1,2 +1,96 @@
 @import url('./bootstrap.min.css');
+@import "variables";
+
+nav {
+  background-color: #272B30;
+
+  &.navbar {
+    padding: 1rem 3rem;
+
+    .navbar-brand {
+      font-family: 'Luckiest Guy', cursive;
+      font-size: 2em;
+    }
+
+    .navbar-nav {
+      width: 100%;
+      align-items: center;
+
+      .connexion {
+        margin-left: auto;
+
+        @media (max-width: 991px) {
+          margin-left: initial;
+        }
+      }
+
+      .dropdown {
+        margin-left: auto;
+
+        @media (max-width: 991px) {
+          margin-left: initial;
+        }
+
+        .nav-link {
+          font-size: 1.5em;
+          font-weight: bold;
+          color: $color-success;
+        }
+
+        .dropdown-menu {
+          left: initial;
+          right: 0;
+        }
+      }
+    }
+  }
+
+
+}
+.container {
+  padding: 2rem;
+  margin: 5rem auto;
+  background-color: #272B30;
+  text-align: center;
+
+  .return {
+    text-align: left;
+  }
+
+  h1 {
+    text-align: center;
+    color: #FFF;
+    margin-bottom: 2rem;
+
+    span {
+      color: #FFF;
+    }
+  }
+
+  a {
+    color: #FFF;
+  }
+
+  span{
+    color: #3498db;
+  }
+
+  strong {
+    font-family: 'Luckiest Guy', cursive;
+    color: #3498db;
+  }
+
+  hr {
+    border-color: #3498db;
+  }
+
+  .container-form {
+    margin: auto;
+  }
+
+  .container-section {
+    padding: 2rem;
+  }
+}
+
 

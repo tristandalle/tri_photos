@@ -1,0 +1,18 @@
+#add-photo {
+  .container {
+    form {
+      .custom-file {
+        .custom-file-input {
+          opacity: 1;
+          width: initial;
+          height: initial;
+        }
+
+        .custom-file-label {
+          display: none;
+        }
+      }
+    }
+  }
+
+}

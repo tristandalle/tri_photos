@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+{% form_theme formPhoto 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+
+<section id="add-photo">
+    <div class="container">
+        <h1>Ajouter une photo</h1>
+        {{ form_start(formPhoto) }}
+        <div class="form-group">
+            <label for="select-album">Voulez-vous ajouter cette photo à l'un de vos album ?, si oui, lequel ?</label>
+            <select name="select-album" id="select-album">
+                <option value="" selected>Non</option>
+                {% for album in app.user.albums %}
+                    <option value="{{ album.id }}">oui, ajouter à l'album : {{ album.title }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        {{ form_label(formPhoto.file, 'Choisissez une photo') }}
+        {{ form_widget(formPhoto.file) }}
+        <button type="submit" class="btn btn-success">Valider</button>
+        {{ form_end(formPhoto) }}
+    </div>
+</section>
+
+{% endblock %}

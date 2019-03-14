@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<section id="all-albums">
+    <div class="container">
+        <div class="return">
+            <a href="{{ path('home_connected') }}" class="btn btn-warning" type="button"><i class="fas fa-caret-left"></i> Retour</a>
+        </div>
+        <h1>Tous vos albums</h1>
+        {% if albums|length > 0 %}
+        <p>{{ albums|length }} album{% if albums|length > 1 %}s{% endif %}</p>
+            {% else %}
+                <p>vous n'avez pas encore créé d'album</p>
+        {% endif %}
+        <div class="card-container row">
+            {% if photos|length >= 1 %}
+            <div class="card">
+                <div id="carouselControls" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        {% for photo in photos %}
+                        <div class="carousel-item">
+                            <img src="{{ path('file_download', {'id' :photo.id}) }}" class="d-block" alt="...">
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselControls" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselControls" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                <div class="card-body body-carousel">
+                    <h5 class="card-title">Toutes mes photos <span>({{ photos|length }})</span></h5>
+                    <p class="card-text">Cet album créé automatiquement contient toutes vos photos</p>
+                    <a href="{{ path('image_all_photos') }}" class="btn btn-secondary" type="button">Voir toutes mes photos</a>
+                </div>
+            </div>
+           {% endif %}
+            {% for album in albums %}
+                <div class="card">
+                    {% if album.photos|length == 0 %}
+                        <div class="empty-album">
+                            <a href="{{ path('album_one_album', {'id' :album.id}) }}">
+                                <i class="fas fa-download"></i>
+                            </a>
+                        </div>
+                    {% else %}
+                        <div class="cover-album">
+                            <a href="{{ path('album_one_album', {'id' :album.id}) }}">
+                                <img src="{{ path('file_download', {'id' :album.photos[0].id}) }}" class="card-img-top" alt="...">
+                            </a>
+                        </div>
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ album.title }} <span>({{ album.photos|length }} photo{% if album.photos|length > 1 %}s{% endif %})</span></h5>
+                        <p class="card-text">{{ album.description }}</p>
+                        <div class="card-buttons">
+                            <a href="{{ path('album_one_album', {'id' :album.id}) }}" class="btn btn-primary" type="button">Voir l'album</a>
+                            <a href="{{ path('album_remove_album', {'id' :album.id}) }}" class="btn btn-danger" type="button" title="Supprimer l'album (les photos ne seront pas supprimées)"><i class="far fa-trash-alt"></i></a>
+                        </div>
+
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="buttons">
+            <a href="{{ path('album_add') }}" class="btn btn-success" type="button">Créer un album</a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

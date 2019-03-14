@@ -1,0 +1,50 @@
+@import "variables";
+#one-photo {
+  .container {
+    .container-one-photo {
+      position: relative;
+      height: 30rem;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2rem;
+
+      .rating {
+        position: absolute;
+        right: 0;
+
+        a {
+          color: $color-warning;
+        }
+
+      }
+
+      img{
+        height: 100%;
+      }
+    }
+
+    p {
+      text-align: left;
+    }
+
+    .buttons{
+      display: flex;
+      justify-content: space-between;
+
+      form {
+        label {
+          vertical-align: middle;
+        }
+
+        select {
+          height: 100%;
+        }
+
+        .btn {
+          height: 100%;
+          vertical-align: baseline;
+        }
+      }
+    }
+  }
+}

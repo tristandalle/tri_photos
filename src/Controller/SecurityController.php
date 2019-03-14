@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Album;
 use App\Entity\User;
 use App\Form\LoginType;
 use App\Form\RegistrationType;
@@ -56,5 +57,8 @@ class SecurityController extends AbstractController
     /**
      * @Route("/deconnexion", name="security_logout")
      */
-    public function logout(){}
+    public function logout()
+    {
+        return $this->redirectToRoute('home_welcome');
+    }
 }

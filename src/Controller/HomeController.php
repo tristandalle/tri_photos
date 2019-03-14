@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Repository\PhotoRepository;
 use App\Repository\UserRepository;
+use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -27,21 +29,5 @@ class HomeController extends AbstractController
         return $this->render('home/home.html.twig', [
             "user" => $user
         ]);
-    }
-
-    /**
-     * @Route("/albums", name="home_albums")
-     */
-    public function showAlbumsAction()
-    {
-        return $this->render('home/albums.html.twig');
-    }
-
-    /**
-     * @Route("/album", name="home_one_album")
-     */
-    public function showOneAlbumAction()
-    {
-        return $this->render('home/one-album.html.twig');
     }
 }

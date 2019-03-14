@@ -4,51 +4,48 @@
         <meta charset="UTF-8">
         <title>{% block title %}TriPhotos{% endblock %}</title>
         {% block stylesheets %}
-            {#<link rel="stylesheet" href="{{ asset('build/css/app.css') }}">#}
-            <link rel="stylesheet" href="https://bootswatch.com/4/slate/bootstrap.min.css">
-            <link rel="stylesheet" href="welcome.css">
+            <link rel="stylesheet" href="{{ asset('build/js/app.css') }}">
+            {#<link rel="stylesheet" href="https://bootswatch.com/4/slate/bootstrap.min.css">
+            <link rel="stylesheet" href="{{ asset('welcome.css') }}">#}
+            {#<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">#}
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+            <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
         {% endblock %}
     </head>
     <body class="bg-secondary">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand" href="{{ path('home_welcome') }}">TriPhotos</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse" id="navbarColor03">
-            <ul class="navbar-nav w-100">
+            <ul class="navbar-nav">
                 {% if not app.user %}
-                <p class="mb-auto mt-auto"><a href="{{ path('security_login') }}" >Connectez-vous</a> ou <a href="{{ path('security_registration') }}">inscrivez-vous</a> pour acceder à vos albums et vos photos...</p>
+                    <li class="connexion"><a class="btn btn-success" type="button" href="{{ path('security_login') }}">Connexion</a></li>
                 {% else %}
-                <li class="nav-item active">
-                    <a class="nav-link" href="{{ path('home_welcome') }}">Accueil <span class="sr-only">(current)</span></a>
+                <li class="nav-item">
+                    <a class="nav-link {{ app.request.get('_route') == 'image_all_photos' ? 'active' }}" href="{{ path('image_all_photos') }}">Mes Photos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ path('home_albums') }}">Mes Albums</a>
+                    <a class="nav-link {{ app.request.get('_route') == 'album_all_albums' ? 'active' }}" href="{{ path('album_all_albums') }}">Mes Albums</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="">Mes Photos</a>
-                </li>
-                {% endif %}
-                {% if not app.user %}
-                <li class="nav-item ml-auto">
-                    <a href="{{ path('security_registration') }}" class="btn btn-danger">Inscription</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ path('security_login') }}" class="btn btn-success">Connexion</a>
-                </li>
-                {% else %}
-                <li class="nav-item ml-auto">
-                    <a href="#" class="btn btn-info">Mon Compte</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ path('security_logout') }}" class="btn btn-warning">Déconnexion</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span><i class="far fa-user"></i> {{ app.user.username() }}</span>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ path('home_connected') }}">Mon compte</a>
+                        <a class="dropdown-item" href="#{{ path('image_all_photos') }}">Mes Photos</a>
+                        <a class="dropdown-item" href="#{{ path('album_all_albums') }}">Mes Albums</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{{ path('security_logout') }}">Déconnexion</a>
+                    </div>
                 </li>
                 {% endif %}
             </ul>
         </div>
-    </nav>s        {% block body %}{% endblock %}
+    </nav>
+    {% block body %}{% endblock %}
         {% block javascripts %}
             {#<script src="{{ asset('build/js/app.js') }}"></script>#}
 
@@ -56,5 +53,9 @@
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
         {% endblock %}
+    <script>
+        $(".carousel-inner .carousel-item:first-child").first().addClass("active");
+    </script>
+
     </body>
 </html>

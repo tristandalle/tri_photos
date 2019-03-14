@@ -1,0 +1,89 @@
+@import "variables";
+#all-albums {
+  .container {
+
+    .card-container {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+
+      .card {
+        width: 20rem;
+        border: none;
+        border-radius: 0;
+        box-shadow: 0 0 0 0.1rem #FFF;
+        margin-bottom: 2rem;
+
+        .body-carousel {
+          background-color: $color-container;
+        }
+
+        .empty-album, .cover-album {
+          max-width: 100%;
+          height: 13.3rem;
+          background-color: #000;
+
+          a {
+            display: flex;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+
+            i {
+              font-size: 3em;
+            }
+
+            img {
+              width: inherit;
+              max-width: 20rem;
+              height: 13.3rem;
+              margin: auto;
+            }
+
+            .card-img-top {
+              border-radius: 0;
+            }
+          }
+        }
+
+        .card-body {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+
+          h5 {
+            text-align: center;
+            color: #FFF;
+            
+            span {
+              color: #aaa;
+            }
+          }
+        }
+      }
+    }
+
+    .carousel-item{
+      background-color: #000;
+      img{
+        height: 13.3rem;
+        margin: auto;
+      }
+    }
+
+    .card-buttons {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+
+      .btn {
+        width: 20rem;
+        margin: auto;
+      }
+    }
+  }
+}

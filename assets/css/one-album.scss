@@ -1,0 +1,80 @@
+@import "variables";
+#one-album {
+  .container {
+    .container-photos {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+
+      .container-photo {
+        height: 10rem;
+        width: 15rem;
+        margin-bottom: 2rem;
+        border: solid 1px #000;
+        box-shadow: 0 0 0 0.1rem #000;
+        background-color: #000;
+        overflow: hidden;
+
+        @media (max-width: 991px) {
+          height: 20rem;
+          width: 30rem;
+          margin: auto;
+          margin-bottom: 2rem;
+        }
+
+        img{
+          height: 100%;
+        }
+
+        .hover-photo {
+          display: none;
+          position: relative;
+          height: 100%;
+          bottom: 100%;
+          background-color: rgba(0, 0, 0, 0.5);
+
+          a.link-photo {
+            display: block;
+            height: 100%;
+          }
+
+          a.link-erase-photo {
+            position: absolute;
+            display: flex;
+            bottom: 0.5rem;
+            right: 0.5rem;
+            height: 2rem;
+            width: 2rem;
+            align-items: center;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, .2);
+
+            i {
+              margin: auto;
+            }
+          }
+
+          .rating {
+            position: absolute;
+            bottom: 0.5rem;
+            left: 0.5rem;
+
+            a {
+              color: $color-warning;
+            }
+          }
+        }
+      }
+
+      .container-photo:hover .hover-photo {
+        display: block;
+      }
+    }
+
+    .buttons{
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 2rem;
+    }
+  }
+}

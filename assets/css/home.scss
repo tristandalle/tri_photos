@@ -1,0 +1,25 @@
+#home {
+  .container {
+    h1 {
+      a {
+        text-decoration: none;
+      }
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 2rem;
+
+      .btn {
+        width: 20rem;
+      }
+    }
+
+
+  }
+}
