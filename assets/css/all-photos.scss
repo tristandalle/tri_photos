@@ -7,6 +7,10 @@
       justify-content: space-around;
       flex-wrap: wrap;
 
+      .hide {
+        display: none;
+      }
+
       .container-photo {
         height: 10rem;
         width: 15rem;
@@ -69,6 +73,16 @@
 
       .container-photo:hover .hover-photo {
         display: block;
+      }
+    }
+
+    .filter {
+      i {
+        color: $color-success;
+
+        &.drunk {
+          color: gray;
+        }
       }
     }
 
