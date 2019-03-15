@@ -1,7 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="778ffb5b-5b66-46cd-a0e6-061369f9045b" name="Default Changelist" comment="" />
+    <list default="true" id="778ffb5b-5b66-46cd-a0e6-061369f9045b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/TriPhotos.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TriPhotos.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/uploads/images/0b2dc00caa1681825a039e4b35b245c1.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/uploads/images/0bab4a79f09aea9c3c2a5f55ac100863.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/uploads/images/0e9eafd19f1903b2b3513bd59b760b46.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/uploads/images/15f767b246cb99f6f8e3d2fab2bb56d1.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/uploads/images/192706824a657e5f6645dca48635e398.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/uploads/images/1deee159434965eda47400e4e605bf5b.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/uploads/images/1fe374b966fdb5c47d56e4f984ec4b3b.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/uploads/images/225b60dd1ff19d83313f813b24a03b29.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/uploads/images/2aae809205d02e88cfac1077db048462.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/uploads/images/30b258476413cddf49ff0152143d9801.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/uploads/images/362b62634da792a1cc0efbcaae868cf2.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/uploads/images/4818206fe1816322457f2475b9ff9d37.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/uploads/images/493b8fce9f09d3dee8885d959afa712d.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/uploads/images/4c368cdc56ca917b6082fd6b43ac7221.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/uploads/images/4ce3e871bfcfdca03c33289d682e53bf.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/uploads/images/51e003c341e8be43cbed5841874a7f5f.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/uploads/images/5566b1abf118b99fbd6e66625bfb22f4.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/uploads/images/5f71cfe0d72328ca75d6f2e7db163a6a.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/uploads/images/6253c3ee0bed94b6dcc04b17005cc9f9.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/uploads/images/6aeaba0490dcc7b48bafaf470db2a8f1.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/uploads/images/73485ca14d9c916d74de0a3ebe8b98c5.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/uploads/images/75394071e0bf61b6f1924b8df6d13b1b.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/uploads/images/7ddbdeb1afd3f7b3f523a65feac1f71e.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/uploads/images/84c54a9a3ab3c30fc4ac7c6faaf4f299.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/uploads/images/9aa41fb82c0ad790fc1458f585ac3f22.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/uploads/images/9ddb6f01da30436721f83c381620ac9d.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/uploads/images/a83bb1e1cae13389fd1ff0ece2eb65fd.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/uploads/images/a9ff10a9deedb77f07ae9c82f831bd5c.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/uploads/images/aa1b06525085a315c982770a605fbf1d.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/uploads/images/b148a0fd33d4cca07e3fd8274e064a3c.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/uploads/images/b42e7ffc9d06c15a68787ddb08c09a44.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/uploads/images/b7c1fb2ad16dc2cb1588aa806c3a0730.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/uploads/images/bac200b58bf2326607130bab081a8ad8.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/uploads/images/bfae161eea8f2f66723a4c6f815ab8ee.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/uploads/images/d703922947084421eedbc27bce2b9cf0.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/uploads/images/d7226be77ac827e8778ad8b9e2e273cb.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/uploads/images/e610aa41bb8e38232eb899877750b7ac.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/uploads/images/ee8c193932960ff19d6cc9cb557f340e.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/uploads/images/f63d1ad7ca95b1fa6fca758ee89445ff.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/uploads/images/f9047ad8f900bbf100ffcb7d4c3f969d.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/uploads/images/f9aec60f4baf32c650cdccac8d8705a8.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/uploads/images/fcfb3cbc016d6aec181357c64506913d.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/uploads/images/fec449bca8cc50dcfd7895a69f3929a5.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ImageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ImageController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,12 +96,12 @@
           <entry key=".env file" value="1" />
           <entry key="CSS" value="11" />
           <entry key="Image" value="2" />
-          <entry key="JSON" value="17" />
+          <entry key="JSON" value="19" />
           <entry key="JavaScript" value="27" />
           <entry key="PHP" value="75" />
           <entry key="PLAIN_TEXT" value="4" />
           <entry key="SCSS" value="47" />
-          <entry key="Twig" value="103" />
+          <entry key="Twig" value="104" />
           <entry key="YAML" value="10" />
         </counts>
       </usages-collector>
@@ -71,17 +123,26 @@
           <entry key="CSS" value="50" />
           <entry key="JSON" value="29" />
           <entry key="JavaScript" value="326" />
-          <entry key="PHP" value="5197" />
+          <entry key="PHP" value="5208" />
           <entry key="PLAIN_TEXT" value="3" />
           <entry key="SCSS" value="2282" />
           <entry key="Twig" value="8520" />
-          <entry key="YAML" value="85" />
+          <entry key="YAML" value="89" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/image/one-photo.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="208">
+              <caret line="8" column="14" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/image/all-photos.html.twig">
           <provider selected="true" editor-type-id="text-editor">
@@ -91,39 +152,56 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
-              <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Controller/HomeController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/album/one-album.html.twig">
+        <entry file="file://$PROJECT_DIR$/src/Controller/ImageController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="312">
-              <caret line="12" column="39" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="39" />
+              <caret line="54" column="32" selection-start-line="54" selection-start-column="32" selection-end-line="54" selection-end-column="32" />
+              <folding>
+                <element signature="e#34#55#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/image/one-photo.html.twig">
+        <entry file="file://$PROJECT_DIR$/composer.json">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/composer.lock">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/services.yaml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="15" column="18" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+            <state relative-caret-position="208">
+              <caret line="8" column="24" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="24" />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/routes/dev/twig.yaml">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/packages/routing.yaml">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/packages/assets.yaml">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/packages/security.yaml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-743" />
           </provider>
         </entry>
       </file>
@@ -177,7 +255,6 @@
         <option value="$PROJECT_DIR$/assets/js/tri-photos-carousel.js" />
         <option value="$PROJECT_DIR$/public/tri-photos-carousel.js" />
         <option value="$PROJECT_DIR$/src/Form/PhotosType.php" />
-        <option value="$PROJECT_DIR$/config/services.yaml" />
         <option value="$PROJECT_DIR$/src/Entity/Album.php" />
         <option value="$PROJECT_DIR$/src/Entity/Photo.php" />
         <option value="$PROJECT_DIR$/src/Controller/AlbumController.php" />
@@ -202,12 +279,13 @@
         <option value="$PROJECT_DIR$/assets/css/variables.scss" />
         <option value="$PROJECT_DIR$/assets/css/one-photo.scss" />
         <option value="$PROJECT_DIR$/templates/image/all-photos.html.twig" />
-        <option value="$PROJECT_DIR$/src/Controller/ImageController.php" />
         <option value="$PROJECT_DIR$/templates/album/one-album.html.twig" />
         <option value="$PROJECT_DIR$/assets/css/all-photos.scss" />
         <option value="$PROJECT_DIR$/assets/css/one-album.scss" />
         <option value="$PROJECT_DIR$/templates/image/one-photo.html.twig" />
         <option value="$PROJECT_DIR$/templates/base.html.twig" />
+        <option value="$PROJECT_DIR$/config/services.yaml" />
+        <option value="$PROJECT_DIR$/src/Controller/ImageController.php" />
       </list>
     </option>
   </component>
@@ -328,6 +406,10 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-migrations-bundle" />
       <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
       <path value="$PROJECT_DIR$/vendor/symfony/webpack-encore-bundle" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/vendor/intervention/image" />
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="7">
@@ -351,25 +433,26 @@
             <path>
               <item name="TriPhotos" type="b2602c69:ProjectViewProjectNode" />
               <item name="TriPhotos" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TriPhotos" type="b2602c69:ProjectViewProjectNode" />
               <item name="TriPhotos" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="packages" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TriPhotos" type="b2602c69:ProjectViewProjectNode" />
               <item name="TriPhotos" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TriPhotos" type="b2602c69:ProjectViewProjectNode" />
               <item name="TriPhotos" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="uploads" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
+              <item name="dev" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TriPhotos" type="b2602c69:ProjectViewProjectNode" />
@@ -385,31 +468,7 @@
             <path>
               <item name="TriPhotos" type="b2602c69:ProjectViewProjectNode" />
               <item name="TriPhotos" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Entity" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TriPhotos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TriPhotos" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Form" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TriPhotos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TriPhotos" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TriPhotos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TriPhotos" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="album" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TriPhotos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TriPhotos" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TriPhotos" type="b2602c69:ProjectViewProjectNode" />
@@ -420,8 +479,7 @@
             <path>
               <item name="TriPhotos" type="b2602c69:ProjectViewProjectNode" />
               <item name="TriPhotos" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="security" type="462c0819:PsiDirectoryNode" />
+              <item name="var" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -436,7 +494,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="MTConfigurable" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -485,10 +543,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="216125000" />
+    <option name="totallyTimeSpent" value="219854000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17857143" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -543,14 +601,12 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/tri_photos" />
+    </ignored-roots>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Entity/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/images/photos/20181207_192947.jpg" />
     <entry file="file://$PROJECT_DIR$/assets/uploads/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -590,13 +646,8 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/packages/security.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/services.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
+        <state relative-caret-position="-743" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Repository/PhotoRepository.php">
@@ -613,12 +664,6 @@
           <caret line="91" column="20" selection-start-line="91" selection-start-column="15" selection-end-line="91" selection-end-column="20" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/composer.lock">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
@@ -783,23 +828,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/ImageController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="170" column="11" selection-start-line="168" selection-start-column="8" selection-end-line="170" selection-end-column="11" />
-          <folding>
-            <element signature="e#34#55#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/image/all-photos.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="24" column="89" selection-start-line="24" selection-start-column="89" selection-end-line="24" selection-end-column="89" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/album/one-album.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="312">
@@ -821,13 +849,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/image/one-photo.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="15" column="18" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="219">
@@ -839,6 +860,56 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="156">
           <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/packages/liip_imagine.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="42" column="12" selection-start-line="42" selection-start-column="12" selection-end-line="42" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/packages/framework.yaml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.lock">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/services.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="8" column="24" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/image/one-photo.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="8" column="14" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.yaml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/image/all-photos.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="24" column="89" selection-start-line="24" selection-start-column="89" selection-end-line="24" selection-end-column="89" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ImageController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="54" column="32" selection-start-line="54" selection-start-column="32" selection-end-line="54" selection-end-column="32" />
+          <folding>
+            <element signature="e#34#55#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

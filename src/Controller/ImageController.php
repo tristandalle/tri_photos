@@ -11,6 +11,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class ImageController extends AbstractController
 {
@@ -49,6 +50,13 @@ class ImageController extends AbstractController
             $manager->persist($photo);
             $manager->flush();
 
+            Image::configure(array('driver' => 'gd'));
+            $img = Image::make($this->getParameter('images_directory')."/". $fileName);
+            $img->resize(null, 600, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+            $img->save($this->getParameter('thumbnails_directory')."/mini_". $fileName);
+
             return $this->redirectToRoute('image_all_photos');
         }
         return $this->render('image/add-photo.html.twig', [
@@ -69,7 +77,7 @@ class ImageController extends AbstractController
     function downloadForDisplayPhoto($id, PhotoRepository $photoRepository)
     {
         $fileName = $photoRepository->find($id)->getFile();
-        $filePath = $this->getParameter('images_directory'). '/'.$fileName;
+        $filePath = $this->getParameter('thumbnails_directory'). '/mini_'.$fileName;
         return $this->file($filePath);
     }
 
