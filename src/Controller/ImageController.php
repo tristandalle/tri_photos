@@ -82,16 +82,17 @@ class ImageController extends AbstractController
     }
 
     /**
-     * @Route("/photos", name="image_all_photos")
+     * @Route("/photos/{filter}", defaults={"filter"=0}, name="image_all_photos")
      */
-    public function showAllPhotosAction(PhotoRepository $photoRepository)
+    public function showAllPhotosAction($filter, PhotoRepository $photoRepository)
     {
         $currentUser = $this->getUser();
         $photos = $photoRepository->findBy([
             'author' => $currentUser
         ]);
         return $this->render('image/all-photos.html.twig',[
-            'photos' => $photos
+            'photos' => $photos,
+            'filter' => $filter
         ]);
     }
 
@@ -161,9 +162,9 @@ class ImageController extends AbstractController
     }
 
     /**
-     * @Route("/rating/{id}/{rating}", name="image_rating")
+     * @Route("/rating/{id}/{rating}/{currentPath}", name="image_rating")
      */
-    public function ratingPhotoAction($id, $rating, PhotoRepository $photoRepository, ObjectManager $manager)
+    public function ratingPhotoAction($id, $rating, $currentPath, PhotoRepository $photoRepository, ObjectManager $manager)
     {
         $photoToRating = $photoRepository->find($id);
         $photoActualRating = $photoToRating->getRating();
@@ -174,8 +175,25 @@ class ImageController extends AbstractController
         $manager->persist($photoToRating);
         $manager->flush();
 
-        return $this->redirectToRoute('image_one_photo', [
-            'id' => $id
+        if ($currentPath == 'photos') {
+            return $this->redirectToRoute('image_all_photos');
+        } else {
+            return $this->redirectToRoute('image_one_photo', [
+                'id' => $id
+            ]);
+        }
+    }
+
+    /**
+     * @Route("/filter/{rating}", name="filter_rating")
+     */
+    public function filterRatingAction($rating)
+    {
+        $filter = $rating;
+        return $this->redirectToRoute('image_all_photos', [
+            'filter' => $filter
         ]);
     }
+
+
 }

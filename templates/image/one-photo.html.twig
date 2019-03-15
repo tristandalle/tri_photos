@@ -10,9 +10,11 @@
         <div class="container-one-photo">
             <img src="{{ path('file_download', {'id' :photo.id}) }}" alt="">
             <div class="rating">
-                <a href="{{ path('image_rating', {'id' :photo.id, 'rating' :1}) }}"><i class="{% if photo.rating >= 1 %}fas{% else %}far{% endif %} fa-star "></i></a>
-                <a href="{{ path('image_rating', {'id' :photo.id, 'rating' :2}) }}"><i class="{% if photo.rating >= 2 %}fas{% else %}far{% endif %} fa-star "></i></a>
-                <a href="{{ path('image_rating', {'id' :photo.id, 'rating' :3}) }}"><i class="{% if photo.rating == 3 %}fas{% else %}far{% endif %} fa-star "></i></a>
+                {% set currentPath = path(app.request.attributes.get('_route'),
+                    app.request.attributes.get('_route_params')) %}
+                <a href="{{ path('image_rating', {'id' :photo.id, 'rating' :1, 'currentPath' :currentPath|replace({"/" : ""})}) }}"><i class="{% if photo.rating >= 1 %}fas{% else %}far{% endif %} fa-star "></i></a>
+                <a href="{{ path('image_rating', {'id' :photo.id, 'rating' :2, 'currentPath' :currentPath|replace({"/" : ""})}) }}"><i class="{% if photo.rating >= 2 %}fas{% else %}far{% endif %} fa-star "></i></a>
+                <a href="{{ path('image_rating', {'id' :photo.id, 'rating' :3, 'currentPath' :currentPath|replace({"/" : ""})}) }}"><i class="{% if photo.rating == 3 %}fas{% else %}far{% endif %} fa-star "></i></a>
             </div>
         </div>
         {% if photo.album is not null %}
