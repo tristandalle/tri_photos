@@ -21,8 +21,9 @@ class Photo
      * @var string $file
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Please, upload an image first.")
-     * @Assert\File(mimeTypes={ "image/png", "image/jpeg", "image/jpg" })
+     *
      */
+//@Assert\File(mimeTypes={ "image/png", "image/jpeg", "image/jpg" })
     private $file;
 
     /**
@@ -56,7 +57,7 @@ class Photo
         return $this->file;
     }
 
-    public function setFile(string $file): self
+    public function setFile($file): self
     {
         $this->file = $file;
 
