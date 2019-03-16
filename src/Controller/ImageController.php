@@ -20,42 +20,38 @@ class ImageController extends AbstractController
      */
     public function addPhotoAction(Request $request, ObjectManager $manager, AlbumRepository $albumRepository)
     {
-        $photo = new Photo();
-
-        $form = $this->createForm(PhotoType::class, $photo);
-
+        $form = $this->createForm(PhotoType::class);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid())
-
         {
-            if ($request->request->get("select-album") != null) {
-                $albumCompleted = $albumRepository->find($request->request->get("select-album"));
-                $photo->setAlbum($albumCompleted);
+            $files = $form->get('file')->getData();
+            foreach ($files as $file) {
+                $photo = new Photo();
+                if ($request->request->get("select-album") != null) {
+                    $albumCompleted = $albumRepository->find($request->request->get("select-album"));
+                    $photo->setAlbum($albumCompleted);
+                }
+                $photo->setAuthor($this->getUser());
+                $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
+                try {
+                    $file->move(
+                        $this->getParameter('images_directory'),
+                        $fileName
+                    );
+                } catch (FileException $e) {
+                    // ... handle exception if something happens during file upload
+                }
+                Image::configure(array('driver' => 'gd'));
+                $img = Image::make($this->getParameter('images_directory')."/". $fileName);
+                $img->resize(null, 600, function ($constraint) {
+                    $constraint->aspectRatio();
+                });
+                $img->save($this->getParameter('thumbnails_directory')."/mini_". $fileName);
+                $photo->setFile($fileName);
+                dump($photo);
+                $manager->persist($photo);
             }
-            $photo->setAuthor($this->getUser());
-
-
-            $file = $form->get('file')->getData();
-            $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
-            try {
-                $file->move(
-                    $this->getParameter('images_directory'),
-                    $fileName
-                );
-            } catch (FileException $e) {
-                // ... handle exception if something happens during file upload
-            }
-            $photo->setFile($fileName);
-            $manager->persist($photo);
-            $manager->flush();
-
-            Image::configure(array('driver' => 'gd'));
-            $img = Image::make($this->getParameter('images_directory')."/". $fileName);
-            $img->resize(null, 600, function ($constraint) {
-                $constraint->aspectRatio();
-            });
-            $img->save($this->getParameter('thumbnails_directory')."/mini_". $fileName);
+                $manager->flush();
 
             return $this->redirectToRoute('image_all_photos');
         }
