@@ -47,6 +47,11 @@ class Photo
      */
     private $rating;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $original_name;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -108,6 +113,18 @@ class Photo
     public function setRating(?int $rating): self
     {
         $this->rating = $rating;
+
+        return $this;
+    }
+
+    public function getOriginalName(): ?string
+    {
+        return $this->original_name;
+    }
+
+    public function setOriginalName(string $original_name): self
+    {
+        $this->original_name = $original_name;
 
         return $this;
     }

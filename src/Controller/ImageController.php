@@ -25,6 +25,22 @@ class ImageController extends AbstractController
         if ($form->isSubmitted() && $form->isValid())
         {
             $files = $form->get('file')->getData();
+
+            foreach ($files as $file) {
+                if ($file->getMimeType() != "image/jpeg" && $file->getMimeType() !="image/jpg" && $file->getMimeType() !="image/png") {
+                    $errorFileFormat = 'Le format du fichier : ' . $file->getClientOriginalName() . ' n\'est pas accepté.';
+                }
+                if (isset($errorFileFormat)) {
+                    $errorsFileFormat[] = $errorFileFormat;
+                }
+            }
+            if (isset($errorsFileFormat)) {
+                return $this->render('image/add-photo.html.twig', [
+                    'formPhoto' => $form->createView(),
+                    'errorsFileFormat' => $errorsFileFormat
+                ]);
+            }
+
             foreach ($files as $file) {
                 $photo = new Photo();
                 if ($request->request->get("select-album") != null) {
@@ -32,6 +48,7 @@ class ImageController extends AbstractController
                     $photo->setAlbum($albumCompleted);
                 }
                 $photo->setAuthor($this->getUser());
+                $photo->setOriginalName($file->getClientOriginalName());
                 $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
                 try {
                     $file->move(
@@ -48,7 +65,6 @@ class ImageController extends AbstractController
                 });
                 $img->save($this->getParameter('thumbnails_directory')."/mini_". $fileName);
                 $photo->setFile($fileName);
-                dump($photo);
                 $manager->persist($photo);
             }
                 $manager->flush();

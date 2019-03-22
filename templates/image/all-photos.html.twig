@@ -14,9 +14,10 @@
             {% for photo in photos %}
                 <div class="container-photo {% if filter is defined %}{% if photo.rating < filter %}hide{% endif %}{% endif %}">
                     <a href="{{ path('image_one_photo', {'id' :photo.id}) }}">
-                        <img src="{{ path('file_download', {'id' :photo.id}) }}" alt="" >
+                        <img src="{{ path('file_download', {'id' :photo.id}) }}" alt="{{ photo.originalName }}">
                     </a>
                     <div class="hover-photo">
+                        <small>{{ photo.originalName }}</small>
                         <a href="{{ path('image_one_photo', {'id' :photo.id}) }}" class="link-photo"></a>
                         <a href="{{ path('image_remove_photo', {'id' :photo.id}) }}" class="link-erase-photo"><i class="far fa-trash-alt"></i></a>
                         <div class="rating">

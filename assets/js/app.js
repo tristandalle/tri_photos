@@ -24,8 +24,11 @@ const $ = require('jquery');
 global.$ = global.jQuery = $;
 
 
-require('popper.js');
+
 require('bootstrap');
+require('popper.js');
+require('./carousel.js');
+require('./progress-bar.js');
 
 
 console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
