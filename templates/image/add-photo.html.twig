@@ -5,11 +5,11 @@
 
 <section id="add-photo">
     <div class="container">
-        <h1>Ajouter une photo</h1>
+        <h1>Ajoutez des photos</h1>
         {{ form_start(formPhoto) }}
         {% if app.user.albums|length > 0 %}
             <div class="form-group">
-                <label for="select-album">Voulez-vous ajouter cette photo à l'un de vos album ? Si oui, lequel ?</label>
+                <label for="select-album">Voulez-vous ajouter ces photos à l'un de vos albums ? Si oui, lequel ?</label>
                 <select name="select-album" id="select-album">
                     <option value="" selected>Non</option>
                     {% for album in app.user.albums %}
@@ -18,7 +18,14 @@
                 </select>
             </div>
         {% endif %}
-        {{ form_label(formPhoto.file, 'Choisissez une photo (formats acceptés : jpg ou png)') }}
+        {{ form_label(formPhoto.file, 'Choisissez une ou plusieurs photo(s) (formats acceptés : jpg ou png)') }}
+        {% if errorsFileFormat is defined %}
+            {% for errorFileFormat in errorsFileFormat %}
+                <p class="alert-danger">
+                    {{ errorFileFormat }}
+                </p>
+            {% endfor %}
+        {% endif %}
         {{ form_widget(formPhoto.file) }}
         <button type="submit" class="btn btn-success">Valider</button>
         {{ form_end(formPhoto) }}
