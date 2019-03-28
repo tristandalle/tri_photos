@@ -22,6 +22,7 @@ class ImageController extends AbstractController
     {
         $form = $this->createForm(PhotoType::class);
         $form->handleRequest($request);
+
         if ($form->isSubmitted() && $form->isValid())
         {
             $files = $form->get('file')->getData();
