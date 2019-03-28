@@ -1,0 +1,34 @@
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="{{ path('home_welcome') }}">TriPhotos</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor03">
+            <ul class="navbar-nav">
+                {% if not app.user %}
+                    <li class="connexion"><a class="btn btn-success" type="button" href="{{ path('security_login') }}">Connexion</a></li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link {{ app.request.get('_route') == 'image_all_photos' ? 'active' }}" href="{{ path('image_all_photos') }}">Mes Photos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ app.request.get('_route') == 'album_all_albums' ? 'active' }}" href="{{ path('album_all_albums') }}">Mes Albums</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span><i class="far fa-user"></i> {{ app.user.username() }}</span>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ path('home_connected') }}">Mon compte</a>
+                            <a class="dropdown-item" href="#{{ path('image_all_photos') }}">Mes Photos</a>
+                            <a class="dropdown-item" href="#{{ path('album_all_albums') }}">Mes Albums</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{{ path('security_logout') }}">Déconnexion</a>
+                        </div>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+</header>

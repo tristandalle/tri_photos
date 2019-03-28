@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
 <section id="home">
     <div class="container">
 
             <h1 class="display-3">Votre gallerie <a href="{{ path('home_welcome') }}"><strong>TriPhotos</strong></a></h1>
+            <hr>
             <h2><span>{{ app.user.username() }}</span></h2>
             <hr>
             <ul>
@@ -17,7 +17,7 @@
                     <span>{{ app.user.albums|length }}</span> album{% if app.user.albums|length > 1 %}s{% endif %}
                 </li>
             </ul>
-
+        <hr>
         <div class="buttons">
             <a href="{{ path('image_all_photos') }}" type="button" class="btn btn-info">Vos photos</a>
             <a href="{{ path('album_all_albums') }}" type="button" class="btn btn-primary">Vos albums</a>
@@ -25,6 +25,4 @@
         </div>
     </div>
 </section>
-
-
 {% endblock %}
