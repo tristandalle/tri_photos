@@ -1,95 +1,144 @@
 @import url('./bootstrap.min.css');
 @import "variables";
 
-nav {
-  background-color: #272B30;
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
 
-  &.navbar {
-    padding: 1rem 3rem;
+  nav {
+    background-color: $color-container;
 
-    .navbar-brand {
-      font-family: 'Luckiest Guy', cursive;
-      font-size: 2em;
-    }
+    &.navbar {
+      padding: 1rem 3rem;
 
-    .navbar-nav {
-      width: 100%;
-      align-items: center;
-
-      .connexion {
-        margin-left: auto;
-
-        @media (max-width: 991px) {
-          margin-left: initial;
-        }
+      .navbar-brand {
+        font-family: 'Luckiest Guy', cursive;
+        font-size: 2em;
       }
 
-      .dropdown {
-        margin-left: auto;
+      .navbar-nav {
+        width: 100%;
+        align-items: center;
 
-        @media (max-width: 991px) {
-          margin-left: initial;
+        .connexion {
+          margin-left: auto;
+
+          @media (max-width: 991px) {
+            margin-left: initial;
+          }
         }
 
-        .nav-link {
-          font-size: 1.5em;
-          font-weight: bold;
-          color: $color-success;
-        }
+        .dropdown {
+          margin-left: auto;
 
-        .dropdown-menu {
-          left: initial;
-          right: 0;
+          @media (max-width: 991px) {
+            margin-left: initial;
+          }
+
+          .nav-link {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: $color-success;
+          }
+
+          .dropdown-menu {
+            left: initial;
+            right: 0;
+          }
         }
       }
     }
+
+
   }
-
-
 }
-.container {
-  padding: 2rem;
-  margin: 5rem auto;
-  background-color: #272B30;
-  text-align: center;
 
-  .return {
-    text-align: left;
-  }
+section {
+  margin: 10rem auto;
 
-  h1 {
+  .container {
+    padding: 2rem;
+    background-color: #272B30;
     text-align: center;
-    color: #FFF;
-    margin-bottom: 2rem;
 
-    span {
+    .return {
+      text-align: left;
+    }
+
+    h1 {
+      text-align: center;
+      color: #FFF;
+      margin-bottom: 2rem;
+
+      span {
+        color: #FFF;
+      }
+    }
+
+    a {
       color: #FFF;
     }
-  }
 
-  a {
-    color: #FFF;
-  }
+    span{
+      color: #3498db;
+    }
 
-  span{
-    color: #3498db;
-  }
+    strong {
+      font-family: 'Luckiest Guy', cursive;
+      color: #3498db;
+    }
 
-  strong {
-    font-family: 'Luckiest Guy', cursive;
-    color: #3498db;
-  }
+    hr {
+      border-color: #3498db;
+    }
 
-  hr {
-    border-color: #3498db;
-  }
+    .container-form {
+      margin: auto;
+    }
 
-  .container-form {
-    margin: auto;
+    .container-section {
+      padding: 2rem;
+    }
   }
+}
 
-  .container-section {
-    padding: 2rem;
+
+
+footer {
+  background-color: $color-container;
+  padding: 1rem 3rem;
+
+  .row {
+    justify-content: space-around;
+
+    ul {
+      padding: 0;
+
+      li {
+        list-style: none;
+      }
+
+      &.rs-links{
+        display: flex;
+        height: 100%;
+        align-items: center;
+
+        i{
+          font-size: 3em;
+          margin: 0 1rem;
+        }
+      }
+    }
+    a {
+      color: #FFF;
+
+      &:hover {
+        color: $color-success;
+      }
+    }
+
+
   }
 }
 
