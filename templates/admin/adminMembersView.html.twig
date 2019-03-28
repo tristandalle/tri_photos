@@ -1,0 +1,43 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block body %}
+    <section>
+        <div class="container-fluid">
+            <h2>Liste des membres</h2>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Pseudo</th>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Email</th>
+                        <th class="text-center">Photos</th>
+                        <th class="text-center">Albums</th>
+                        <th class="text-center">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                    <tr>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.lastname }}</td>
+                        <td>{{ user.firstname }}</td>
+                        <td>{{ user.email }}</td>
+                        <td class="text-center">{{ user.photos|length }}</td>
+                        <td class="text-center">{{ user.albums|length }}</td>
+                        <td class="text-center">
+                            <i class="fas fa-envelope"></i>
+                            <i class="fas fa-trash-alt"></i>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+
+    </section>
+
+{% endblock %}

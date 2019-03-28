@@ -68,10 +68,16 @@ class User implements UserInterface
      */
     private $albums;
 
-    public function __construct()
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Role", mappedBy="users")
+     */
+    private $userRoles;
+
+  public function __construct()
     {
         $this->photos = new ArrayCollection();
         $this->albums = new ArrayCollection();
+        $this->userRoles = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -139,8 +145,12 @@ class User implements UserInterface
 
     public function getRoles()
     {
-        // TODO: Implement getRoles() method.*
-        return['ROLE_USER'];
+        $roles = $this->userRoles->map(function ($role){
+            return $role->getTitle();
+        })->toArray();
+        $roles[] = 'ROLE_USER';
+
+        return $roles;
     }
 
     public function getUsername(): ?string
@@ -212,6 +222,34 @@ class User implements UserInterface
             if ($album->getAuthor() === $this) {
                 $album->setAuthor(null);
             }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Role[]
+     */
+    public function getUserRoles(): Collection
+    {
+        return $this->userRoles;
+    }
+
+    public function addUserRole(Role $userRole): self
+    {
+        if (!$this->userRoles->contains($userRole)) {
+            $this->userRoles[] = $userRole;
+            $userRole->addUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUserRole(Role $userRole): self
+    {
+        if ($this->userRoles->contains($userRole)) {
+            $this->userRoles->removeElement($userRole);
+            $userRole->removeUser($this);
         }
 
         return $this;
