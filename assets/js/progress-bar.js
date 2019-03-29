@@ -2,15 +2,37 @@ var fileInput = document.querySelector('#photo_file'),
     progress = document.querySelector('#progress');
 
 $('form').submit(function (e) {
+    e.preventDefault();
     var xhr = new XMLHttpRequest();
 
     xhr.open('POST', '/add');
     var form = new FormData();
-    form.append('file', fileInput.file);
+    for (var i = 0; i < fileInput.files.length; i++){
+        form.append('file', fileInput.files[i]);
+    }
+
+    /*console.log(fileInput.files.size);*/
     xhr.upload.addEventListener('progress', function(e) {
         progress.value = e.loaded;
         progress.max = e.total;
+        console.log(e);
+        /*if (e.loaded === e.total) {
+            window.location.href = "/photos"
+        }*/
     });
+
+    xhr.addEventListener('load', function (e) {
+        console.log(xhr.responseText)
+    });
+   /* xhr.upload.addEventListener('loadstart', function(e) {
+        console.log("loadstart", e)
+    });
+    xhr.upload.addEventListener('abord', function(e) {
+        console.log("abord", e)
+    });
+    xhr.upload.addEventListener('error', function(e) {
+        console.log("error", e)
+    });*/
 
     xhr.send(form);
 });
