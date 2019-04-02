@@ -1,0 +1,87 @@
+@import "variables";
+#admin {
+  background-color: grey;
+
+  nav {
+    background-color: #FFF;
+    color: $color-warning;
+
+    h1 {
+      font-family: 'Luckiest Guy', cursive;
+    }
+
+    a{
+      margin-left: auto;
+      color: grey;
+
+      &.active {
+        color: $color-warning;
+      }
+
+      &.btn {
+        color: #FFF;
+
+        &:hover {
+          font-weight: normal;
+        }
+      }
+
+      &:hover {
+        font-weight: bolder;
+      }
+
+      i {
+        margin-right: 0.3rem;
+      }
+    }
+
+  }
+
+  section {
+    .container,
+    .container-fluid {
+      background-color: #FFF;
+      color: grey;
+      padding: 2rem;
+
+      h2 {
+        font-family: 'Luckiest Guy', cursive;
+        text-align: center;
+      }
+
+      a{
+        color: grey;
+
+        &:hover {
+          color: red;
+        }
+      }
+
+      table {
+        background-color: grey;
+
+        tr {
+          &:hover {
+            background-color: #000;
+          }
+
+          td {
+            .miniature {
+              height: 4rem;
+
+              &:hover + .preview{
+                opacity: 1;
+              }
+            }
+
+            .preview {
+              position: absolute;
+              opacity: 0;
+              transition: visibility 0s, opacity 0.5s linear;
+            }
+          }
+        }
+      }
+    }
+  }
+}

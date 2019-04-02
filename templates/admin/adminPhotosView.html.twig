@@ -1,0 +1,43 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block body %}
+    <section>
+        <div class="container-fluid">
+            <h2>Liste des photos</h2>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Miniature</th>
+                    <th>Nom du fichier</th>
+                    <th>Membre</th>
+                    <th>Album</th>
+                    <th>Note</th>
+                    <th class="text-center">Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for photo in photos %}
+                    <tr>
+                        <td>{{ photo.id }}</td>
+                        <td>
+                            <img src="{{ path('file_download', {'id' :photo.id}) }}" alt="" class="miniature">
+                            <img src="{{ path('file_download', {'id' :photo.id}) }}" alt="" class="preview">
+                        </td>
+                        <td>{{ photo.originalName }}</td>
+                        <td>{{ photo.author.username }}</td>
+                        <td>{{ photo.album }}</td>
+                        <td>{{ photo.rating }}</td>
+                        <td class="text-center">
+                            <i class="fas fa-ban"></i>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+
+    </section>
+
+{% endblock %}
