@@ -29,6 +29,15 @@
         {{ form_widget(formPhoto.file) }}
         <button type="submit" class="btn btn-success">Valider</button>
         {{ form_end(formPhoto) }}
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <p class="percent-progress"></p>
+        <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+        {#<div class="progress mt-5">
+            <progress id="progress" value="0" max="100" style="width: 100%"></progress>
+            <div id="progress-bar" class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>#}
     </div>
 </section>
 
