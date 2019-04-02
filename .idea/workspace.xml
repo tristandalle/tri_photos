@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="778ffb5b-5b66-46cd-a0e6-061369f9045b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/add-photos.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/add-photos.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/progress-bar.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/progress-bar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ImageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ImageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/image/add-photo.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/image/add-photo.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -56,7 +52,7 @@
           <entry key="JavaScript" value="33" />
           <entry key="PHP" value="84" />
           <entry key="PLAIN_TEXT" value="6" />
-          <entry key="SCSS" value="50" />
+          <entry key="SCSS" value="51" />
           <entry key="Twig" value="110" />
           <entry key="YAML" value="11" />
         </counts>
@@ -81,7 +77,7 @@
           <entry key="JavaScript" value="1940" />
           <entry key="PHP" value="6678" />
           <entry key="PLAIN_TEXT" value="21" />
-          <entry key="SCSS" value="2383" />
+          <entry key="SCSS" value="2384" />
           <entry key="Twig" value="9186" />
           <entry key="YAML" value="89" />
         </counts>
@@ -120,8 +116,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/css/add-photos.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
-              <caret line="40" column="32" selection-start-line="40" selection-start-column="32" selection-end-line="40" selection-end-column="32" />
+            <state relative-caret-position="26">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/css/app.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="26">
+              <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -138,7 +143,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/assets/js/progress-bar.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
+            <state relative-caret-position="286">
               <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
             </state>
           </provider>
@@ -148,7 +153,7 @@
         <entry file="file://$PROJECT_DIR$/src/Controller/ImageController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="650">
-              <caret line="28" column="9" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
+              <caret line="26" column="9" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
               <folding>
                 <element signature="e#34#55#0#PHP" expanded="true" />
               </folding>
@@ -243,8 +248,8 @@
         <option value="$PROJECT_DIR$/assets/js/app.js" />
         <option value="$PROJECT_DIR$/src/Controller/ImageController.php" />
         <option value="$PROJECT_DIR$/templates/image/add-photo.html.twig" />
-        <option value="$PROJECT_DIR$/assets/css/add-photos.scss" />
         <option value="$PROJECT_DIR$/assets/js/progress-bar.js" />
+        <option value="$PROJECT_DIR$/assets/css/add-photos.scss" />
       </list>
     </option>
   </component>
@@ -534,11 +539,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="297726000" />
+    <option name="totallyTimeSpent" value="298287000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18176973" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -552,8 +556,8 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="9" visible="true" weight="0.32929516" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4989339" weight="0.09140969" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32929516" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.4989339" visible="true" weight="0.5517621" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5010661" side_tool="true" weight="0.34251103" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -801,13 +805,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/app.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26">
-          <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/composer.lock">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -875,7 +872,7 @@
     <entry file="file://$PROJECT_DIR$/src/Controller/ImageController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="650">
-          <caret line="28" column="9" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
+          <caret line="26" column="9" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
           <folding>
             <element signature="e#34#55#0#PHP" expanded="true" />
           </folding>
@@ -889,16 +886,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/app.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26">
+          <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/assets/css/add-photos.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="40" column="32" selection-start-line="40" selection-start-column="32" selection-end-line="40" selection-end-column="32" />
+        <state relative-caret-position="26">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/progress-bar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
+        <state relative-caret-position="286">
           <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
         </state>
       </provider>
