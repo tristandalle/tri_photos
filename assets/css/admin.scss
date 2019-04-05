@@ -55,6 +55,11 @@
         &:hover {
           color: red;
         }
+
+        &.trash {
+          color: $color-danger;
+
+        }
       }
 
       table {

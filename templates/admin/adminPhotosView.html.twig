@@ -29,7 +29,7 @@
                         <td>{{ photo.album }}</td>
                         <td>{{ photo.rating }}</td>
                         <td class="text-center">
-                            <i class="fas fa-ban"></i>
+                            <a href="{{ path('admin_remove_photo', {'id' :photo.id}) }}" class="trash"><i class="fas fa-trash-alt"></i></a>
                         </td>
                     </tr>
                 {% endfor %}

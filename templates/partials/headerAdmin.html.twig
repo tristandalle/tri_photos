@@ -4,16 +4,16 @@
         <div class="collapse navbar-collapse" id="navbarColor03">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link {{ app.request.get('_route') == 'home_admin' ? 'active' }}" href="{{ path('home_admin') }}"><i class="fas fa-chart-line"></i>Statistiques</a>
+                    <a class="nav-link {{ app.request.get('_route') == 'home_admin' ? 'active' }}" href="{{ path('admin_home') }}"><i class="fas fa-chart-line"></i>Statistiques</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ app.request.get('_route') == 'members_admin' ? 'active' }}" href="{{ path('members_admin') }}"><i class="fas fa-users"></i>Gestion des membres</a>
+                    <a class="nav-link {{ app.request.get('_route') == 'members_admin' ? 'active' }}" href="{{ path('admin_members') }}"><i class="fas fa-users"></i>Gestion des membres</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ app.request.get('_route') == 'photos_admin' ? 'active' }}" href="{{ path('photos_admin') }}"><i class="fas fa-images"></i>Gestion des photos</a>
+                    <a class="nav-link {{ app.request.get('_route') == 'photos_admin' ? 'active' }}" href="{{ path('admin_photos') }}"><i class="fas fa-images"></i>Gestion des photos</a>
                 </li>
             </ul>
         </div>
-        <a class="btn btn-danger" type="button" href="{{ path('home_welcome') }}">Quitter le mode admin</a>
+        <a class="btn btn-danger" type="button" href="{{ path('security_logout') }}">Quitter le mode admin</a>
     </nav>
 </header>

@@ -29,7 +29,7 @@
                         <td class="text-center">{{ user.albums|length }}</td>
                         <td class="text-center">
                             <i class="fas fa-envelope"></i>
-                            <i class="fas fa-trash-alt"></i>
+                            <a href="{{ path('admin_remove_member', {'id' :user.id}) }}" class="trash"><i class="fas fa-trash-alt"></i></a>
                         </td>
                     </tr>
                 {% endfor %}

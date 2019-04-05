@@ -4,8 +4,8 @@
     <section>
         <div class="container">
             <h2>Stats</h2>
-            <p><a href="{{ path('members_admin') }}">{{ users|length }} membres</a></p>
-            <p>{{ photos|length }} photos uploadées</p>
+            <p><a href="{{ path('admin_members') }}">{{ users|length }} membres</a></p>
+            <p><a href="{{ path('admin_photos') }}">{{ photos|length }} photos uploadées</a></p>
             <p>{{ albums|length }} albums créés</p>
         </div>
 
