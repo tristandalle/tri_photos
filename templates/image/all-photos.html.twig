@@ -12,7 +12,7 @@
 
             <div class="container-photos">
             {% for photo in photos %}
-                <div class="container-photo {% if filter is defined %}{% if photo.rating < filter %}hide{% endif %}{% endif %}">
+                <div class="container-photo {% if filter is defined %}{% if photo.rating != filter %}hide{% endif %}{% endif %}">
                     <a href="{{ path('image_one_photo', {'id' :photo.id}) }}">
                         <img src="{{ path('file_download', {'id' :photo.id}) }}" alt="{{ photo.originalName }}">
                     </a>
@@ -30,19 +30,21 @@
                 </div>
             {% endfor %}
             </div>
-        <div class="filter">
-            Filtrer :
-            {% if  filter != 0 %}
-            <a href="{{ path('filter_rating', {'rating' :1}) }}" title="Afficher seulement les photos classées 1 étoile"><i class="{% if filter >= 1 %}fas{% else %}far{% endif %} fa-star "></i></a>
-            <a href="{{ path('filter_rating', {'rating' :2}) }}" title="Afficher seulement les photos classées 2 étoiles"><i class="{% if filter >= 2 %}fas{% else %}far{% endif %} fa-star "></i></a>
-            <a href="{{ path('filter_rating', {'rating' :3}) }}" title="Afficher seulement les photos classées 3 étoiles"><i class="{% if filter == 3 %}fas{% else %}far{% endif %} fa-star "></i></a>
-            <a href="{{ path('filter_rating', {'rating' :0}) }}" title="Supprimer le filtre"><i class="fas fa-filter"></i></a>
-            {% else %}
-                <a href="{{ path('filter_rating', {'rating' :1}) }}" title="Afficher seulement les photos classées 1 étoile"><i class="fas fa-star drunk"></i></a>
-                <a href="{{ path('filter_rating', {'rating' :2}) }}" title="Afficher seulement les photos classées 2 étoiles"><i class="fas fa-star drunk"></i></a>
-                <a href="{{ path('filter_rating', {'rating' :3}) }}" title="Afficher seulement les photos classées 3 étoiles"><i class="fas fa-star drunk"></i></a>
-            {% endif %}
-        </div>
+         {% if photos|length >= 1 %}
+            <div class="filter">
+                Filtrer :
+                {% if  filter != 0 %}
+                <a href="{{ path('filter_rating', {'rating' :1}) }}" title="Afficher seulement les photos classées 1 étoile"><i class="{% if filter >= 1 %}fas{% else %}far{% endif %} fa-star "></i></a>
+                <a href="{{ path('filter_rating', {'rating' :2}) }}" title="Afficher seulement les photos classées 2 étoiles"><i class="{% if filter >= 2 %}fas{% else %}far{% endif %} fa-star "></i></a>
+                <a href="{{ path('filter_rating', {'rating' :3}) }}" title="Afficher seulement les photos classées 3 étoiles"><i class="{% if filter == 3 %}fas{% else %}far{% endif %} fa-star "></i></a>
+                <a href="{{ path('filter_rating', {'rating' :0}) }}" title="Supprimer le filtre"><i class="fas fa-filter"></i></a>
+                {% else %}
+                    <a href="{{ path('filter_rating', {'rating' :1}) }}" title="Afficher seulement les photos classées 1 étoile"><i class="fas fa-star drunk"></i></a>
+                    <a href="{{ path('filter_rating', {'rating' :2}) }}" title="Afficher seulement les photos classées 2 étoiles"><i class="fas fa-star drunk"></i></a>
+                    <a href="{{ path('filter_rating', {'rating' :3}) }}" title="Afficher seulement les photos classées 3 étoiles"><i class="fas fa-star drunk"></i></a>
+                {% endif %}
+            </div>
+         {% endif %}
 
          <div class="buttons">
              <a class="btn btn-primary" href="{{ path('album_all_albums') }}" type="button">Voir mes albums</a>
