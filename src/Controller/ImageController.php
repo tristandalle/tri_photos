@@ -60,7 +60,7 @@ class ImageController extends AbstractController
                     // ... handle exception if something happens during file upload
                 }
                 Image::configure(array('driver' => 'gd'));
-                $img = Image::make($this->getParameter('images_directory')."/". $fileName);
+                $img = Image::make($this->getParameter('images_directory')."/". $fileName)->orientate();
                 $img->resize(null, 600, function ($constraint) {
                     $constraint->aspectRatio();
                 });

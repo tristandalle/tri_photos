@@ -44,7 +44,7 @@
                 <div class="card">
                     {% if album.photos|length == 0 %}
                         <div class="empty-album">
-                            <a href="{{ path('album_one_album', {'id' :album.id}) }}">
+                            <a href="{{ path('image_add') }}">
                                 <i class="fas fa-download"></i>
                             </a>
                         </div>
@@ -59,7 +59,9 @@
                         <h5 class="card-title">{{ album.title }} <span>({{ album.photos|length }} photo{% if album.photos|length > 1 %}s{% endif %})</span></h5>
                         <p class="card-text">{{ album.description }}</p>
                         <div class="card-buttons">
-                            <a href="{{ path('album_one_album', {'id' :album.id}) }}" class="btn btn-primary" type="button">Voir l'album</a>
+                            {% if album.photos|length != 0 %}
+                                <a href="{{ path('album_one_album', {'id' :album.id}) }}" class="btn btn-primary" type="button">Voir l'album</a>
+                            {% endif %}
                             <a href="{{ path('album_remove_album', {'id' :album.id}) }}" class="btn btn-danger" type="button" title="Supprimer l'album (les photos ne seront pas supprimées)"><i class="far fa-trash-alt"></i></a>
                         </div>
 
