@@ -10,6 +10,7 @@
         <div class="container-one-photo">
             <img src="{{ path('file_download', {'id' :photo.id}) }}" alt="">
             <div class="rating">
+                <p>{{ photo.originalName }}</p>
                 {% set currentPath = path(app.request.attributes.get('_route'),
                     app.request.attributes.get('_route_params')) %}
                 <a href="{{ path('image_rating', {'id' :photo.id, 'rating' :1, 'currentPath' :currentPath|replace({"/" : ""})}) }}"><i class="{% if photo.rating >= 1 %}fas{% else %}far{% endif %} fa-star "></i></a>
