@@ -18,6 +18,7 @@ htmlForm.submit(function (e) {
     for (var i = 0; i < fileInput.files.length; i++) {
         form.append('photo[file][]', fileInput.files[i]);
     }
+    xhr.addEventListener("load", transferComplete, false);
     xhr.upload.addEventListener('progress', function (e) {
         loadedValue = e.loaded;
         totalValue = e.total;
@@ -28,21 +29,24 @@ htmlForm.submit(function (e) {
         progressBar.width(loadedPercent + '%');
         progressPercent.show();
         progressPercent.html(loadedPercent.toFixed() + ' %');
-        animeCss.css('display', 'inline-block');
         if (e.loaded === e.total) {
-            progressPercent.html('<i class="fas fa-check"></i><br>Transfert terminé').css({
-                color : '#00bc8c',
-                fontSize : '2em'
-            });
-            inProgress.delay(1000).fadeTo( "slow", 0 );
+            inProgress.html('Merci de patienter quelques instants ...');
             containerProgressBar.delay(1000).fadeTo( "slow", 0 );
-            animeCss.delay(1000).css({
-                visibility : 'hidden',
-                opacity : '0'
-            });
-            redirectionLinks.delay(1000).fadeIn("slow");
+            animeCss.css('display', 'inline-block');
         }
     });
+    function transferComplete(evt) {
+        inProgress.delay(1000).fadeTo( "slow", 0 );
+        animeCss.delay(1000).css({
+            visibility : 'hidden',
+            opacity : '0'
+        });
+        progressPercent.html('<i class="fas fa-check"></i><br>Transfert terminé avec succès !').css({
+            color : '#00bc8c',
+            fontSize : '2em'
+        });
+        redirectionLinks.delay(1000).fadeIn("slow");
+    }
     htmlForm.hide();
     xhr.send(form);
 });
