@@ -76,3 +76,8 @@
 </section>
 
 {% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="/js/carousel.js"></script>
+{% endblock %}
+

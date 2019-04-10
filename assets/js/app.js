@@ -28,7 +28,7 @@ global.$ = global.jQuery = $;
 
 require('bootstrap');
 require('popper.js');
-require('./carousel.js');
+require('../../public/js/carousel.js');
 // require('./progress-bar.js');
 
 
