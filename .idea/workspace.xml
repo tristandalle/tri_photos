@@ -2,8 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="778ffb5b-5b66-46cd-a0e6-061369f9045b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/assets/css/one-album-all-photos.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/carousel-init.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/album/one-album-all-photos.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/all-photos.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/all-photos.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/progress-bar.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/progress-bar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AlbumController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AlbumController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ImageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ImageController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/adminPhotosView.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/adminPhotosView.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/album/one-album.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/album/one-album.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home/welcome.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/welcome.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/image/all-photos.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/image/all-photos.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/image/one-photo.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/image/one-photo.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/partials/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/partials/header.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,12 +66,12 @@
           <entry key="CSS" value="15" />
           <entry key="Image" value="2" />
           <entry key="JSON" value="27" />
-          <entry key="JavaScript" value="39" />
-          <entry key="PHP" value="94" />
+          <entry key="JavaScript" value="44" />
+          <entry key="PHP" value="97" />
           <entry key="PLAIN_TEXT" value="6" />
-          <entry key="SCSS" value="60" />
-          <entry key="Twig" value="130" />
-          <entry key="YAML" value="14" />
+          <entry key="SCSS" value="63" />
+          <entry key="Twig" value="145" />
+          <entry key="YAML" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -77,11 +91,11 @@
           <entry key=".env file" value="14" />
           <entry key="CSS" value="50" />
           <entry key="JSON" value="31" />
-          <entry key="JavaScript" value="2514" />
-          <entry key="PHP" value="6978" />
+          <entry key="JavaScript" value="2631" />
+          <entry key="PHP" value="7704" />
           <entry key="PLAIN_TEXT" value="21" />
-          <entry key="SCSS" value="2646" />
-          <entry key="Twig" value="9954" />
+          <entry key="SCSS" value="2719" />
+          <entry key="Twig" value="10747" />
           <entry key="YAML" value="89" />
         </counts>
       </usages-collector>
@@ -90,79 +104,88 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/image/add-photo.html.twig">
+        <entry file="file://$PROJECT_DIR$/public/js/carousel-init.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="387">
-              <caret line="66" selection-start-line="62" selection-start-column="1" selection-end-line="66" />
+            <state relative-caret-position="130">
+              <caret line="5" column="51" selection-start-line="5" selection-start-column="51" selection-end-line="5" selection-end-column="51" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/js/progress-bar.js">
+        <entry file="file://$PROJECT_DIR$/src/Controller/AdminController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="179">
-              <caret line="43" column="91" selection-start-line="43" selection-start-column="80" selection-end-line="43" selection-end-column="91" />
+              <caret line="50" column="5" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
+              <folding>
+                <element signature="e#34#69#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/image/one-photo.html.twig">
+        <entry file="file://$PROJECT_DIR$/src/Controller/AdminSecurityController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="491">
-              <caret line="75" column="14" selection-start-line="75" selection-start-column="14" selection-end-line="75" selection-end-column="14" />
-              <folding>
-                <element signature="e#3027#3034#1#HTML" expanded="true" />
-              </folding>
+            <state relative-caret-position="416">
+              <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/admin_security/adminLogin.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="604">
+              <caret line="30" column="54" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="54" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/admin/homeAdminView.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="234">
+              <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/assets/js/app.js">
+        <entry file="file://$PROJECT_DIR$/templates/admin/adminPhotosView.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="29" column="21" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
+            <state relative-caret-position="260">
+              <caret line="13" column="38" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="38" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/js/carousel.js">
+        <entry file="file://$PROJECT_DIR$/templates/admin/adminMembersView.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="26">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
+            <state relative-caret-position="494">
+              <caret line="31" column="139" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="139" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/css/one-photo.scss">
+        <entry file="file://$PROJECT_DIR$/config/routes.yaml">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/services.yaml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
-            </state>
+            <state relative-caret-position="-393" />
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/album/all-albums.html.twig">
+        <entry file="file://$PROJECT_DIR$/config/packages/security.yaml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="581">
-              <caret line="82" selection-start-line="82" selection-end-line="82" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/ImageController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3198">
-              <caret line="132" column="42" selection-start-line="132" selection-start-column="42" selection-end-line="132" selection-end-column="42" />
-              <folding>
-                <element signature="e#34#55#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="624">
+              <caret line="24" column="39" selection-start-line="24" selection-start-column="39" selection-end-line="24" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -192,6 +215,7 @@
       <find>console.log('</find>
       <find>popper</find>
       <find>filt</find>
+      <find>currentPath</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -206,25 +230,15 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/public/uploads/.gitignore" />
-        <option value="$PROJECT_DIR$/src/Controller/HomeController.php" />
-        <option value="$PROJECT_DIR$/src/Form/AlbumType.php" />
-        <option value="$PROJECT_DIR$/templates/album/albums.html.twig" />
-        <option value="$PROJECT_DIR$/assets/js/tri-photos-carousel.js" />
-        <option value="$PROJECT_DIR$/public/tri-photos-carousel.js" />
-        <option value="$PROJECT_DIR$/src/Form/PhotosType.php" />
         <option value="$PROJECT_DIR$/src/Entity/Album.php" />
-        <option value="$PROJECT_DIR$/src/Controller/AlbumController.php" />
         <option value="$PROJECT_DIR$/templates/album/index.html.twig" />
         <option value="$PROJECT_DIR$/templates/album/add-album.html.twig" />
         <option value="$PROJECT_DIR$/assets/css/bootstrap.min.css" />
         <option value="$PROJECT_DIR$/assets/css/home-welcome.scss" />
-        <option value="$PROJECT_DIR$/templates/home/welcome.html.twig" />
         <option value="$PROJECT_DIR$/templates/security/registration.html.twig" />
         <option value="$PROJECT_DIR$/assets/css/registration.scss" />
         <option value="$PROJECT_DIR$/assets/css/login.scss" />
         <option value="$PROJECT_DIR$/templates/security/login.html.twig" />
-        <option value="$PROJECT_DIR$/templates/album/one-album.html.twig" />
         <option value="$PROJECT_DIR$/assets/css/one-album.scss" />
         <option value="$PROJECT_DIR$/config/services.yaml" />
         <option value="$PROJECT_DIR$/assets/uploads/.gitignore" />
@@ -243,20 +257,30 @@
         <option value="$PROJECT_DIR$/templates/partials/footer.html.twig" />
         <option value="$PROJECT_DIR$/templates/admin/adminMembersView.html.twig" />
         <option value="$PROJECT_DIR$/assets/css/admin.scss" />
-        <option value="$PROJECT_DIR$/src/Controller/AdminController.php" />
-        <option value="$PROJECT_DIR$/templates/admin/adminPhotosView.html.twig" />
         <option value="$PROJECT_DIR$/templates/admin/homeAdminView.html.twig" />
         <option value="$PROJECT_DIR$/templates/partials/headerAdmin.html.twig" />
         <option value="$PROJECT_DIR$/templates/image/add-photo.html.twig" />
-        <option value="$PROJECT_DIR$/templates/image/all-photos.html.twig" />
-        <option value="$PROJECT_DIR$/public/js/progress-bar.js" />
-        <option value="$PROJECT_DIR$/src/Controller/ImageController.php" />
         <option value="$PROJECT_DIR$/assets/js/carousel.js" />
         <option value="$PROJECT_DIR$/assets/css/one-photo.scss" />
         <option value="$PROJECT_DIR$/templates/album/all-albums.html.twig" />
         <option value="$PROJECT_DIR$/public/js/carousel.js" />
-        <option value="$PROJECT_DIR$/templates/image/one-photo.html.twig" />
+        <option value="$PROJECT_DIR$/templates/album/one-album.html.twig" />
+        <option value="$PROJECT_DIR$/src/Controller/AlbumController.php" />
         <option value="$PROJECT_DIR$/assets/js/app.js" />
+        <option value="$PROJECT_DIR$/assets/css/one-album-all-photos.scss" />
+        <option value="$PROJECT_DIR$/assets/css/all-photos.scss" />
+        <option value="$PROJECT_DIR$/public/js/crousel-init.js" />
+        <option value="$PROJECT_DIR$/templates/album/one-album-all-photos.html.twig" />
+        <option value="$PROJECT_DIR$/templates/image/all-photos.html.twig" />
+        <option value="$PROJECT_DIR$/src/Controller/ImageController.php" />
+        <option value="$PROJECT_DIR$/templates/home/welcome.html.twig" />
+        <option value="$PROJECT_DIR$/templates/partials/header.html.twig" />
+        <option value="$PROJECT_DIR$/templates/image/one-photo.html.twig" />
+        <option value="$PROJECT_DIR$/public/js/progress-bar.js" />
+        <option value="$PROJECT_DIR$/public/js/carousel-init.js" />
+        <option value="$PROJECT_DIR$/config/packages/security.yaml" />
+        <option value="$PROJECT_DIR$/src/Controller/AdminController.php" />
+        <option value="$PROJECT_DIR$/templates/admin/adminPhotosView.html.twig" />
       </list>
     </option>
   </component>
@@ -383,7 +407,7 @@
       <path value="$PROJECT_DIR$/vendor/intervention/image" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="974" />
@@ -406,19 +430,13 @@
             <path>
               <item name="TriPhotos" type="b2602c69:ProjectViewProjectNode" />
               <item name="TriPhotos" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TriPhotos" type="b2602c69:ProjectViewProjectNode" />
               <item name="TriPhotos" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TriPhotos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TriPhotos" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="packages" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TriPhotos" type="b2602c69:ProjectViewProjectNode" />
@@ -561,15 +579,15 @@
       <workItem from="1552808729226" duration="584000" />
       <workItem from="1553114525755" duration="35596000" />
       <workItem from="1554836835080" duration="6128000" />
-      <workItem from="1554928943730" duration="6234000" />
+      <workItem from="1554928943730" duration="36614000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="334670000" />
+    <option name="totallyTimeSpent" value="365050000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18550107" />
@@ -631,42 +649,6 @@
     </ignored-roots>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/build/entrypoints.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/admin/admin/homeAdminView.html.twig" />
-    <entry file="file://$PROJECT_DIR$/src/Entity/Photo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="121" column="22" selection-start-line="121" selection-start-column="22" selection-end-line="121" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/bootstrap.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="2" column="31" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/security/login.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="13" column="157" selection-start-line="13" selection-start-column="130" selection-end-line="13" selection-end-column="157" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Form/PhotoType.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
@@ -705,13 +687,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/home/home.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="21" column="102" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="102" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/css/home.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="579">
@@ -730,20 +705,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="81" column="7" selection-start-line="81" selection-start-column="7" selection-end-line="81" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/all-photos.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="426">
-          <caret line="86" column="5" selection-start-line="86" selection-start-column="5" selection-end-line="86" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/app.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -781,13 +742,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/admin_security/adminLogin.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="30" column="54" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/css/admin.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="312">
@@ -795,68 +749,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/admin/adminMembersView.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="31" column="139" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="139" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/admin/homeAdminView.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/AdminController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="47" column="49" selection-start-line="47" selection-start-column="49" selection-end-line="47" selection-end-column="49" />
-          <folding>
-            <element signature="e#34#69#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/AdminSecurityController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/image/all-photos.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="14" column="123" selection-start-line="14" selection-start-column="123" selection-end-line="14" selection-end-column="123" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/partials/headerAdmin.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="416">
           <caret line="16" column="78" selection-start-line="16" selection-start-column="78" selection-end-line="16" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/partials/header.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="676">
-          <caret line="26" column="83" selection-start-line="26" selection-start-column="68" selection-end-line="26" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/services.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/security.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="702">
-          <caret line="27" column="29" selection-start-line="27" selection-start-column="15" selection-end-line="27" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -877,27 +773,10 @@
         <state relative-caret-position="-500" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/admin/adminPhotosView.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="806">
-          <caret line="31" column="139" selection-start-line="31" selection-start-column="139" selection-end-line="31" selection-end-column="139" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/css/add-photos.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="514">
           <caret line="52" column="7" selection-start-line="52" selection-start-column="7" selection-end-line="52" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/ImageController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3198">
-          <caret line="132" column="42" selection-start-line="132" selection-start-column="42" selection-end-line="132" selection-end-column="42" />
-          <folding>
-            <element signature="e#34#55#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -911,20 +790,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/one-photo.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/progress-bar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="43" column="91" selection-start-line="43" selection-start-column="80" selection-end-line="43" selection-end-column="91" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/image/add-photo.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="387">
@@ -932,10 +797,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/album/all-albums.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/Controller/AlbumController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="581">
-          <caret line="82" selection-start-line="82" selection-end-line="82" />
+        <state relative-caret-position="101">
+          <caret line="41" column="47" selection-start-line="41" selection-start-column="31" selection-end-line="41" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="18" column="44" selection-start-line="18" selection-start-column="44" selection-end-line="18" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/album/one-album.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="21" column="55" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/one-photo.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="5" column="30" selection-end-line="77" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/app.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/all-photos.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="438">
+          <caret line="62" column="36" selection-start-line="62" selection-start-column="36" selection-end-line="62" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/one-album-all-photos.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
@@ -946,20 +853,143 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/image/one-photo.html.twig">
+    <entry file="file://$PROJECT_DIR$/templates/album/all-albums.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="491">
-          <caret line="75" column="14" selection-start-line="75" selection-start-column="14" selection-end-line="75" selection-end-column="14" />
+        <state relative-caret-position="344">
+          <caret line="81" column="14" selection-start-line="78" selection-end-line="81" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/album/one-album-all-photos.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="37" column="73" selection-start-line="37" selection-start-column="33" selection-end-line="37" selection-end-column="73" />
           <folding>
-            <element signature="e#3027#3034#1#HTML" expanded="true" />
+            <element signature="e#3913#3920#1#HTML" expanded="true" />
+            <element signature="e#7000#7007#1#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/app.js">
+    <entry file="file://$PROJECT_DIR$/src/Controller/ImageController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="29" column="21" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
+        <state relative-caret-position="257">
+          <caret line="231" column="13" selection-start-line="231" selection-start-column="13" selection-end-line="231" selection-end-column="13" />
+          <folding>
+            <element signature="e#34#55#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/home/welcome.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="20" column="111" selection-start-line="20" selection-start-column="111" selection-end-line="20" selection-end-column="111" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/home/home.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="488">
+          <caret line="23" column="107" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="107" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/partials/header.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="514">
+          <caret line="23" column="69" selection-start-line="23" selection-start-column="69" selection-end-line="23" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/image/all-photos.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1517">
+          <caret line="70" selection-start-line="70" selection-end-line="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/image/one-photo.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="95" selection-start-line="95" selection-end-line="95" />
+          <folding>
+            <element signature="e#6173#6180#1#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/progress-bar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="44" column="35" selection-start-line="44" selection-start-column="35" selection-end-line="44" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/carousel-init.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="5" column="51" selection-start-line="5" selection-start-column="51" selection-end-line="5" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin_security/adminLogin.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="604">
+          <caret line="30" column="54" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/homeAdminView.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/adminMembersView.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="31" column="139" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="139" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.yaml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/AdminSecurityController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/services.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-393" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/packages/security.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="624">
+          <caret line="24" column="39" selection-start-line="24" selection-start-column="39" selection-end-line="24" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/AdminController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="50" column="5" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
+          <folding>
+            <element signature="e#34#69#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/adminPhotosView.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="13" column="38" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="38" />
         </state>
       </provider>
     </entry>

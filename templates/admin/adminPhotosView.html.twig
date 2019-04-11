@@ -11,7 +11,7 @@
                     <th>Miniature</th>
                     <th>Nom du fichier</th>
                     <th>Membre</th>
-                    <th>Album</th>
+                    {#<th>Album</th>#}
                     <th>Note</th>
                     <th class="text-center">Action</th>
                 </tr>
@@ -26,7 +26,7 @@
                         </td>
                         <td>{{ photo.originalName }}</td>
                         <td>{{ photo.author.username }}</td>
-                        <td>{{ photo.album }}</td>
+                        {#<td>{{ photo.album.title }}</td>#}
                         <td>{{ photo.rating }}</td>
                         <td class="text-center">
                             <a href="{{ path('admin_remove_photo', {'id' :photo.id}) }}" class="trash"><i class="fas fa-trash-alt"></i></a>

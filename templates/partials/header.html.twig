@@ -20,9 +20,10 @@
                             <span><i class="far fa-user"></i> {{ app.user.username() }}</span>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ path('home_connected') }}">Mon compte</a>
-                            <a class="dropdown-item" href="#{{ path('image_all_photos') }}">Mes Photos</a>
-                            <a class="dropdown-item" href="#{{ path('album_all_albums') }}">Mes Albums</a>
+                            <a href="{{ path('home_connected') }}" class="dropdown-item">Mon compte</a>
+                            <a href="{{ path('image_all_photos') }}" class="dropdown-item">Mes Photos</a>
+                            <a href="{{ path('album_all_albums') }}"  class="dropdown-item">Mes Albums</a>
+                            <a href="{{ path('image_add') }}" class="dropdown-item">Ajouter des photos</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ path('security_logout') }}">Déconnexion</a>
                         </div>

@@ -1,0 +1,118 @@
+{% extends 'base.html.twig' %}
+
+ {% block body %}
+
+     <section id="one-album-all-photos">
+         <div class="container">
+             {% if album.photos|length == 0 %}
+                 <div class="return">
+                     <a href="{{ path('album_all_albums') }}" class="btn btn-warning" type="button"><i class="fas fa-caret-left"></i> Retour</a>
+                 </div>
+                 {% else %}
+                     <div class="return">
+                         <a href="{{ path('album_one_album', {'id' :album.id}) }}" class="btn btn-warning" type="button"><i class="fas fa-caret-left"></i> Retour</a>
+                     </div>
+             {% endif %}
+             <div class="album-header">
+                 <hr>
+                 <h1>{{ album.title }}</h1>
+                 <p>{{ album.description }}</p>
+                 <small>{{ album.photos|length }} photo{% if album.photos|length > 1 %}s{% endif %}</small>
+                 <hr>
+             </div>
+             {% if album.photos|length == 0 %}
+             <p>Cette album est vide, retournez à <a href="{{ path('album_all_albums') }}">vos albums</a></p>
+             {% else %}
+             <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
+                 <ol class="carousel-indicators">
+                     {% for albumPhotos in album.photos %}
+                         <li data-target="#carouselIndicators" data-slide-to="{{ albumPhotos.id }}" class="indicator {% if photoId == albumPhotos.id %}active{% endif %}"></li>
+                     {% endfor %}
+                 </ol>
+                 <div class="carousel-inner">
+                     {% for albumPhotos in album.photos %}
+                         <div class="carousel-item {% if photoId == albumPhotos.id %}active{% endif %}">
+                             <p>{{ albumPhotos.originalName }}</p>
+                             <img src="{{ path('file_download', {'id' :albumPhotos.id}) }}" alt="...">
+                             <div class="rating">
+                                 {% set currentPath = 'albumAllPhotos' %}
+                                 <a href="{{ path('image_rating', {'id' :albumPhotos.id, 'rating' :1, 'currentPath' :currentPath}) }}"><i class="{% if albumPhotos.rating >= 1 %}fas{% else %}far{% endif %} fa-star "></i></a>
+                                 <a href="{{ path('image_rating', {'id' :albumPhotos.id, 'rating' :2, 'currentPath' :currentPath}) }}"><i class="{% if albumPhotos.rating >= 2 %}fas{% else %}far{% endif %} fa-star "></i></a>
+                                 <a href="{{ path('image_rating', {'id' :albumPhotos.id, 'rating' :3, 'currentPath' :currentPath}) }}"><i class="{% if albumPhotos.rating == 3 %}fas{% else %}far{% endif %} fa-star "></i></a>
+                             </div>
+                             <div class="edition">
+                                 <a href="" class="btn btn-success" type="button" title="déplacer cette photo dans un autre album" data-toggle="modal" data-target="#ModalCenter{{ albumPhotos.id }}"><i class="fas fa-images"></i></a>
+                                 <a href="" class="btn btn-danger" type="button" title="Supprimer cette photo" data-toggle="modal" data-target="#ConfirmationModalCenter{{ albumPhotos.id }}"><i class="far fa-trash-alt"></i></a>
+                             </div>
+                         </div>
+                         <div class="modal fade" id="ModalCenter{{ albumPhotos.id }}" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">
+                             <div class="modal-dialog modal-dialog-centered" role="document">
+                                 <div class="modal-content">
+                                     <div class="modal-header">
+                                         <h5 class="modal-title" id="exampleModalLongTitle">Déplacer la photo "{{ albumPhotos.originalName }}"</h5>
+                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                             <span aria-hidden="true">&times;</span>
+                                         </button>
+                                     </div>
+                                     <div class="modal-body">
+                                         {% if albumPhotos.album is not null %}
+                                             <p>Cette photo est classée dans l'album "{{ albumPhotos.album.title }}"</p>
+                                         {% else %}
+                                             <p>Cette photo n'est pas encore classée dans un album</p>
+                                         {% endif %}
+                                         <form action="{{ path('image_add_to_album', {'photoId' :albumPhotos.id, 'currentPath' :currentPath, 'idCurrentAlbum' :album.id }) }}" method="post">
+                                             <div class="input-group">
+                                                 <select name="select-album" id="select-album" class="custom-select" required>
+                                                     <option value="" disabled selected>Choisissez l'un de vos albums : </option>
+                                                     {% for album in albums %}
+                                                         <option value="{{ album.id }}" {% if albumPhotos.album is not null %}{% if album.id == albumPhotos.album.id %}disabled{% endif %}{% endif %}>{{ album.title }}</option>
+                                                     {% endfor %}
+                                                     <option value="null" {% if albumPhotos.album is null %}disabled{% endif %}>Aucun (déclasser cette photo)</option>
+                                                 </select>
+                                                 <div class="input-group-append">
+                                                     <button type="submit" class="btn btn-success">Valider</button>
+                                                 </div>
+                                             </div>
+                                         </form>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="modal fade" id="ConfirmationModalCenter{{ albumPhotos.id }}" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">
+                             <div class="modal-dialog modal-dialog-centered" role="document">
+                                 <div class="modal-content">
+                                     <div class="modal-header">
+                                         <h5 class="modal-title" id="exampleModalLongTitle">Êtes-vous sûr de vouloir supprimer la photo "{{ albumPhotos.originalName }}"</h5>
+                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                             <span aria-hidden="true">&times;</span>
+                                         </button>
+                                     </div>
+                                     <div class="modal-body">
+                                         <button type="button" class="btn btn-warning" data-dismiss="modal">Annuler</button>
+                                         <a href="{{ path('image_remove_photo', {'id' :albumPhotos.id, 'currentPath' :currentPath}) }}" class="btn btn-danger" type="button" title="Supprimer cette photo">Supprimer</a>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                     {% endfor %}
+                 </div>
+                 <a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev">
+                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                     <span class="sr-only">Previous</span>
+                 </a>
+                 <a class="carousel-control-next" href="#carouselIndicators" role="button" data-slide="next">
+                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                     <span class="sr-only">Next</span>
+                 </a>
+             </div>
+         </div>
+         {% endif %}
+     </section>
+
+
+ {% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="/js/carousel-init.js"></script>
+{% endblock %}

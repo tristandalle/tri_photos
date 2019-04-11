@@ -33,6 +33,7 @@ htmlForm.submit(function (e) {
             inProgress.html('Merci de patienter quelques instants ...');
             containerProgressBar.delay(1000).fadeTo( "slow", 0 );
             animeCss.css('display', 'inline-block');
+            progressPercent.hide('slow');
         }
     });
     function transferComplete(evt) {
@@ -41,7 +42,7 @@ htmlForm.submit(function (e) {
             visibility : 'hidden',
             opacity : '0'
         });
-        progressPercent.html('<i class="fas fa-check"></i><br>Transfert terminé avec succès !').css({
+        progressPercent.show('slow').html('<i class="fas fa-check"></i><br>Transfert terminé avec succès !').css({
             color : '#00bc8c',
             fontSize : '2em'
         });

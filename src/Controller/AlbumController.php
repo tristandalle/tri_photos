@@ -69,6 +69,26 @@ class AlbumController extends AbstractController
     }
 
     /**
+     * @Route("/album/{id}/all/{photoId}", name="album_one_album_all_photos")
+     */
+    public function showAllPhotosOfOneAlbumAction($id, $photoId, AlbumRepository $albumRepository)
+    {
+        $albumToEdit = $albumRepository->find($id);
+        $authorAlbums = $albumToEdit->getAuthor()->getAlbums();
+        dump(count($albumToEdit->getPhotos()));
+        if (count($albumToEdit->getPhotos()) == 0) {
+
+        }else {
+
+        }
+        return $this->render('album/one-album-all-photos.html.twig', [
+            'album' => $albumToEdit,
+            'photoId' => $photoId,
+            'albums' => $authorAlbums
+        ]);
+    }
+
+    /**
      * @Route("/album/remove/{id}", name="album_remove_album")
      */
     public function removeAlbumAction($id, AlbumRepository $albumRepository, PhotoRepository $photoRepository, ObjectManager $manager)

@@ -19,15 +19,14 @@
                         <p>{{ userPhotos.originalName }}</p>
                         <img src="{{ path('file_download', {'id' :userPhotos.id}) }}" alt="...">
                         <div class="rating">
-                            {% set currentPath = path(app.request.attributes.get('_route'),
-                                app.request.attributes.get('_route_params')) %}
-                            <a href="{{ path('image_rating', {'id' :userPhotos.id, 'rating' :1, 'currentPath' :currentPath|replace({"/" : ""})}) }}"><i class="{% if userPhotos.rating >= 1 %}fas{% else %}far{% endif %} fa-star "></i></a>
-                            <a href="{{ path('image_rating', {'id' :userPhotos.id, 'rating' :2, 'currentPath' :currentPath|replace({"/" : ""})}) }}"><i class="{% if userPhotos.rating >= 2 %}fas{% else %}far{% endif %} fa-star "></i></a>
-                            <a href="{{ path('image_rating', {'id' :userPhotos.id, 'rating' :3, 'currentPath' :currentPath|replace({"/" : ""})}) }}"><i class="{% if userPhotos.rating == 3 %}fas{% else %}far{% endif %} fa-star "></i></a>
+                            {% set currentPath = 'onePhoto' %}
+                            <a href="{{ path('image_rating', {'id' :userPhotos.id, 'rating' :1, 'currentPath' :currentPath}) }}"><i class="{% if userPhotos.rating >= 1 %}fas{% else %}far{% endif %} fa-star "></i></a>
+                            <a href="{{ path('image_rating', {'id' :userPhotos.id, 'rating' :2, 'currentPath' :currentPath}) }}"><i class="{% if userPhotos.rating >= 2 %}fas{% else %}far{% endif %} fa-star "></i></a>
+                            <a href="{{ path('image_rating', {'id' :userPhotos.id, 'rating' :3, 'currentPath' :currentPath}) }}"><i class="{% if userPhotos.rating == 3 %}fas{% else %}far{% endif %} fa-star "></i></a>
                         </div>
                         <div class="edition">
                             <a href="" class="btn btn-success" type="button" title="déplacer cette photo dans un album" data-toggle="modal" data-target="#ModalCenter{{ userPhotos.id }}"><i class="fas fa-images"></i></a>
-                            <a href="{{ path('image_remove_photo', {'id' :userPhotos.id}) }}" class="btn btn-danger" type="button" title="Supprimer cette photo"><i class="far fa-trash-alt"></i></a>
+                            <a href="" class="btn btn-danger" type="button" title="Supprimer cette photo" data-toggle="modal" data-target="#ConfirmationModalCenter{{ userPhotos.id }}"><i class="far fa-trash-alt"></i></a>
                         </div>
                     </div>
                     <div class="modal fade" id="ModalCenter{{ userPhotos.id }}" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">
@@ -59,6 +58,22 @@
                                             </div>
                                         </div>
                                     </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="ConfirmationModalCenter{{ userPhotos.id }}" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Êtes-vous sûr de vouloir supprimer la photo "{{ userPhotos.originalName }}"</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <button type="button" class="btn btn-warning" data-dismiss="modal">Annuler</button>
+                                    <a href="{{ path('image_remove_photo', {'id' :userPhotos.id, 'currentPath' :currentPath}) }}" class="btn btn-danger" type="button" title="Supprimer cette photo">Supprimer</a>
                                 </div>
                             </div>
                         </div>
