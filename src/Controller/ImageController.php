@@ -116,6 +116,9 @@ class ImageController extends AbstractController
     {
         $photoToEdit = $photoRepository->find($id);
         $currentUser = $this->getUser();
+        $allUserPhotos = $photoRepository->findBy(
+            array('author' => $currentUser)
+        );
         $userAlbums = $albumRepository->findBy([
             'author' => $currentUser
         ]);
@@ -127,6 +130,7 @@ class ImageController extends AbstractController
         }
         return $this->render('image/one-photo.html.twig', [
             'photo' => $photoToEdit,
+            'allphotos' => $allUserPhotos,
             'albums' => $userAlbums
         ]);
     }

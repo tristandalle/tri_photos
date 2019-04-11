@@ -1,12 +1,41 @@
 @import "variables";
 #one-photo {
   .container {
+
+    .carousel-item {
+      background-color: black;
+      padding: 5rem 0;
+      margin-top: 2rem;
+
+      p {
+        text-align: center;
+      }
+
+      img {
+        height: 30rem;
+        margin: auto;
+      }
+
+      .rating {
+        margin-top: 1rem;
+
+        a {
+          color: $color-warning;
+        }
+      }
+
+      .edition {
+        display: flex;
+        justify-content: space-evenly;
+      }
+    }
+
     .container-one-photo {
       position: relative;
       height: 30rem;
       display: flex;
       justify-content: center;
-      margin-bottom: 2rem;
+      margin: 2rem 0;
 
       .rating {
         position: absolute;
@@ -15,7 +44,6 @@
         a {
           color: $color-warning;
         }
-
       }
 
       img{
