@@ -88,13 +88,16 @@
                                          </button>
                                      </div>
                                      <div class="modal-body">
-                                         <button type="button" class="btn btn-warning" data-dismiss="modal">Annuler</button>
+                                         <a href="#" type="button" class="btn btn-warning" data-dismiss="modal">Annuler</a>
                                          <a href="{{ path('image_remove_photo', {'id' :albumPhotos.id, 'currentPath' :currentPath}) }}" class="btn btn-danger" type="button" title="Supprimer cette photo">Supprimer</a>
                                      </div>
                                  </div>
                              </div>
                          </div>
                      {% endfor %}
+                     <div class="carousel-item active loader">
+                         <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+                     </div>
                  </div>
                  <a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev">
                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
