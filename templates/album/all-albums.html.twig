@@ -23,6 +23,9 @@
                             <img src="{{ path('file_download', {'id' :photo.id}) }}" class="d-block" alt="...">
                         </div>
                         {% endfor %}
+                        <div class="carousel-item active loader">
+                            <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+                        </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselControls" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>

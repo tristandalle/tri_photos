@@ -16,6 +16,7 @@ require('../css/all-photos.scss');
 require('../css/add-photos.scss');
 require('../css/one-album.scss');
 require('../css/all-albums.scss');
+require('../css/one-album-all-photos.scss');
 require('../css/admin.scss');
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
@@ -29,5 +30,3 @@ global.$ = global.jQuery = $;
 require('bootstrap');
 require('popper.js');
 
-
-console.log('Hello Webpack Encore! Edit me in assets/js/app.js');

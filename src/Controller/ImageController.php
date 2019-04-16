@@ -122,7 +122,7 @@ class ImageController extends AbstractController
         $userAlbums = $albumRepository->findBy([
             'author' => $currentUser
         ]);
-        $author = $photoToEdit->getAuthor();
+        $author = $allUserPhotos[0]->getAuthor();
         if ($currentUser != $author)
         {
             http_response_code(401);
@@ -136,20 +136,41 @@ class ImageController extends AbstractController
     }
 
     /**
-     * @Route("/remove/{id}", name="image_remove_photo")
+     * @Route("/remove/{id}/{currentPath}", name="image_remove_photo")
      */
-    public function removePhotoAction($id, ObjectManager $manager, PhotoRepository $photoRepository)
+    public function removePhotoAction($id, $currentPath = 'undefined', ObjectManager $manager, PhotoRepository $photoRepository, AlbumRepository $albumRepository)
     {
         $photoToRemove = $photoRepository->find($id);
+        $currentAlbum = $photoToRemove->getAlbum();
+        $idPhotoToRemove = $photoToRemove->getId();
+        $currentUser = $this->getUser();
+        $allUserPhotos = $photoRepository->findBy(
+            array('author' => $currentUser)
+        );
+        if ($currentAlbum != null) {
+            $idCurrentAlbum = $currentAlbum->getId();
+        }
         $manager->remove($photoToRemove);
         $manager->flush();
-        return $this->redirectToRoute('image_all_photos');
+        $idOfOneUserPhoto = $allUserPhotos[0]->getId();
+        if ($currentPath == 'albumAllPhotos') {
+            return $this->redirectToRoute('album_one_album_all_photos', [
+                'id' => $idCurrentAlbum,
+                'photoId' => $idPhotoToRemove
+            ]);
+        } elseif ($currentPath == 'onePhoto') {
+            return $this->redirectToRoute('image_one_photo', [
+                'id' => $idOfOneUserPhoto
+            ]);
+        } else {
+            return $this->redirectToRoute('image_all_photos');
+        }
     }
 
     /**
-     * @Route("/add_album/{photoId}", name="image_add_to_album")
+     * @Route("/add_album/{photoId}/{currentPath}/{idCurrentAlbum}", name="image_add_to_album")
      */
-    public function addPhotoToAlbumAction($photoId, Request $request, PhotoRepository $photoRepository, AlbumRepository $albumRepository, ObjectManager $manager)
+    public function addPhotoToAlbumAction($photoId, $currentPath = 'undefined', $idCurrentAlbum = 'undefined', Request $request, PhotoRepository $photoRepository, AlbumRepository $albumRepository, ObjectManager $manager)
     {
         $albumCompletedId = $request->request->get("select-album");
         $albumCompleted = $albumRepository->find($albumCompletedId);
@@ -158,9 +179,16 @@ class ImageController extends AbstractController
         $manager->persist($photoToAdd);
         $manager->flush();
 
-        return $this->redirectToRoute('image_one_photo', array(
-            'id' => $photoId
-        ));
+        if ($currentPath == 'albumAllPhotos') {
+            return $this->redirectToRoute('album_one_album_all_photos', [
+                'id' => $idCurrentAlbum,
+                'photoId' => $photoId
+            ]);
+        } else {
+            return $this->redirectToRoute('image_one_photo', array(
+                'id' => $photoId
+            ));
+        }
     }
 
     /**
@@ -189,15 +217,30 @@ class ImageController extends AbstractController
             $rating--;
         }
         $photoToRating->setRating($rating);
+        $currentAlbum = $photoToRating->getAlbum();
+        if ($currentAlbum != null) {
+            $idCurrentAlbum = $currentAlbum->getId();
+        }
+        $currentPhoto = $photoToRating->getId();
+
         $manager->persist($photoToRating);
         $manager->flush();
 
-        if ($currentPath == 'photos') {
-            return $this->redirectToRoute('image_all_photos');
-        } else {
+        if ($currentPath == 'onePhoto') {
             return $this->redirectToRoute('image_one_photo', [
                 'id' => $id
             ]);
+        } elseif ($currentPath == 'album'){
+            return $this->redirectToRoute('album_one_album', [
+                'id' => $idCurrentAlbum
+            ]);
+        } elseif ($currentPath == 'albumAllPhotos'){
+            return $this->redirectToRoute('album_one_album_all_photos', [
+                'id' => $idCurrentAlbum,
+                'photoId' => $currentPhoto
+            ]);
+        } else {
+            return $this->redirectToRoute('image_all_photos');
         }
     }
 

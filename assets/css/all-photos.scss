@@ -57,6 +57,12 @@
             i{
               margin: auto;
             }
+
+            &:hover {
+              i{
+                color: $color-danger;
+              }
+            }
           }
 
           .rating {
