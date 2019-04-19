@@ -13,7 +13,7 @@
             <div class="container-photos">
             {% for photo in photos %}
                 <div class="container-photo {% if filter != 0 %}{% if photo.rating != filter %}hide{% endif %}{% endif %}">
-                    <a href="{{ path('image_one_photo', {'id' :photo.id}) }}">
+                    <a href="{{ path('image_one_photo', {'id' :photo.id}) }}" class="link-container-photo">
                         <img src="{{ path('file_download', {'id' :photo.id}) }}" alt="{{ photo.originalName }}">
                     </a>
                     <div class="hover-photo">
@@ -26,6 +26,9 @@
                             <a href="{{ path('image_rating', {'id' :photo.id, 'rating' :2, 'currentPath' :currentPath|trim('/')}) }}"><i class="{% if photo.rating >= 2 %}fas{% else %}far{% endif %} fa-star "></i></a>
                             <a href="{{ path('image_rating', {'id' :photo.id, 'rating' :3, 'currentPath' :currentPath|trim('/')}) }}"><i class="{% if photo.rating == 3 %}fas{% else %}far{% endif %} fa-star "></i></a>
                         </div>
+                    </div>
+                    <div class="loader">
+                        <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
                     </div>
                 </div>
                 <div class="modal fade" id="ConfirmationModalCenter{{ photo.id }}" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">

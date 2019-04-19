@@ -3,15 +3,8 @@ $(function () {
     var indicator = $('.indicator');
     var item = $('.carousel-item');
 
-    if (indicator.hasClass('active')) {
-        console.log('yes')
-    } else {
+    if (!indicator.hasClass('active')) {
         indicator.first().addClass("active");
         item.first().addClass("active");
     }
-
-    /*$( "input[type='submit']" ).click(function () {
-        indicator.removeClass("active");
-        item.removeClass("active");
-    })*/
 });
