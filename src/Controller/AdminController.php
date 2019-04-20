@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Controller;
-
 use App\Repository\AlbumRepository;
 use App\Repository\PhotoRepository;
 use App\Repository\UserRepository;
 use Doctrine\Common\Persistence\ObjectManager;
+use Swift_Mailer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -36,9 +36,27 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin/remove/member/{id}", name="admin_remove_member")
      */
-    public function removeMembersAction($id, ObjectManager $manager, UserRepository $userRepository)
+    public function removeMembersAction($id, ObjectManager $manager, UserRepository $userRepository, Swift_Mailer $mailer)
     {
         $userToRemove = $userRepository->find($id);
+
+        $userName = $userToRemove->getUsername();
+        $userEmail = $userToRemove->getEmail();
+
+        $message = (new \Swift_Message('RIP Votre compte Triphotos '))
+            ->setFrom('triphoto.contact@gmail.com')
+            ->setTo($userEmail)
+            ->setBody(
+                $this->renderView(
+                    'emails/remove-member.html.twig',
+                    ['name' => $userName]
+                ),
+                'text/html'
+            )
+        ;
+
+        $mailer->send($message);
+
         $manager->remove($userToRemove);
         $manager->flush();
         return $this->redirectToRoute('admin_members');

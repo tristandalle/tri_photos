@@ -75,7 +75,6 @@ class AlbumController extends AbstractController
     {
         $albumToEdit = $albumRepository->find($id);
         $authorAlbums = $albumToEdit->getAuthor()->getAlbums();
-        dump(count($albumToEdit->getPhotos()));
         if (count($albumToEdit->getPhotos()) == 0) {
 
         }else {

@@ -7,6 +7,7 @@ use App\Entity\User;
 use App\Form\LoginType;
 use App\Form\RegistrationType;
 use Doctrine\Common\Persistence\ObjectManager;
+use Swift_Mailer;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -18,7 +19,7 @@ class SecurityController extends AbstractController
     /**
      * @Route("/inscription", name="security_registration")
      */
-    public function registration(Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder)
+    public function registration(Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder, Swift_Mailer $mailer)
     {
         $user = new User();
 
@@ -31,6 +32,24 @@ class SecurityController extends AbstractController
             $user->setPassword($hash);
             $manager->persist($user);
             $manager->flush();
+
+            $userEmail = $user->getEmail();
+            $userName = $user->getUsername();
+
+            $message = (new \Swift_Message('Bienvenue sur Triphotos !'))
+                ->setFrom('triphoto.contact@gmail.com')
+                ->setTo($userEmail)
+                ->setBody(
+                    $this->renderView(
+                    // templates/emails/registration.html.twig
+                        'emails/registration.html.twig',
+                        ['name' => $userName]
+                    ),
+                    'text/html'
+                )
+            ;
+
+            $mailer->send($message);
 
             return $this->redirectToRoute('security_login');
         }

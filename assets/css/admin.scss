@@ -49,19 +49,6 @@
         text-align: center;
       }
 
-      a{
-        color: grey;
-
-        &:hover {
-          color: red;
-        }
-
-        &.trash {
-          color: $color-danger;
-
-        }
-      }
-
       table {
         background-color: grey;
 
@@ -86,6 +73,29 @@
             }
           }
         }
+      }
+      .modal-title {
+        color: #FFF;
+      }
+
+      .modal-body {
+        text-align: right;
+
+          .form-group {
+            text-align: left;
+
+            label {
+              color: #FFF;
+            }
+
+            input {
+              width: 100%;
+            }
+
+            textarea {
+              width: 100%;
+            }
+          }
       }
     }
   }
