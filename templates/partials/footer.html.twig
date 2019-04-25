@@ -4,8 +4,39 @@
             <ul>
                 <li><a href="">Comment ça marche ?</a></li>
                 <li><a href="">Conditions générales d'utilisation</a></li>
-                <li><a href="">Nous contacter</a></li>
+                {% if not app.user %}
+                <li><a href="{{ path('security_registration') }}">Créez-vous un compte pour nous contacter</a></li>
+                {% else %}
+                <li><a href="" data-toggle="modal" data-target="#ContactModalCenter">Nous contacter</a></li>
+                <div class="modal fade" id="ContactModalCenter" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Contactez Triphotos</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                {% set currentPath = 'footer' %}
+                                <form action="{{ path('mailer_contact', {'from' :app.user.id, 'to' :'triphoto.contact@gmail.com', 'currentPath' : currentPath }) }}" method="post">
+                                    <div class="form-group">
+                                        <label for="subject">Objet du message :</label>
+                                        <input type="text" name="subject" id="subject">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="content">Votre message :</label>
+                                        <textarea name="content" id="content" cols="30" rows="10"></textarea>
+                                    </div>
+                                    <button class="btn btn-danger" data-dismiss="modal">Annuler</button>
+                                    <button class="btn btn-success" type="submit">Envoyer</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <li><a href="{{ path('admin_home') }}">Admin</a></li>
+                {% endif %}
             </ul>
         </div>
         <div class="footer-rs">

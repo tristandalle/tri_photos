@@ -1,0 +1,11 @@
+{# templates/emails/registration.html.twig #}
+<h3>Hello <b>{{ name }}</b> ! C'est tout bon ! Tu es inscrit !</h3>
+
+<p>Bravo ! Tu as maintenant un compte <a href="{{ path('home_welcome') }}"><b>Triphotos</b></a></p>
+{# example, assuming you have a route named "login" #}
+<p><a href="{{ path('security_login') }}"><b>Connecte toi</b></a> et profite de tes photos !</p>
+
+<p>Merci !</p>
+
+<p>L'équipe <a href="{{ path('home_welcome') }}"><b>Triphotos</b></a></p>
+{# Makes an absolute URL to the /images/logo.png file #}

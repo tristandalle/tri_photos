@@ -120,6 +120,24 @@ footer {
         list-style: none;
       }
 
+      #ContactModalCenter {
+        .modal-body {
+          text-align: right;
+
+          .form-group {
+            text-align: left;
+
+            input {
+              width: 100%;
+            }
+
+            textarea {
+              width: 100%;
+            }
+          }
+        }
+      }
+
       &.rs-links{
         display: flex;
         height: 100%;
