@@ -52,7 +52,6 @@ class MailerController extends AbstractController
         $content = $request->request->get('content');
         $fileToSend = $photoRepository->find($photoId)->getFile();
         $fileName = $photoRepository->find($photoId)->getOriginalName();
-        $albumId = $photoRepository->find($photoId)->getAlbum()->getId();
         $attachment =  Swift_Attachment::fromPath('C:\wamp64\www\P9\TriPhotos\assets\uploads\images\thumbnails\mini_'.$fileToSend)
             ->setFilename($fileName)
             ->setDisposition('inline');
@@ -82,6 +81,7 @@ class MailerController extends AbstractController
             $returnPath = 'image_all_photos';
             return $this->redirectToRoute($returnPath);
         } elseif ($currentPath == 'one-album') {
+            $albumId = $photoRepository->find($photoId)->getAlbum()->getId();
             $returnPath = 'album_one_album';
             return $this->redirectToRoute($returnPath, [
                 "id" => $albumId

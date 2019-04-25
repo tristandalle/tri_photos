@@ -5,13 +5,11 @@
      <section id="all-photos">
 
          {% for message in app.flashes('notice') %}
-             <div class="container flash-message">
-                 <div class="alert alert-success alert-dismissible fade show" role="alert">
-                     {{ message }}
-                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                         <span class="inherit-color" aria-hidden="true">&times;</span>
-                     </button>
-                 </div>
+             <div id="flash-message" class="container alert alert-success alert-dismissible fade show" role="alert">
+                 {{ message }}
+                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                     <span class="inherit-color" aria-hidden="true">&times;</span>
+                 </button>
              </div>
          {% endfor %}
 

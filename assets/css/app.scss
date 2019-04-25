@@ -102,6 +102,15 @@ section {
       padding: 2rem;
     }
   }
+
+  #flash-message {
+    &.alert-success {
+      background-color: $color-success;
+    }
+    span {
+      color: #FFF;
+    }
+  }
 }
 
 
