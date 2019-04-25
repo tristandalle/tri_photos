@@ -71,6 +71,29 @@
             }
           }
 
+          a.link-send-photo {
+            position: absolute;
+            display: flex;
+            top: 0.5rem;
+            right: 0.5rem;
+            height: 2rem;
+            width: 2rem;
+            align-items: center;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,.2);
+            text-decoration: none;
+
+            i{
+              margin: auto;
+            }
+
+            &:hover {
+              i{
+                color: $color-info;
+              }
+            }
+          }
+
           .rating {
             position: absolute;
             bottom: 0.5rem;
@@ -180,6 +203,24 @@
 
       .container-photo:hover .hover-photo {
         display: block;
+      }
+
+      .SendFileModal {
+        .modal-body {
+          text-align: right;
+
+          .form-group {
+            text-align: left;
+
+            input {
+              width: 100%;
+            }
+
+            textarea {
+              width: 100%;
+            }
+          }
+        }
       }
     }
 
