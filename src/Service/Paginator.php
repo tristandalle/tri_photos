@@ -3,12 +3,19 @@
 namespace App\Service;
 
 use Doctrine\Common\Persistence\ObjectManager;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class Paginator {
+class Paginator extends AbstractController{
     private $entityClass;
     private $limit = 10;
     private $currentPage = 1;
     private $manager;
+    private $where = [];
+
+    public function setWhere($whereArray)
+    {
+        $this->where = $whereArray;
+    }
 
     public function __construct(ObjectManager $manager)
     {
@@ -20,7 +27,7 @@ class Paginator {
         $offset = $this->currentPage * $this->limit - $this->limit;
 
         $repository = $this->manager->getRepository($this->entityClass);
-        $data = $repository->findBy([], [], $this->limit, $offset);
+        $data = $repository->findBy($this->where, [], $this->limit, $offset);
 
         return $data;
     }
@@ -28,7 +35,17 @@ class Paginator {
     public function getPages()
     {
         $repository = $this->manager->getRepository($this->entityClass);
-        $total = count($repository->findAll());
+        $total = count($repository->findBy($this->where));
+        $pages = ceil($total / $this->limit);
+
+        return $pages;
+    }
+
+    public function getPagesWithAuthor()
+    {
+        $repository = $this->manager->getRepository($this->entityClass);
+        $currentUser = $this->getUser();
+        $total = count($repository->findBy(['author' => $currentUser]));
         $pages = ceil($total / $this->limit);
 
         return $pages;

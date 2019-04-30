@@ -27,7 +27,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/members{page<\d+>?1}", name="admin_members")
+     * @Route("/admin/members/{page<\d+>?1}", name="admin_members")
      */
     public function adminMembersAction($page, Paginator $paginator)
     {

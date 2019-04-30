@@ -6,6 +6,7 @@ use App\Entity\Photo;
 use App\Form\PhotoType;
 use App\Repository\AlbumRepository;
 use App\Repository\PhotoRepository;
+use App\Service\Paginator;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
@@ -95,16 +96,21 @@ class ImageController extends AbstractController
     }
 
     /**
-     * @Route("/photos/{filter}", defaults={"filter"=0}, name="image_all_photos")
+     * @Route("/photos/{filter}/{page<\d+>?1}", defaults={"filter"=0}, name="image_all_photos")
      */
-    public function showAllPhotosAction($filter, PhotoRepository $photoRepository)
+    public function showAllPhotosAction($filter, $page, Paginator $paginator, PhotoRepository $photoRepository)
     {
         $currentUser = $this->getUser();
-        $photos = $photoRepository->findBy([
-            'author' => $currentUser
-        ]);
+        $paginator->setEntityClass(Photo::class)
+                  ->setCurrentPage($page)
+                  ->setLimit(20)
+                  ->setWhere(['author' => $currentUser]);
+
         return $this->render('image/all-photos.html.twig',[
-            'photos' => $photos,
+            'total' => $photoRepository->findBy(['author' => $this->getUser()]),
+            'photos' => $paginator->getData(),
+            'pages' => $paginator->getPages(),
+            'page' => $page,
             'filter' => $filter
         ]);
     }

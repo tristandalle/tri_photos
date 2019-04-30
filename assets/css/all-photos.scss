@@ -60,12 +60,12 @@
             border-radius: 50%;
             background-color: rgba(255,255,255,.2);
 
-            i{
+            svg {
               margin: auto;
             }
 
             &:hover {
-              i{
+              svg {
                 color: $color-danger;
               }
             }
@@ -83,12 +83,12 @@
             background-color: rgba(255,255,255,.2);
             text-decoration: none;
 
-            i{
+            svg {
               margin: auto;
             }
 
             &:hover {
-              i{
+              svg {
                 color: $color-info;
               }
             }
@@ -225,7 +225,7 @@
     }
 
     .filter {
-      i {
+      svg {
         color: $color-success;
 
         &.drunk {

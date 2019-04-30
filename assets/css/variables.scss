@@ -1,3 +1,14 @@
+@font-face {
+  font-family: 'Luckiest Guy';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Luckiest Guy Regular'), local('LuckiestGuy-Regular'), url(../font/LuckiestGuy-Regular.woff2) format('woff2');
+}
+
+$Luckiest: 'Luckiest Guy';
+
+
+
 $color-success: #00bc8c;
 $color-container: #272B30;
 $color-warning: #f39c12;
