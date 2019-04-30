@@ -1,9 +1,12 @@
 <?php
 
 namespace App\Controller;
+use App\Entity\Photo;
+use App\Entity\User;
 use App\Repository\AlbumRepository;
 use App\Repository\PhotoRepository;
 use App\Repository\UserRepository;
+use App\Service\Paginator;
 use Doctrine\Common\Persistence\ObjectManager;
 use Swift_Mailer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -24,12 +27,18 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/members", name="admin_members")
+     * @Route("/admin/members/{page<\d+>?1}", name="admin_members")
      */
-    public function adminMembersAction(UserRepository $userRepository)
+    public function adminMembersAction($page, Paginator $paginator)
     {
+        $paginator->setEntityClass(User::class)
+                  ->setCurrentPage($page)
+                  ->setLimit(5);
+
         return $this->render('admin/adminMembersView.html.twig', [
-            'users' => $userRepository->findAll()
+            'users' => $paginator->getData(),
+            'pages' => $paginator->getPages(),
+            'page' => $page
         ]);
     }
 
@@ -63,12 +72,17 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/photos", name="admin_photos")
+     * @Route("/admin/photos/{page<\d+>?1}", name="admin_photos")
      */
-    public function adminPhotosAction(PhotoRepository $photoRepository)
+    public function adminPhotosAction($page, Paginator $paginator)
     {
+        $paginator->setEntityClass(Photo::class)
+                  ->setCurrentPage($page);
+
         return $this->render('admin/adminPhotosView.html.twig', [
-            'photos' => $photoRepository->findAll()
+            'photos' => $paginator->getData(),
+            'pages' => $paginator->getPages(),
+            'page' => $page
         ]);
     }
 

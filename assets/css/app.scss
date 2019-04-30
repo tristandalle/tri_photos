@@ -14,7 +14,7 @@ header {
       padding: 1rem 3rem;
 
       .navbar-brand {
-        font-family: 'Luckiest Guy', cursive;
+        font-family: $Luckiest, cursive;
         font-size: 2em;
       }
 
@@ -111,6 +111,11 @@ section {
       color: #FFF;
     }
   }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 
@@ -152,7 +157,7 @@ footer {
         height: 100%;
         align-items: center;
 
-        i{
+        svg{
           font-size: 3em;
           margin: 0 1rem;
         }

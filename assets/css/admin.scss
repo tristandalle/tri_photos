@@ -1,9 +1,9 @@
 @import "variables";
 #admin {
-  background-color: grey;
+  background-color: lightgrey;
 
   nav {
-    background-color: #FFF;
+    background-color: grey;
     color: $color-warning;
 
     h1 {
@@ -12,11 +12,6 @@
 
     a{
       margin-left: auto;
-      color: grey;
-
-      &.active {
-        color: $color-warning;
-      }
 
       &.btn {
         color: #FFF;
@@ -30,7 +25,7 @@
         font-weight: bolder;
       }
 
-      i {
+      svg {
         margin-right: 0.3rem;
       }
     }
@@ -40,8 +35,7 @@
   section {
     .container,
     .container-fluid {
-      background-color: #FFF;
-      color: grey;
+      background-color: grey;
       padding: 2rem;
 
       h2 {
@@ -71,9 +65,20 @@
               opacity: 0;
               transition: visibility 0s, opacity 0.5s linear;
             }
+
+            a {
+              &.trash {
+                color: #FFF;
+
+                &:hover {
+                  color: $color-danger;
+                }
+              }
+            }
           }
         }
       }
+
       .modal-title {
         color: #FFF;
       }

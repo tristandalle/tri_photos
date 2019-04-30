@@ -19,7 +19,7 @@
                              class="fas fa-caret-left"></i> Retour</a>
              </div>
              <h1>Toutes mes photos</h1>
-             <p>{{ photos|length }} photo{% if photos|length > 1 %}s{% endif %}</p>
+             <p>{{ total|length }} photo{% if photos|length > 1 %}s{% endif %}</p>
 
              <div class="container-photos">
                  {% for photo in photos %}
@@ -111,6 +111,9 @@
                      </div>
                  {% endfor %}
              </div>
+             {% if total|length > 20 %}
+                {% include 'partials/pagination.html.twig' with {'route': 'image_all_photos'}%}
+             {% endif %}
              {% if photos|length >= 1 %}
                  <div class="filter">
                      Filtrer :
@@ -139,7 +142,6 @@
                      {% endif %}
                  </div>
              {% endif %}
-
              <div class="buttons">
                  <a class="btn btn-primary" href="{{ path('album_all_albums') }}" type="button">Voir mes albums</a>
                  <a class="btn btn-success" href="{{ path('image_add') }}" type="button">Ajouter des photos</a>
