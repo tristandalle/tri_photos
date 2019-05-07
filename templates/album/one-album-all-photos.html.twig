@@ -1,24 +1,24 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}Diaporama album {{ album.title }}{% endblock %}
+
  {% block body %}
 
      <section id="one-album-all-photos">
          <div class="container">
              {% if album.photos|length == 0 %}
                  <div class="return">
-                     <a href="{{ path('album_all_albums') }}" class="btn btn-warning" type="button"><i class="fas fa-caret-left"></i> Retour</a>
+                     <a href="{{ path('album_all_albums') }}" class="btn btn-warning"><i class="fas fa-caret-left"></i> Mes albums</a>
                  </div>
                  {% else %}
                      <div class="return">
-                         <a href="{{ path('album_one_album', {'id' :album.id}) }}" class="btn btn-warning" type="button"><i class="fas fa-caret-left"></i> Retour</a>
+                         <a href="{{ path('album_one_album', {'id' :album.id}) }}" class="btn btn-warning"><i class="fas fa-caret-left"></i> Retour album {{ album.title }}</a>
                      </div>
              {% endif %}
-             <div class="album-header">
-                 <hr>
-                 <h1>{{ album.title }}</h1>
+             <div class="diaporama-header">
+                 <h1>Diaporama album {{ album.title }}</h1>
                  <p>{{ album.description }}</p>
                  <small>{{ album.photos|length }} photo{% if album.photos|length > 1 %}s{% endif %}</small>
-                 <hr>
              </div>
              {% if album.photos|length == 0 %}
              <p>Cette album est vide, retournez à <a href="{{ path('album_all_albums') }}">vos albums</a></p>
@@ -41,8 +41,8 @@
                                  <a href="{{ path('image_rating', {'id' :albumPhotos.id, 'rating' :3, 'currentPath' :currentPath}) }}"><i class="{% if albumPhotos.rating == 3 %}fas{% else %}far{% endif %} fa-star "></i></a>
                              </div>
                              <div class="edition">
-                                 <a href="" class="btn btn-success" type="button" title="déplacer cette photo dans un autre album" data-toggle="modal" data-target="#ModalCenter{{ albumPhotos.id }}"><i class="fas fa-images"></i></a>
-                                 <a href="" class="btn btn-danger" type="button" title="Supprimer cette photo" data-toggle="modal" data-target="#ConfirmationModalCenter{{ albumPhotos.id }}"><i class="far fa-trash-alt"></i></a>
+                                 <a href="" class="btn btn-primary" title="déplacer cette photo dans un autre album" data-toggle="modal" data-target="#ModalCenter{{ albumPhotos.id }}"><i class="fas fa-images"></i></a>
+                                 <a href="" class="btn btn-danger" title="Supprimer cette photo" data-toggle="modal" data-target="#ConfirmationModalCenter{{ albumPhotos.id }}"><i class="far fa-trash-alt"></i></a>
                              </div>
                          </div>
                          <div class="modal fade" id="ModalCenter{{ albumPhotos.id }}" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">
@@ -88,8 +88,8 @@
                                          </button>
                                      </div>
                                      <div class="modal-body">
-                                         <a href="#" type="button" class="btn btn-warning" data-dismiss="modal">Annuler</a>
-                                         <a href="{{ path('image_remove_photo', {'id' :albumPhotos.id, 'currentPath' :currentPath}) }}" class="btn btn-danger" type="button" title="Supprimer cette photo">Supprimer</a>
+                                         <a href="#" class="btn btn-warning" data-dismiss="modal">Annuler</a>
+                                         <a href="{{ path('image_remove_photo', {'id' :albumPhotos.id, 'currentPath' :currentPath}) }}" class="btn btn-danger" title="Supprimer cette photo">Supprimer</a>
                                      </div>
                                  </div>
                              </div>

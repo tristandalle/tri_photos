@@ -1,41 +1,82 @@
 {% extends 'baseAdmin.html.twig' %}
 
 {% block body %}
-    <section>
+
+    <section id="admin">
         <div class="container-fluid">
             <h2>Liste des photos</h2>
             <table class="table table-hover">
                 <thead>
-                <tr>
+                <tr class="table-primary">
                     <th>Id</th>
-                    <th>Miniature</th>
+                    <th class="col-miniature">Miniature</th>
                     <th>Nom du fichier</th>
                     <th>Membre</th>
-                    {#<th>Album</th>#}
+                    <th>Album</th>
                     <th>Note</th>
                     <th class="text-center">Action</th>
                 </tr>
                 </thead>
                 <tbody>
                 {% for photo in photos %}
-                    <tr>
+                    <tr class="table-light">
                         <td>{{ photo.id }}</td>
-                        <td>
-                            <img src="{{ path('file_download', {'id' :photo.id}) }}" alt="" class="miniature">
-                            <img src="{{ path('file_download', {'id' :photo.id}) }}" alt="" class="preview">
+                        <td class="col-miniature">
+                            <a href="" title="cliquer pour voir en grand cette photo" data-toggle="modal"
+                               data-target="#PreviewModalCenter{{ photo.id }}"><img src="{{ path('file_download', {'id' :photo.id}) }}" alt="" class="miniature"></a>
                         </td>
                         <td>{{ photo.originalName }}</td>
                         <td>{{ photo.author.username }}</td>
-                        {#<td>{{ photo.album.title }}</td>#}
+                        {% if photo.album == null %}
+                        <td>non classée</td>
+                        {% else %}
+                        <td>{{ photo.album.title }}</td>
+                        {% endif %}
                         <td>{{ photo.rating }}</td>
                         <td class="text-center">
-                            <a href="{{ path('admin_remove_photo', {'id' :photo.id}) }}" class="trash"><i class="fas fa-trash-alt"></i></a>
+                            <a href="" class="btn btn-danger" title="Supprimer cette photo" data-toggle="modal"
+                               data-target="#ConfirmationModalCenter{{ photo.id }}"><i class="fas fa-trash-alt"></i></a>
                         </td>
                     </tr>
+                    <div class="modal fade" id="ConfirmationModalCenter{{ photo.id }}" tabindex="-1" role="dialog"
+                         aria-labelledby="ModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Êtes-vous sûr de vouloir
+                                        supprimer cette photo : "{{ photo.originalName }}" de "{{ photo.author.username }}"</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <a href="" class="btn btn-warning" data-dismiss="modal">Annuler</a>
+                                    <a href="{{ path('admin_remove_photo', {'id' :photo.id}) }}" class="btn btn-danger"
+                                       title="Supprimer cette photo">Supprimer</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="PreviewModalCenter{{ photo.id }}" tabindex="-1" role="dialog"
+                         aria-labelledby="ModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered PreviewModalCenter" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">photo "{{ photo.originalName }}" de "{{ photo.author.username }}"</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <img src="{{ path('file_download', {'id' :photo.id}) }}" alt="" class="preview">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 {% endfor %}
                 </tbody>
             </table>
-            {% include 'partials/pagination.html.twig' with {'route': 'admin_photos'}%}
+            {% include 'partials/pagination.html.twig' with {'route': 'admin_photos'} %}
         </div>
 
     </section>

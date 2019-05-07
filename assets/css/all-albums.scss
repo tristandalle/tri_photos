@@ -1,6 +1,12 @@
 @import "variables";
+
 #all-albums {
+  background-color: #FFF;
+
   .container {
+    h1 {
+      color: $primary;
+    }
 
     .card-container {
       display: flex;
@@ -11,11 +17,15 @@
         width: 20rem;
         border: none;
         border-radius: 0;
-        box-shadow: 0 0 0 0.1rem #FFF;
+        box-shadow: 0 0 0 0.1rem #000;
         margin-bottom: 2rem;
 
-        .body-carousel {
-          background-color: $color-container;
+        @media (max-width: $lg) {
+          width: 30rem;
+        }
+
+        .card-body {
+          background-color: #000;
         }
 
         .empty-album, .cover-album {
@@ -32,8 +42,6 @@
             svg {
               font-size: 3em;
             }
-
-
 
             img {
               width: inherit;
@@ -65,9 +73,9 @@
       }
     }
 
-    .carousel-item{
+    .carousel-item {
       background-color: #000;
-      img{
+      img {
         height: 13.3rem;
         margin: auto;
       }
@@ -115,7 +123,7 @@
         width: 6px;
         height: 6px;
         border-radius: 50%;
-        background: $color-success;
+        background: $primary;
         margin: -3px 0 0 -3px;
       }
       .lds-roller div:nth-child(1) {

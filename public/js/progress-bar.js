@@ -43,11 +43,12 @@ htmlForm.submit(function (e) {
             opacity : '0'
         });
         progressPercent.show('slow').html('<i class="fas fa-check"></i><br>Transfert terminé avec succès !').css({
-            color : '#00bc8c',
+            color : '#3399F3',
             fontSize : '2em'
         });
         redirectionLinks.delay(1000).fadeIn("slow");
     }
+    console.log(form);
     htmlForm.hide();
     xhr.send(form);
 });

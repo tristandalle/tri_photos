@@ -23,13 +23,11 @@ class ImageController extends AbstractController
     {
         $form = $this->createForm(PhotoType::class);
         $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid())
-        {
+        if ($form->isSubmitted() && $form->isValid()) {
             $files = $form->get('file')->getData();
 
             foreach ($files as $file) {
-                if ($file->getMimeType() != "image/jpeg" && $file->getMimeType() !="image/jpg" && $file->getMimeType() !="image/png") {
+                if ($file->getMimeType() != "image/jpeg" && $file->getMimeType() != "image/jpg" && $file->getMimeType() != "image/png") {
                     $errorFileFormat = 'Le format du fichier : ' . $file->getClientOriginalName() . ' n\'est pas accepté.';
                 }
                 if (isset($errorFileFormat)) {
@@ -37,7 +35,7 @@ class ImageController extends AbstractController
                 }
             }
             if (isset($errorsFileFormat)) {
-                return $this->render('image/add-photo.html.twig', [
+                return $this->render('photos/add-photo.html.twig', [
                     'formPhoto' => $form->createView(),
                     'errorsFileFormat' => $errorsFileFormat
                 ]);
@@ -51,7 +49,7 @@ class ImageController extends AbstractController
                 }
                 $photo->setAuthor($this->getUser());
                 $photo->setOriginalName($file->getClientOriginalName());
-                $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
+                $fileName = $this->generateUniqueFileName() . '.' . $file->guessExtension();
                 try {
                     $file->move(
                         $this->getParameter('images_directory'),
@@ -61,19 +59,19 @@ class ImageController extends AbstractController
                     // ... handle exception if something happens during file upload
                 }
                 Image::configure(array('driver' => 'gd'));
-                $img = Image::make($this->getParameter('images_directory')."/". $fileName)->orientate();
+                $img = Image::make($this->getParameter('images_directory') . "/" . $fileName)->orientate();
                 $img->resize(null, 600, function ($constraint) {
                     $constraint->aspectRatio();
                 });
-                $img->save($this->getParameter('thumbnails_directory')."/mini_". $fileName);
+                $img->save($this->getParameter('thumbnails_directory') . "/mini_" . $fileName);
                 $photo->setFile($fileName);
                 $manager->persist($photo);
             }
-                $manager->flush();
+            $manager->flush();
 
             return $this->redirectToRoute('image_all_photos');
         }
-        return $this->render('image/add-photo.html.twig', [
+        return $this->render('photos/add-photo.html.twig', [
             'formPhoto' => $form->createView()
         ]);
     }
@@ -91,7 +89,7 @@ class ImageController extends AbstractController
     function downloadForDisplayPhoto($id, PhotoRepository $photoRepository)
     {
         $fileName = $photoRepository->find($id)->getFile();
-        $filePath = $this->getParameter('thumbnails_directory'). '/mini_'.$fileName;
+        $filePath = $this->getParameter('thumbnails_directory') . '/mini_' . $fileName;
         return $this->file($filePath);
     }
 
@@ -102,11 +100,11 @@ class ImageController extends AbstractController
     {
         $currentUser = $this->getUser();
         $paginator->setEntityClass(Photo::class)
-                  ->setCurrentPage($page)
-                  ->setLimit(20)
-                  ->setWhere(['author' => $currentUser]);
+            ->setCurrentPage($page)
+            ->setLimit(20)
+            ->setWhere(['author' => $currentUser]);
 
-        return $this->render('image/all-photos.html.twig',[
+        return $this->render('photos/all-photos.html.twig', [
             'total' => $photoRepository->findBy(['author' => $this->getUser()]),
             'photos' => $paginator->getData(),
             'pages' => $paginator->getPages(),
@@ -129,12 +127,11 @@ class ImageController extends AbstractController
             'author' => $currentUser
         ]);
         $author = $allUserPhotos[0]->getAuthor();
-        if ($currentUser != $author)
-        {
+        if ($currentUser != $author) {
             http_response_code(401);
             die();
         }
-        return $this->render('image/one-photo.html.twig', [
+        return $this->render('photos/one-photo.html.twig', [
             'photo' => $photoToEdit,
             'allphotos' => $allUserPhotos,
             'albums' => $userAlbums
@@ -200,7 +197,7 @@ class ImageController extends AbstractController
     /**
      * @Route("/remove_album/{id}/{albumId}", name="image_remove_to_album")
      */
-    public function removePhotoToAlbumAction($id,PhotoRepository $photoRepository, ObjectManager $manager, $albumId)
+    public function removePhotoToAlbumAction($id, PhotoRepository $photoRepository, ObjectManager $manager, $albumId)
     {
         $photoToRemoveFromAlbum = $photoRepository->find($id);
         $photoToRemoveFromAlbum->setAlbum(null);
@@ -236,11 +233,11 @@ class ImageController extends AbstractController
             return $this->redirectToRoute('image_one_photo', [
                 'id' => $id
             ]);
-        } elseif ($currentPath == 'album'){
+        } elseif ($currentPath == 'album') {
             return $this->redirectToRoute('album_one_album', [
                 'id' => $idCurrentAlbum
             ]);
-        } elseif ($currentPath == 'albumAllPhotos'){
+        } elseif ($currentPath == 'albumAllPhotos') {
             return $this->redirectToRoute('album_one_album_all_photos', [
                 'id' => $idCurrentAlbum,
                 'photoId' => $currentPhoto

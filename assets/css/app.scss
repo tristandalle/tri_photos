@@ -1,6 +1,64 @@
 @import url('./bootstrap.min.css');
 @import "variables";
 
+html {
+  height: 100%;
+
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+
+    section {
+      flex: 1 0 auto;
+      margin-top: 7rem;
+    }
+
+    footer {
+      flex-shrink: 0;
+    }
+
+    .modal-content {
+      background-color: $secondary;
+
+      span {
+        color: #FFF;
+      }
+      .modal-body {
+        text-align: right;
+
+        p {
+          color: #FFF;
+        }
+
+        .form-group {
+          text-align: left;
+
+          label {
+            color: #FFF;
+          }
+
+          input {
+            width: 100%;
+          }
+
+          textarea {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #FFF;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
 header {
   position: fixed;
   width: 100%;
@@ -8,104 +66,131 @@ header {
   z-index: 4;
 
   nav {
-    background-color: $color-container;
-
     &.navbar {
       padding: 1rem 3rem;
 
       .navbar-brand {
         font-family: $Luckiest, cursive;
-        font-size: 2em;
+        font-size: 3em;
+        color: $primary;
+
+        @media all and (max-width: $lg) {
+          padding-left: 56px;
+        }
+
+        &:hover {
+          span {
+            color: $primary;
+          }
+        }
+
+        span {
+          transition: color ease-in-out .2s;
+          color: #FFF;
+        }
+
+        @media all and (max-width: $lg) {
+          margin: auto;
+        }
+      }
+
+      .icon-user {
+        font-size: 1.2em;
+        transition: color ease-in-out .2s;
+
+        &.active {
+          color: $primary;
+        }
       }
 
       .navbar-nav {
         width: 100%;
         align-items: center;
 
+        @media all and (max-width: $lg) {
+          align-items: flex-end;
+        }
+
         .connexion {
           margin-left: auto;
 
-          @media (max-width: 991px) {
+          @media all and (max-width: $lg) {
             margin-left: initial;
           }
         }
 
-        .dropdown {
+        .deconnexion-mobile {
+          display: none;
+
+          @media all and (max-width: $lg) {
+            display: block;
+          }
+        }
+
+        .nav-item.dropdown {
           margin-left: auto;
+          font-size: 1.2em;
 
-          @media (max-width: 991px) {
-            margin-left: initial;
+          @media all and (max-width: $lg) {
+            display: none;
           }
 
-          .nav-link {
-            font-size: 1.5em;
-            font-weight: bold;
-            color: $color-success;
-          }
+          #navbarDropdown {
+            color: $primary;
 
-          .dropdown-menu {
-            left: initial;
-            right: 0;
+            &:hover {
+              color: #FFF;
+
+              .icon-user {
+                color: #FFF;
+              }
+            }
           }
+        }
+
+        .btn-deconnexion {
+          text-align: center;
+          color: #FFF;
+          right: 0;
+          left: inherit;
         }
       }
     }
-
-
   }
 }
 
 section {
-  margin: 10rem auto;
-
   .container {
     padding: 2rem;
-    background-color: #272B30;
     text-align: center;
+
+    @media all and (max-width: $lg) {
+      min-width: 100%;
+    }
 
     .return {
       text-align: left;
     }
 
-    h1 {
-      text-align: center;
-      color: #FFF;
-      margin-bottom: 2rem;
-
-      span {
-        color: #FFF;
-      }
-    }
-
-    a {
-      color: #FFF;
-    }
-
-    span{
-      color: #3498db;
+    span {
+      color: $info;
     }
 
     strong {
       font-family: 'Luckiest Guy', cursive;
-      color: #3498db;
     }
 
     hr {
-      border-color: #3498db;
+      border-color: $info;
     }
 
     .container-form {
       margin: auto;
     }
-
-    .container-section {
-      padding: 2rem;
-    }
   }
 
   #flash-message {
     &.alert-success {
-      background-color: $color-success;
     }
     span {
       color: #FFF;
@@ -118,14 +203,17 @@ section {
   }
 }
 
-
-
 footer {
-  background-color: $color-container;
+  background-image: linear-gradient(#bfbfbf, #999 50%, #8f8f8f);
   padding: 1rem 3rem;
 
   .row {
     justify-content: space-around;
+
+    @media all and (max-width: $lg) {
+      flex-direction: column;
+      text-align: center;
+    }
 
     ul {
       padding: 0;
@@ -152,14 +240,24 @@ footer {
         }
       }
 
-      &.rs-links{
+      &.rs-links {
         display: flex;
         height: 100%;
         align-items: center;
 
-        svg{
-          font-size: 3em;
-          margin: 0 1rem;
+        @media all and (max-width: $lg) {
+          justify-content: center;
+        }
+
+        a {
+          &:hover {
+            color: $info;
+          }
+
+          i, svg {
+            font-size: 3em;
+            margin: 0 1rem;
+          }
         }
       }
     }
@@ -167,11 +265,14 @@ footer {
       color: #FFF;
 
       &:hover {
-        color: $color-success;
+        text-decoration: none;
+        color: #000;
       }
     }
 
-
+    .footer-copyright {
+      color: $primary;
+    }
   }
 }
 

@@ -1,28 +1,34 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<section id="home">
-    <div class="container">
-
-            <h1 class="display-3">Votre gallerie <a href="{{ path('home_welcome') }}"><strong>TriPhotos</strong></a></h1>
-            <hr>
-            <h2><span>{{ app.user.username() }}</span></h2>
-            <hr>
-            <ul>
-                <p>Vous avez actuellement :</p>
-                <li>
-                    <span>{{ app.user.photos|length }}</span> photo{% if app.user.photos|length > 1 %}s{% endif %}
-                </li>
-                <li>
-                    <span>{{ app.user.albums|length }}</span> album{% if app.user.albums|length > 1 %}s{% endif %}
-                </li>
-            </ul>
-        <hr>
-        <div class="buttons">
-            <a href="{{ path('image_all_photos') }}" type="button" class="btn btn-info">Vos photos</a>
-            <a href="{{ path('album_all_albums') }}" type="button" class="btn btn-primary">Vos albums</a>
-            <a href="{{ path('image_add') }}" type="button" class="btn btn-success" >Ajouter des photos</a>
+    <section id="home">
+        <div class="container">
+            <h1>Welcome !</h1>
+            {% if not app.user %}
+                <h2>Triez vos photos pour mieux en profiter !</h2>
+                <hr>
+                <div class="container-section">
+                    <a href="{{ path('security_registration') }}" class="btn btn-outline-info">Inscription</a>
+                </div>
+            {% else %}
+                <h2><span>{{ app.user.username() }}</span></h2>
+                <hr>
+                <ul>
+                    <p>Actuellement :</p>
+                    <li>
+                        <span>{{ app.user.photos|length }}</span> photo{% if app.user.photos|length > 1 %}s{% endif %}
+                    </li>
+                    <li>
+                        <span>{{ app.user.albums|length }}</span> album{% if app.user.albums|length > 1 %}s{% endif %}
+                    </li>
+                </ul>
+                <hr>
+                <div class="buttons">
+                    <a href="{{ path('image_all_photos') }}" class="btn btn-info">Vos photos</a>
+                    <a href="{{ path('album_all_albums') }}" class="btn btn-primary">Vos albums</a>
+                    <a href="{{ path('image_add') }}" class="btn btn-secondary">Ajouter des photos</a>
+                </div>
+            {% endif %}
         </div>
-    </div>
-</section>
+    </section>
 {% endblock %}

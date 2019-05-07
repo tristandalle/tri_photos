@@ -1,106 +1,60 @@
 @import "variables";
-#admin {
-  background-color: lightgrey;
 
-  nav {
-    background-color: grey;
-    color: $color-warning;
-
-    h1 {
-      font-family: 'Luckiest Guy', cursive;
-    }
-
-    a{
-      margin-left: auto;
-
-      &.btn {
-        color: #FFF;
-
-        &:hover {
-          font-weight: normal;
-        }
-      }
+.header-admin {
+  .navbar {
+    .navbar-brand {
+      color: $secondary;
 
       &:hover {
-        font-weight: bolder;
-      }
+        color: $danger;
 
-      svg {
-        margin-right: 0.3rem;
-      }
-    }
-
-  }
-
-  section {
-    .container,
-    .container-fluid {
-      background-color: grey;
-      padding: 2rem;
-
-      h2 {
-        font-family: 'Luckiest Guy', cursive;
-        text-align: center;
-      }
-
-      table {
-        background-color: grey;
-
-        tr {
-          &:hover {
-            background-color: #000;
-          }
-
-          td {
-            .miniature {
-              height: 4rem;
-
-              &:hover + .preview{
-                opacity: 1;
-              }
-            }
-
-            .preview {
-              position: absolute;
-              opacity: 0;
-              transition: visibility 0s, opacity 0.5s linear;
-            }
-
-            a {
-              &.trash {
-                color: #FFF;
-
-                &:hover {
-                  color: $color-danger;
-                }
-              }
-            }
-          }
+        span {
+          color: $secondary;
         }
       }
 
-      .modal-title {
-        color: #FFF;
+      span {
+        color: $danger;
       }
+    }
 
-      .modal-body {
-        text-align: right;
+    i, svg {
+      margin-right: 0.5rem;
+    }
+    .btn-exit-admin {
+      margin-left: auto;
+    }
+  }
+}
 
-          .form-group {
-            text-align: left;
+#admin {
+  background-color: $gray-900;
 
-            label {
-              color: #FFF;
-            }
+  .container, .container-fluid {
+    margin: 5rem auto;
+  }
 
-            input {
-              width: 100%;
-            }
+  .col-miniature {
+    text-align: center;
 
-            textarea {
-              width: 100%;
-            }
-          }
+    .miniature {
+      max-height: 5rem;
+    }
+  }
+
+  .PreviewModalCenter {
+    min-width: 50%;
+
+    h5 {
+      width: 100%;
+    }
+
+    .modal-body {
+      text-align: center;
+
+      img {
+        max-width: 100%;
+        max-height: 100%;
       }
     }
   }

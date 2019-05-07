@@ -1,14 +1,28 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}Créer un album{% endblock %}
+
+{% form_theme formAlbum 'bootstrap_4_layout.html.twig' %}
+
 {% block body %}
 
-<section id="add-album">
-    <div class="container">
-        {{ form_start(formAlbum) }}
-        {{ form_widget(formAlbum) }}
-        <button type="submit" class="btn btn-success">Valider</button>
-        {{ form_end(formAlbum) }}
-    </div>
-</section>
+    <section id="add-album">
+        <div class="container">
+            <div class="return">
+                <a href="{{ path('home') }}" class="btn btn-warning"><i class="fas fa-home"></i></a>
+            </div>
+            <h1>Créer un album</h1>
+            <hr>
+            <div class="container-form col-lg-6">
+                {{ form_start(formAlbum) }}
+                {{ form_row(formAlbum.title, {'label':'Titre', 'attr' : {'placeholder':'titre de l\'album ...'}}) }}
+                {{ form_row(formAlbum.description, {'label':'Description', 'attr' : {'placeholder':'vous pouvez donner une courte description de l\'album ...'}}) }}
+            </div>
+            <div class="submit">
+                <button type="submit" class="btn btn-success">Valider</button>
+            </div>
+            {{ form_end(formAlbum) }}
+        </div>
+    </section>
 
 {% endblock %}

@@ -1,36 +1,43 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}Connexion TriPhotos{% endblock %}
+
 {% block body %}
 
-<section id="login">
-    <div class="container">
-        <div class="return">
-            <a href="{{ path('home_welcome') }}" class="btn btn-warning" type="button"><i class="fas fa-caret-left"></i> Retour</a>
-        </div>
-        <h1>Connexion</h1>
-        <div class="container-form col-6">
-            <form action="{{ path('security_login') }}" method="post">
-                <div class="form-group">
-                    <input type="email" required name="_username" id="email" class="form-control" placeholder="Adresse email ..." value="{{ last_username }}">
+    <section id="login">
+        <div class="container">
+            <div class="return">
+                <a href="{{ path('home') }}" class="btn btn-warning"><i class="fas fa-home"></i></a>
+            </div>
+            <h1>Connexion</h1>
+            <hr>
+            <div class="container-form col-lg-6">
+                <form action="{{ path('security_login') }}" method="post">
+                    <div class="form-group">
+                        <label for="email">Votre adresse email</label>
+                        <input type="email" required name="_username" id="email" class="form-control"
+                               placeholder="Adresse email ..." value="{{ last_username }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Votre mot de passe</label>
+                        <input type="password" required name="_password" id="password" class="form-control"
+                               placeholder="Mot de passe ...">
+                        <small><a href="">J'ai oublié mon mot de passe...</a></small>
+                    </div>
+                    {% if error %}
+                        <div class="alert alert-danger">Email ou mot de passe incorrect</div>
+                    {% endif %}
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                    <div class="form-group submit">
+                        <button type="submit" class="btn btn-success">Connexion</button>
+                    </div>
+                </form>
+                <div class="container-section">
+                    <label>Pas encore de compte ?</label>
+                    <a href="{{ path('security_registration') }}" class="btn btn-outline-info">Inscription</a>
                 </div>
-                <div class="form-group">
-                    <input type="password" required name="_password" id="password" class="form-control" placeholder="Mot de passe ...">
-                    <small><a href="">J'ai oublié mon mot de passe...</a></small>
-                </div>
-                {% if error %}
-                    <div class="alert alert-danger">Email ou mot de passe incorrect</div>
-                {% endif %}
-                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-                <div class="form-group submit">
-                    <button type="submit" class="btn btn-success">Connexion</button>
-                </div>
-            </form>
-            <div class="container-section">
-                <p>Pas encore de compte ?</p>
-                <a href="{{ path('security_registration') }}" type="button" class="btn btn-primary">Inscrivez-vous</a>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
 {% endblock %}

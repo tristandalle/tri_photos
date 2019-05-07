@@ -1,32 +1,41 @@
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="{{ path('home_welcome') }}">TriPhotos</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="{{ path('home') }}">TriPh<span>o</span>t<span>o</span>s</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03"
+                aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="icon-user {% if app.user %}active{% endif %}"><i class="far fa-user"></i></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarColor03">
             <ul class="navbar-nav">
                 {% if not app.user %}
-                    <li class="connexion"><a class="btn btn-success" type="button" href="{{ path('security_login') }}">Connexion</a></li>
+                    <li class="connexion">
+                        <a class="btn btn-primary" href="{{ path('security_login') }}">Connexion</a>
+                    </li>
                 {% else %}
                     <li class="nav-item">
-                        <a class="nav-link {{ app.request.get('_route') == 'image_all_photos' ? 'active' }}" href="{{ path('image_all_photos') }}">Mes Photos</a>
+                        <a href="{{ path('home') }}" class="nav-link {{ app.request.get('_route') == 'home' ? 'active' }}"><i class="fas fa-home"></i> Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ app.request.get('_route') == 'album_all_albums' ? 'active' }}" href="{{ path('album_all_albums') }}">Mes Albums</a>
+                        <a href="{{ path('image_all_photos') }}" class="nav-link {{ app.request.get('_route') == 'image_all_photos' ? 'active' }}">Mes Photos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ path('album_all_albums') }}" class="nav-link {{ app.request.get('_route') == 'album_all_albums' ? 'active' }}">Mes Albums</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ path('image_add') }}" class="nav-link {{ app.request.get('_route') == 'image_add' ? 'active' }}">Ajouter des photos</a>
+                    </li>
+                    <li class="nav-item deconnexion-mobile">
+                        <a href="{{ path('security_logout') }}" class="btn btn-danger">Déconnexion</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span><i class="far fa-user"></i> {{ app.user.username() }}</span>
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="icon-user active"><i class="far fa-user"></i> {{ app.user.username() }}</span>
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a href="{{ path('home_connected') }}" class="dropdown-item">Mon compte</a>
-                            <a href="{{ path('image_all_photos') }}" class="dropdown-item">Mes Photos</a>
-                            <a href="{{ path('album_all_albums') }}"  class="dropdown-item">Mes Albums</a>
-                            <a href="{{ path('image_add') }}" class="dropdown-item">Ajouter des photos</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{ path('security_logout') }}">Déconnexion</a>
-                        </div>
+                        <a href="{{ path('security_logout') }}" class="dropdown-menu btn btn-deconnexion btn-danger" aria-labelledby="navbarDropdown">Déconnexion</a>
+                        {#<div class="dropdown-menu" aria-labelledby="navbarDropdown">#}
+
+                        {#</div>#}
                     </li>
                 {% endif %}
             </ul>

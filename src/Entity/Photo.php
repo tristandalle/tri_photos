@@ -20,10 +20,10 @@ class Photo
     /**
      * @var string $file
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="Please, upload an image first.")
+     * @Assert\NotBlank(message="Please, upload an photos first.")
      *
      */
-//@Assert\File(mimeTypes={ "image/png", "image/jpeg", "image/jpg" })
+//@Assert\File(mimeTypes={ "photos/png", "photos/jpeg", "photos/jpg" })
     private $file;
 
     /**

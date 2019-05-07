@@ -1,9 +1,25 @@
 @import "variables";
+
 #one-photo {
+  background-color: #FFF;
+
   .container {
+    .return {
+      margin-bottom: 2rem;
+    }
+
+    .diaporama-header {
+      h1 {
+        color: $primary;
+      }
+
+      p {
+        text-align: center;
+      }
+    }
 
     .carousel-item {
-      background-color: black;
+      background-color: #000;
       padding: 5rem 0;
       margin-top: 2rem;
 
@@ -20,7 +36,11 @@
         margin-top: 1rem;
 
         a {
-          color: $color-warning;
+          color: $star;
+
+          &:hover {
+            color: $warning;
+          }
         }
       }
 
@@ -42,11 +62,11 @@
         right: 0;
 
         a {
-          color: $color-warning;
+          color: $warning;
         }
       }
 
-      img{
+      img {
         height: 100%;
       }
     }
@@ -55,7 +75,7 @@
       text-align: left;
     }
 
-    .buttons{
+    .buttons {
       display: flex;
       justify-content: space-between;
 

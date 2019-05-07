@@ -1,6 +1,11 @@
 @import "variables";
+
 #one-album {
   .container {
+    h1 {
+      color: $primary;
+    }
+
     .container-photos {
       display: flex;
       justify-content: space-around;
@@ -26,7 +31,7 @@
           margin-bottom: 2rem;
         }
 
-        img{
+        img {
           height: 100%;
         }
 
@@ -43,12 +48,21 @@
           background-color: rgba(0, 0, 0, 0.5);
           z-index: 3;
 
+          @media (max-width: $lg) {
+            display: block;
+            background: none;
+          }
+
+          small {
+            color: #FFF;
+          }
+
           a.link-photo {
             display: block;
             height: 100%;
           }
 
-          a.link-erase-photo {
+          a.link-remove-photo {
             position: absolute;
             display: flex;
             bottom: 0.5rem;
@@ -60,13 +74,14 @@
             background-color: rgba(255, 255, 255, .2);
             text-decoration: none;
 
-            svg {
+            i, svg {
+              color: #FFF;
               margin: auto;
             }
 
             &:hover {
-              svg {
-                color: $color-warning;
+              i, svg {
+                color: $danger;
               }
             }
           }
@@ -80,16 +95,17 @@
             width: 2rem;
             align-items: center;
             border-radius: 50%;
-            background-color: rgba(255,255,255,.2);
+            background-color: rgba(255, 255, 255, .2);
             text-decoration: none;
 
-            svg {
+            i, svg {
+              color: #FFF;
               margin: auto;
             }
 
             &:hover {
               svg {
-                color: $color-info;
+                color: $info;
               }
             }
           }
@@ -100,7 +116,11 @@
             left: 0.5rem;
 
             a {
-              color: $color-warning;
+              color: $star;
+
+              &:hover {
+                color: $warning;
+              }
             }
           }
         }
@@ -131,7 +151,7 @@
             width: 6px;
             height: 6px;
             border-radius: 50%;
-            background: $color-success;
+            background: $primary;
             margin: -3px 0 0 -3px;
           }
           .lds-roller div:nth-child(1) {
@@ -224,10 +244,20 @@
       }
     }
 
-    .buttons{
+    .buttons {
       display: flex;
-      justify-content: flex-end;
+      justify-content: space-between;
       margin-top: 2rem;
+
+      @media (max-width: $lg) {
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .btn {
+        width: 20rem;
+        margin: 1rem auto;
+      }
     }
   }
 }

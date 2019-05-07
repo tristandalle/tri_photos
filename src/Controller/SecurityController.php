@@ -27,7 +27,7 @@ class SecurityController extends AbstractController
 
         $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()){
+        if ($form->isSubmitted() && $form->isValid()) {
             $hash = $encoder->encodePassword($user, $user->getPassword());
             $user->setPassword($hash);
             $manager->persist($user);
@@ -40,14 +40,11 @@ class SecurityController extends AbstractController
                 ->setFrom('triphoto.contact@gmail.com')
                 ->setTo($userEmail)
                 ->setBody(
-                    $this->renderView(
-                    // templates/emails/registration.html.twig
-                        'emails/registration.html.twig',
+                    $this->renderView('emails/registration.html.twig',
                         ['name' => $userName]
                     ),
                     'text/html'
-                )
-            ;
+                );
 
             $mailer->send($message);
 
@@ -78,6 +75,6 @@ class SecurityController extends AbstractController
      */
     public function logout()
     {
-        return $this->redirectToRoute('home_welcome');
+        return $this->redirectToRoute('home');
     }
 }
