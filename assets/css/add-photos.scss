@@ -1,5 +1,8 @@
 @import "variables";
+
 #add-photo {
+  background-color: #000;
+
   .container {
     form {
       .custom-file {
@@ -53,7 +56,6 @@
       }
     }
 
-
     ///////
     .lds-roller {
       //display: inline-block;
@@ -73,7 +75,7 @@
       width: 6px;
       height: 6px;
       border-radius: 50%;
-      background: $color-success;
+      background: $primary;
       margin: -3px 0 0 -3px;
     }
     .lds-roller div:nth-child(1) {

@@ -1,14 +1,14 @@
 {% extends 'baseAdmin.html.twig' %}
 
 {% block body %}
-    <section>
+
+    <section id="admin">
         <div class="container">
             <h2>Stats</h2>
             <p><a href="{{ path('admin_members') }}">{{ users|length }} membres</a></p>
             <p><a href="{{ path('admin_photos') }}">{{ photos|length }} photos uploadées</a></p>
-            <p>{{ albums|length }} albums créés</p>
+            <p><a href="">{{ albums|length }} albums créés</a></p>
         </div>
-
     </section>
 
 {% endblock %}

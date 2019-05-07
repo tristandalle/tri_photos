@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controller;
+
 use App\Entity\Photo;
 use App\Entity\User;
 use App\Repository\AlbumRepository;
@@ -32,8 +33,8 @@ class AdminController extends AbstractController
     public function adminMembersAction($page, Paginator $paginator)
     {
         $paginator->setEntityClass(User::class)
-                  ->setCurrentPage($page)
-                  ->setLimit(5);
+            ->setCurrentPage($page)
+            ->setLimit(5);
 
         return $this->render('admin/adminMembersView.html.twig', [
             'users' => $paginator->getData(),
@@ -61,8 +62,7 @@ class AdminController extends AbstractController
                     ['name' => $userName]
                 ),
                 'text/html'
-            )
-        ;
+            );
 
         $mailer->send($message);
 
@@ -77,7 +77,7 @@ class AdminController extends AbstractController
     public function adminPhotosAction($page, Paginator $paginator)
     {
         $paginator->setEntityClass(Photo::class)
-                  ->setCurrentPage($page);
+            ->setCurrentPage($page);
 
         return $this->render('admin/adminPhotosView.html.twig', [
             'photos' => $paginator->getData(),

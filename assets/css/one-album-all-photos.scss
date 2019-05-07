@@ -1,4 +1,5 @@
 @import "variables";
+
 #one-album-all-photos {
   .container {
 
@@ -6,11 +7,14 @@
       margin-bottom: 2rem;
     }
 
-    .album-header {
-      p{
-        text-align: center;
+    .diaporama-header {
+      h1 {
+        color: $primary;
       }
 
+      p {
+        text-align: center;
+      }
     }
 
     .carousel-item {
@@ -31,7 +35,11 @@
         margin-top: 1rem;
 
         a {
-          color: $color-warning;
+          color: $star;
+
+          &:hover {
+            color: $warning;
+          }
         }
       }
 
@@ -64,7 +72,7 @@
         width: 6px;
         height: 6px;
         border-radius: 50%;
-        background: $color-success;
+        background: $primary;
         margin: -3px 0 0 -3px;
       }
       .lds-roller div:nth-child(1) {
@@ -133,49 +141,8 @@
       }
     }
 
-    .container-one-photo {
-      position: relative;
-      height: 30rem;
-      display: flex;
-      justify-content: center;
-      margin: 2rem 0;
-
-      .rating {
-        position: absolute;
-        right: 0;
-
-        a {
-          color: $color-warning;
-        }
-      }
-
-      img{
-        height: 100%;
-      }
-    }
-
     p {
       text-align: left;
-    }
-
-    .buttons{
-      display: flex;
-      justify-content: space-between;
-
-      form {
-        label {
-          vertical-align: middle;
-        }
-
-        select {
-          height: 100%;
-        }
-
-        .btn {
-          height: 100%;
-          vertical-align: baseline;
-        }
-      }
     }
   }
 }

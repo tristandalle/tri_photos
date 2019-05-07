@@ -24,8 +24,7 @@ class AlbumController extends AbstractController
 
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid())
-        {
+        if ($form->isSubmitted() && $form->isValid()) {
             $album->setAuthor($this->getUser());
             $manager->persist($album);
             $manager->flush();
@@ -48,10 +47,10 @@ class AlbumController extends AbstractController
             'author' => $currentUser
         ]);
         $photos = $photoRepository->findBy([
-                'author' => $currentUser
-            ]);
+            'author' => $currentUser
+        ]);
 
-        return $this->render('album/all-albums.html.twig',[
+        return $this->render('album/all-albums.html.twig', [
             'albums' => $albums,
             'photos' => $photos
         ]);
@@ -77,7 +76,7 @@ class AlbumController extends AbstractController
         $authorAlbums = $albumToEdit->getAuthor()->getAlbums();
         if (count($albumToEdit->getPhotos()) == 0) {
 
-        }else {
+        } else {
 
         }
         return $this->render('album/one-album-all-photos.html.twig', [
@@ -96,8 +95,7 @@ class AlbumController extends AbstractController
         $photosFromAlbum = $photoRepository->findBy([
             'album' => $albumToRemove
         ]);
-        foreach ($photosFromAlbum as  $photoFromAlbum)
-        {
+        foreach ($photosFromAlbum as $photoFromAlbum) {
             $photoFromAlbum->setAlbum(null);
         }
         $manager->remove($albumToRemove);

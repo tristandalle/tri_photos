@@ -1,30 +1,33 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}Inscription TriPhotos{% endblock %}
+
 {% form_theme formRegistration 'bootstrap_4_layout.html.twig' %}
 
 {% block body %}
 
-<section id="registration">
-    <div class="container">
-        <div class="return">
-            <a href="{{ path('home_welcome') }}" class="btn btn-warning" type="button"><i class="fas fa-caret-left"></i> Retour</a>
-        </div>
-        <h1>Inscription</h1>
-        <div class="container-form col-6">
-            {{ form_start(formRegistration, {'attr' : {'class':'flex-column'}}) }}
-            {{ form_row(formRegistration.username, {'label':'Votre pseudo', 'attr' : {'placeholder':'pseudo ...'}}) }}
-            {{ form_row(formRegistration.firstname, {'label':'Votre prénom', 'attr' : {'placeholder':'prénom ...'}}) }}
-            {{ form_row(formRegistration.lastname, {'label':'Votre nom', 'attr' : {'placeholder':'nom ...'}}) }}
-            {{ form_row(formRegistration.email, {'label':'Votre adresse email', 'attr' : {'placeholder':'adresse email ...'}}) }}
-            {{ form_row(formRegistration.password, {'label':'Votre mot de passe', 'attr' : {'placeholder':'mot de passe ...'}}) }}
-            {{ form_row(formRegistration.confirm_password, {'label':'Confirmation de votre mot de passe', 'attr' : {'placeholder':'répétez votre mot de passe ...'}}) }}
-            <div class="submit">
-                <button type="submit" class="btn btn-success">Valider</button>
+    <section id="registration">
+        <div class="container">
+            <div class="return">
+                <a href="{{ path('home') }}" class="btn btn-warning"><i class="fas fa-home"></i></a>
             </div>
-            {{ form_end(formRegistration) }}
+            <h1>Inscription</h1>
+            <hr>
+            <div class="container-form col-lg-6">
+                {{ form_start(formRegistration, {'attr' : {'class':'flex-column'}}) }}
+                {{ form_row(formRegistration.username, {'label':'Votre pseudo', 'attr' : {'placeholder':'pseudo ...'}}) }}
+                {{ form_row(formRegistration.firstname, {'label':'Votre prénom', 'attr' : {'placeholder':'prénom ...'}}) }}
+                {{ form_row(formRegistration.lastname, {'label':'Votre nom', 'attr' : {'placeholder':'nom ...'}}) }}
+                {{ form_row(formRegistration.email, {'label':'Votre adresse email', 'attr' : {'placeholder':'adresse email ...'}}) }}
+                {{ form_row(formRegistration.password, {'label':'Votre mot de passe', 'attr' : {'placeholder':'mot de passe ...'}}) }}
+                {{ form_row(formRegistration.confirm_password, {'label':'Confirmation de votre mot de passe', 'attr' : {'placeholder':'répétez votre mot de passe ...'}}) }}
+                <div class="submit">
+                    <button type="submit" class="btn btn-success">Valider</button>
+                </div>
+                {{ form_end(formRegistration) }}
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
 {% endblock %}
 

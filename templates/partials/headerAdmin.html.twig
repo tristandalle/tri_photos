@@ -1,8 +1,13 @@
-<header>
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <h1>TriPhotos</h1>
+<header class="header-admin">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="{{ path('home') }}">TriPh<span>o</span>t<span>o</span>s</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03"
+                aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
         <div class="collapse navbar-collapse" id="navbarColor03">
             <ul class="navbar-nav">
+                {% if  app.user %}
                 <li class="nav-item">
                     <a class="nav-link {{ app.request.get('_route') == 'admin_home' ? 'active' }}" href="{{ path('admin_home') }}"><i class="fas fa-chart-line"></i>Statistiques</a>
                 </li>
@@ -12,8 +17,12 @@
                 <li class="nav-item">
                     <a class="nav-link {{ app.request.get('_route') == 'admin_photos' ? 'active' }}" href="{{ path('admin_photos') }}"><i class="fas fa-images"></i>Gestion des photos</a>
                 </li>
+                {% endif %}
+                <li class="btn-exit-admin">
+                    <a class="btn btn-danger" href="{{ path('security_logout') }}">Quitter le mode admin</a>
+                </li>
             </ul>
         </div>
-        <a class="btn btn-danger" type="button" href="{{ path('security_logout') }}">Quitter le mode admin</a>
+
     </nav>
 </header>

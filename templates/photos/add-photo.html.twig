@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Uploads TriPhotos{% endblock %}
+
+{% form_theme formPhoto 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+
+    <section id="add-photo">
+        <div class="container">
+            <div class="return">
+                <a href="{{ path('home') }}" class="btn btn-warning"><i class="fas fa-home"></i></a>
+            </div>
+            <h1>Ajoutez des photos</h1>
+            <hr>
+            <div class="container-form col">
+                {{ form_start(formPhoto) }}
+                {% if app.user.albums|length != 0 %}
+                <div class="form-group">
+                    <label for="select-album">Voulez-vous ajouter ces photos à l'un de vos albums ? Si oui, lequel
+                        ?</label>
+                    <select name="select-album" id="select-album">
+                        <option value="" selected>Non</option>
+                        {% for album in app.user.albums %}
+                            <option value="{{ album.id }}">Album : {{ album.title }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                {% else %}
+                    <input type="hidden" name="select-album" id="select-album" value="">
+                {% endif %}
+
+                <div class="form-group">
+                    <label for="photo_file" class="required">Choisissez une ou plusieurs photo(s)<br>
+                        <small>(formats acceptés : jpg ou png)</small>
+                    </label>
+                    {% if errorsFileFormat is defined %}
+                        {% for errorFileFormat in errorsFileFormat %}
+                            <p class="alert-danger">
+                                {{ errorFileFormat }}
+                            </p>
+                        {% endfor %}
+                    {% endif %}
+                    {{ form_widget(formPhoto.file) }}
+                </div>
+                <div class="submit">
+                    <button type="submit" class="btn btn-success">Valider</button>
+                </div>
+                {{ form_end(formPhoto) }}
+            </div>
+
+            <p class="tranfert-in-progress">Transfert en cours ...</p>
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                     aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <p class="percent-progress"></p>
+            <div class="lds-roller">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="container-links">
+                <div class="redirection-links">
+                    <a href="{{ path('image_add') }}" class="btn btn-secondary">Ajouter d'autres photos</a>
+                    <a href="{{ path('image_all_photos') }}" class="btn btn-info">Voir mes photos</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+{% endblock %}
+ {% block javascripts %}
+     {{ parent() }}
+     <script src="/js/progress-bar.js"></script>
+ {% endblock %}

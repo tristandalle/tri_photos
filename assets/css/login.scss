@@ -1,12 +1,27 @@
+@import "variables";
+
 #login {
+  background: #000;
+
   small {
     display: block;
     text-align: right;
+
+    a {
+      color: $body-color;
+    }
   }
 
   .submit {
     .btn {
       width: 20rem;
+      margin-top: 2rem;
+    }
+  }
+
+  .container-section {
+    label {
+      display: block;
       margin-top: 2rem;
     }
   }

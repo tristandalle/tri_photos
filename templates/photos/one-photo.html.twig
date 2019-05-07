@@ -1,11 +1,17 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}Diaporama Toutes mes photos{% endblock %}
+
  {% block body %}
 
 <section id="one-photo">
     <div class="container">
         <div class="return">
-            <a href="{{ path('image_all_photos') }}" class="btn btn-warning" type="button"><i class="fas fa-caret-left"></i> Retour</a>
+            <a href="{{ path('image_all_photos') }}" class="btn btn-warning"><i class="fas fa-caret-left"></i> Mes photos</a>
+        </div>
+        <div class="diaporama-header">
+            <h1>Diaporama Toutes mes photos</h1>
+            <small>{{ allphotos|length }} photo{% if allphotos|length > 1 %}s{% endif %}</small>
         </div>
         <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
@@ -25,8 +31,8 @@
                             <a href="{{ path('image_rating', {'id' :userPhotos.id, 'rating' :3, 'currentPath' :currentPath}) }}"><i class="{% if userPhotos.rating == 3 %}fas{% else %}far{% endif %} fa-star "></i></a>
                         </div>
                         <div class="edition">
-                            <a href="" class="btn btn-success" type="button" title="déplacer cette photo dans un album" data-toggle="modal" data-target="#ModalCenter{{ userPhotos.id }}"><i class="fas fa-images"></i></a>
-                            <a href="" class="btn btn-danger" type="button" title="Supprimer cette photo" data-toggle="modal" data-target="#ConfirmationModalCenter{{ userPhotos.id }}"><i class="far fa-trash-alt"></i></a>
+                            <a href="" class="btn btn-primary" title="déplacer cette photo dans un album" data-toggle="modal" data-target="#ModalCenter{{ userPhotos.id }}"><i class="fas fa-images"></i></a>
+                            <a href="" class="btn btn-danger" title="Supprimer cette photo" data-toggle="modal" data-target="#ConfirmationModalCenter{{ userPhotos.id }}"><i class="far fa-trash-alt"></i></a>
                         </div>
                     </div>
                     <div class="modal fade" id="ModalCenter{{ userPhotos.id }}" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">
@@ -73,7 +79,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <button type="button" class="btn btn-warning" data-dismiss="modal">Annuler</button>
-                                    <a href="{{ path('image_remove_photo', {'id' :userPhotos.id, 'currentPath' :currentPath}) }}" class="btn btn-danger" type="button" title="Supprimer cette photo">Supprimer</a>
+                                    <a href="{{ path('image_remove_photo', {'id' :userPhotos.id, 'currentPath' :currentPath}) }}" class="btn btn-danger" title="Supprimer cette photo">Supprimer</a>
                                 </div>
                             </div>
                         </div>

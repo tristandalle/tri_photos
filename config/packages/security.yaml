@@ -26,7 +26,7 @@ security:
 
       logout:
         path: security_logout
-        target: home_welcome
+        target: home
     main:
       anonymous: true
 
@@ -35,12 +35,12 @@ security:
       form_login:
         login_path: security_login
         check_path: security_login
-        default_target_path: home_connected
+        default_target_path: home
         csrf_token_generator: security.csrf.token_manager
 
       logout:
         path: security_logout
-        target: home_welcome
+        target: home
 
       # activate different ways to authenticate
 
