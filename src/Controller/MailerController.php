@@ -3,6 +3,7 @@
 namespace App\Controller;
 use App\Repository\PhotoRepository;
 use App\Repository\UserRepository;
+use Doctrine\Common\Persistence\ObjectManager;
 use Swift_Attachment;
 use Swift_Image;
 use Swift_Mailer;
@@ -10,6 +11,7 @@ use Swift_Message;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Csrf\TokenGenerator\TokenGeneratorInterface;
 
 class MailerController extends AbstractController
 {
@@ -27,7 +29,7 @@ class MailerController extends AbstractController
         } elseif ($currentPath == 'footer') {
             $fromEmail = $userRepository->find($from)->getEmail();
             $toEmail = $to;
-            $returnPath = 'home_connected';
+            $returnPath = 'home';
         }
 
         $message = (new \Swift_Message($subject))
@@ -87,7 +89,49 @@ class MailerController extends AbstractController
                 "id" => $albumId
             ]);
         } else {
-            return $this->redirectToRoute('home_connected');
+            return $this->redirectToRoute('home');
         }
+    }
+
+    /**
+     * @Route("/mailer-password", name="mailer_password")
+     */
+    function sendMailPasswordAction(Request $request, UserRepository $userRepository, TokenGeneratorInterface $tokenGenerator, Swift_Mailer $mailer, ObjectManager $manager)
+    {
+        $requestEmail = $request->request->get('email');
+        $user = $userRepository->findBy(['email' => $requestEmail])[0];
+        if ($user == null) {
+            //gerer erreur pas de compte
+            dump('nulo'); die();
+        }else {
+            $user->setPasswordToken($tokenGenerator->generateToken());
+            $user->setPasswordTokenCreatedAt(new \Datetime());
+            $manager->persist($user);
+            $manager->flush();
+
+            $userEmail = $user->getEmail();
+            $userName = $user->getUsername();
+
+            $message = (new \Swift_Message('Réinitialiser votre mot de passe Triphotos !'))
+                ->setFrom('triphoto.contact@gmail.com')
+                ->setTo($userEmail)
+                ->setBody(
+                    $this->renderView('emails/linkToModifyPassword.html.twig', [
+                        'name' => $userName,
+                        'user' => $user
+                    ]),
+                    'text/html'
+                );
+
+            $mailer->send($message);
+            $this->addFlash(
+                'notice',
+                'Un email vient de vous être envoyé pour réinitialiser votre mot de passe'
+            );
+
+            return $this->redirectToRoute('security_forgot_password');
+
+        }
+
     }
 }

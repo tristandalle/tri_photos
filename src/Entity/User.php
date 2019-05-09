@@ -73,6 +73,16 @@ class User implements UserInterface
      */
     private $userRoles;
 
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $passwordTokenCreatedAt;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $passwordToken;
+
   public function __construct()
     {
         $this->photos = new ArrayCollection();
@@ -251,6 +261,30 @@ class User implements UserInterface
             $this->userRoles->removeElement($userRole);
             $userRole->removeUser($this);
         }
+
+        return $this;
+    }
+
+    public function getPasswordTokenCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->passwordTokenCreatedAt;
+    }
+
+    public function setPasswordTokenCreatedAt(?\DateTimeInterface $passwordTokenCreatedAt): self
+    {
+        $this->passwordTokenCreatedAt = $passwordTokenCreatedAt;
+
+        return $this;
+    }
+
+    public function getPasswordToken(): ?string
+    {
+        return $this->passwordToken;
+    }
+
+    public function setPasswordToken(?string $passwordToken): self
+    {
+        $this->passwordToken = $passwordToken;
 
         return $this;
     }

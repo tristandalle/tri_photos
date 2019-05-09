@@ -5,6 +5,14 @@
 {% block body %}
 
     <section id="login">
+        {% for message in app.flashes('success') %}
+            <div id="flash-message" class="container alert alert-success alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span class="inherit-color" aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% endfor %}
         <div class="container">
             <div class="return">
                 <a href="{{ path('home') }}" class="btn btn-warning"><i class="fas fa-home"></i></a>
@@ -22,7 +30,7 @@
                         <label for="password">Votre mot de passe</label>
                         <input type="password" required name="_password" id="password" class="form-control"
                                placeholder="Mot de passe ...">
-                        <small><a href="">J'ai oublié mon mot de passe...</a></small>
+                        <small><a href="{{ path('security_forgot_password') }}">J'ai oublié mon mot de passe...</a></small>
                     </div>
                     {% if error %}
                         <div class="alert alert-danger">Email ou mot de passe incorrect</div>
