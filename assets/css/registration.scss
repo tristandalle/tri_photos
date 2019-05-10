@@ -1,10 +1,16 @@
 #registration {
-  background: #000;
+  background: no-repeat center url("../../public/images/bg-login.jpg");
+  background-size: cover;
 
-  .submit {
-    .btn {
-      width: 20rem;
-      margin-top: 2rem;
+  .container {
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 0.25rem;
+
+    .submit {
+      .btn {
+        width: 20rem;
+        margin-top: 2rem;
+      }
     }
   }
 }

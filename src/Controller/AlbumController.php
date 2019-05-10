@@ -3,9 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Album;
+use App\Entity\Photo;
 use App\Form\AlbumType;
 use App\Repository\AlbumRepository;
 use App\Repository\PhotoRepository;
+use App\Service\Paginator;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -57,13 +59,29 @@ class AlbumController extends AbstractController
     }
 
     /**
-     * @Route("/album/{id}", name="album_one_album")
+     * @Route("/album/{id}/{filter}/{page<\d+>?1}", defaults={"filter"=0}, name="album_one_album")
      */
-    public function showOneAlbumAction($id, AlbumRepository $albumRepository)
+    public function showOneAlbumAction($filter, $id, $page, Paginator $paginator, AlbumRepository $albumRepository)
     {
         $albumToEdit = $albumRepository->find($id);
+        $paginator->setEntityClass(Photo::class)
+            ->setCurrentPage($page)
+            ->setLimit(20)
+            ->setWhere(['album' => $albumToEdit]);
+
+        if ($filter != 0) {
+            $photos = $albumRepository->find($albumToEdit)->getPhotos();
+        } else {
+            $photos = $paginator->getData();
+        }
+
         return $this->render('album/one-album.html.twig', [
-            'album' => $albumToEdit
+            'total' => count($albumToEdit->getPhotos()),
+            'photos' => $photos,
+            'pages' => $paginator->getPages(),
+            'page' => $page,
+            'album' => $albumToEdit,
+            'filter' => $filter
         ]);
     }
 

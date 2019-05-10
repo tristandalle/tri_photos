@@ -5,13 +5,16 @@
 {% block body %}
 
     <section id="one-album">
-        {% for message in app.flashes('notice') %}
-            <div id="flash-message" class="container alert alert-success alert-dismissible fade show" role="alert">
-                {{ message }}
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span class="inherit-color" aria-hidden="true">&times;</span>
-                </button>
-            </div>
+        {% for label, messages  in app.flashes %}
+            {% for message in messages %}
+                <div id="flash-message" class="container alert alert-{{ label }} alert-dismissible fade show"
+                     role="alert">
+                    {{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% endfor %}
         {% endfor %}
         <div class="container">
             <div class="return">
@@ -21,14 +24,14 @@
             <h1>{{ album.title }}</h1>
             <p>{{ album.description }}</p>
             <div class="container-photos">
-                {% for photo in album.photos %}
-                    <div class="container-photo">
+                {% for photo in photos %}
+                    <div class="container-photo {% if filter != 0 %}{% if photo.rating != filter %}hide{% endif %}{% endif %}">
                         <a href="{{ path('album_one_album_all_photos', {'id' :photo.album.id, 'photoId' :photo.id}) }}"
                            class="link-container-photo">
                             <img src="{{ path('file_download', {'id' :photo.id}) }}" alt="{{ photo.originalName }}">
                         </a>
                         <div class="hover-photo">
-                            <small>{{ photo.originalName }}</small>
+                            <p class="original-name"><small>{{ photo.originalName }}</small></p>
                             <a href="{{ path('album_one_album_all_photos', {'id' :photo.album.id, 'photoId' :photo.id}) }}"
                                class="link-photo"></a>
                             <a href="" class="link-send-photo" data-toggle="modal"
@@ -114,6 +117,37 @@
                     </div>
                 {% endfor %}
             </div>
+            {% if total > 20 and filter == 0 %}
+                {% include 'partials/paginationAlbum.html.twig' with {'route': 'album_one_album'} %}
+            {% endif %}
+            {% if photos|length >= 1 %}
+                <div class="filter">
+                    Filtrer :
+                    {% if  filter != 0 %}
+                        <a href="{{ path('filter_rating', {'rating': 1, 'currentPath': 'album_one_album', 'albumId': album.id}) }}"
+                           title="Afficher seulement les photos classées 1 étoile"><i
+                                    class="{% if filter >= 1 %}fas{% else %}far{% endif %} fa-star "></i></a>
+                        <a href="{{ path('filter_rating', {'rating': 2, 'currentPath': 'album_one_album', 'albumId': album.id}) }}"
+                           title="Afficher seulement les photos classées 2 étoiles"><i
+                                    class="{% if filter >= 2 %}fas{% else %}far{% endif %} fa-star "></i></a>
+                        <a href="{{ path('filter_rating', {'rating': 3, 'currentPath': 'album_one_album', 'albumId': album.id}) }}"
+                           title="Afficher seulement les photos classées 3 étoiles"><i
+                                    class="{% if filter == 3 %}fas{% else %}far{% endif %} fa-star "></i></a>
+                        <a href="{{ path('filter_rating', {'rating': 0, 'currentPath': 'album_one_album', 'albumId': album.id}) }}" title="Supprimer le filtre"><i
+                                    class="fas fa-filter"></i></a>
+                    {% else %}
+                        <a href="{{ path('filter_rating', {'rating': 1, 'currentPath': 'album_one_album', 'albumId': album.id}) }}"
+                           title="Afficher seulement les photos classées 1 étoile"><i
+                                    class="fas fa-star drunk"></i></a>
+                        <a href="{{ path('filter_rating', {'rating': 2, 'currentPath': 'album_one_album', 'albumId': album.id}) }}"
+                           title="Afficher seulement les photos classées 2 étoiles"><i
+                                    class="fas fa-star drunk"></i></a>
+                        <a href="{{ path('filter_rating', {'rating': 3, 'currentPath': 'album_one_album', 'albumId': album.id}) }}"
+                           title="Afficher seulement les photos classées 3 étoiles"><i
+                                    class="fas fa-star drunk"></i></a>
+                    {% endif %}
+                </div>
+            {% endif %}
             <div class="buttons">
                 <a href="" class="btn btn-danger" title="Supprimer cet album" data-toggle="modal"
                    data-target="#ConfirmationModalCenter{{ album.id }}">Supprimer cet album</a>

@@ -1,9 +1,33 @@
 @import "variables";
 
 #one-album {
+  background: no-repeat center url("../../public/images/bg-photo.jpg");
+  background-size: cover;
+
+  @media (max-width: $lg) {
+    padding: 0;
+  }
+
   .container {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 0.25rem;
+
+    &.alert-success {
+      background-color: #d8f0d3;;
+    }
+
+    &.alert-danger {
+      background-color: #f5cccc;
+    }
+
     h1 {
       color: $primary;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      color: $primary;
+      margin-bottom: 2rem;
     }
 
     .container-photos {
@@ -24,9 +48,9 @@
         background-color: #000;
         overflow: hidden;
 
-        @media (max-width: 991px) {
-          height: 20rem;
-          width: 30rem;
+        @media (max-width: $lg) {
+          height: 30rem;
+          width: 45rem;
           margin: auto;
           margin-bottom: 2rem;
         }
@@ -51,10 +75,21 @@
           @media (max-width: $lg) {
             display: block;
             background: none;
+            font-size: 2em;
           }
 
-          small {
+          .original-name {
+            text-align: left;
             color: #FFF;
+            text-shadow: 2px 2px 2px #000;
+            max-width: 75%;
+            margin-left: 0.5rem;
+            white-space: nowrap;
+            overflow: hidden;
+
+            &:hover {
+              white-space: normal;
+            }
           }
 
           a.link-photo {
@@ -73,6 +108,11 @@
             border-radius: 50%;
             background-color: rgba(255, 255, 255, .2);
             text-decoration: none;
+
+            @media (max-width: $lg) {
+              height: 4rem;
+              width: 4rem;
+            }
 
             i, svg {
               color: #FFF;
@@ -97,6 +137,11 @@
             border-radius: 50%;
             background-color: rgba(255, 255, 255, .2);
             text-decoration: none;
+
+            @media (max-width: $lg) {
+              height: 4rem;
+              width: 4rem;
+            }
 
             i, svg {
               color: #FFF;
@@ -240,6 +285,26 @@
               width: 100%;
             }
           }
+        }
+      }
+    }
+
+    .filter {
+      color: $primary;
+
+      i, svg {
+        color: $star;
+
+        &.drunk {
+          color: gray;
+
+          &:hover {
+            color: $warning;
+          }
+        }
+
+        &.fa-filter {
+          color: $danger;
         }
       }
     }

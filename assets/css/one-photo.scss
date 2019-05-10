@@ -1,9 +1,13 @@
 @import "variables";
 
 #one-photo {
-  background-color: #FFF;
+  background: no-repeat center url("../../public/images/bg-carousel.jpg");
+  background-size: cover;
 
   .container {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 0.25rem;
+
     .return {
       margin-bottom: 2rem;
     }
@@ -11,10 +15,12 @@
     .diaporama-header {
       h1 {
         color: $primary;
+        margin-bottom: 1rem;
       }
 
       p {
-        text-align: center;
+        color: $primary;
+        margin-bottom: 2rem;
       }
     }
 
@@ -69,10 +75,6 @@
       img {
         height: 100%;
       }
-    }
-
-    p {
-      text-align: left;
     }
 
     .buttons {

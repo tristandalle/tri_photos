@@ -24,6 +24,9 @@
                     <li class="nav-item">
                         <a href="{{ path('image_add') }}" class="nav-link {{ app.request.get('_route') == 'image_add' ? 'active' }}">Ajouter des photos</a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{{ path('album_add') }}" class="nav-link {{ app.request.get('_route') == 'album_add' ? 'active' }}">Créer un album</a>
+                    </li>
                     <li class="nav-item deconnexion-mobile">
                         <a href="{{ path('security_logout') }}" class="btn btn-danger">Déconnexion</a>
                     </li>

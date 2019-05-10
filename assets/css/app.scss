@@ -9,10 +9,15 @@ html {
     min-height: 100%;
     margin: 0;
     padding: 0;
+    color: $gray-400;
 
     section {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       flex: 1 0 auto;
       margin-top: 7rem;
+      padding: 2rem 0;
     }
 
     footer {
@@ -30,6 +35,7 @@ html {
 
         p {
           color: #FFF;
+          text-align: left;
         }
 
         .form-group {
@@ -173,6 +179,11 @@ section {
 
     span {
       color: $info;
+
+      &.form-error-message,
+      &.form-error-icon {
+        color: #FFF;
+      }
     }
 
     strong {

@@ -104,9 +104,15 @@ class ImageController extends AbstractController
             ->setLimit(20)
             ->setWhere(['author' => $currentUser]);
 
+        if ($filter != 0) {
+            $photos = $photoRepository->findBy(['author' => $currentUser]);
+        } else {
+            $photos = $paginator->getData();
+        }
+
         return $this->render('photos/all-photos.html.twig', [
             'total' => $photoRepository->findBy(['author' => $this->getUser()]),
-            'photos' => $paginator->getData(),
+            'photos' => $photos,
             'pages' => $paginator->getPages(),
             'page' => $page,
             'filter' => $filter
@@ -248,14 +254,21 @@ class ImageController extends AbstractController
     }
 
     /**
-     * @Route("/filter/{rating}", name="filter_rating")
+     * @Route("/filter/{rating}/{currentPath}/{albumId}", name="filter_rating")
      */
-    public function filterRatingAction($rating)
+    public function filterRatingAction($rating, $currentPath = 'undefined', $albumId = 'undefined')
     {
         $filter = $rating;
-        return $this->redirectToRoute('image_all_photos', [
-            'filter' => $filter
-        ]);
+        if ($currentPath == 'album_one_album') {
+            return $this->redirectToRoute('album_one_album', [
+                'id' => $albumId,
+                'filter' => $filter
+            ]);
+        } else {
+            return $this->redirectToRoute('image_all_photos', [
+                'filter' => $filter
+            ]);
+        }
     }
 
 

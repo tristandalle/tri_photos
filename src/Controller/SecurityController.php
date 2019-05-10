@@ -101,7 +101,7 @@ class SecurityController extends AbstractController
         $interval = $now->getTimestamp() - $passwordTokenCreatedAt->getTimestamp();
 
         $daySeconds = 60 * 10;
-        $response = $interval > $daySeconds ? false : $reponse = true;
+        $response = $interval > $daySeconds ? false : $response = true;
         return $response;
     }
 
@@ -114,7 +114,11 @@ class SecurityController extends AbstractController
 
         if ($user->getPasswordToken() === null || $token !== $user->getPasswordToken() || !$this->isRequestInTime($user->getPasswordTokenCreatedAt()))
         {
-            throw new AccessDeniedHttpException();
+            $this->addFlash(
+                'danger',
+                'Le lien pour réinitialiser votre mot de passe n\'est pas valide, cliquez à nouveau sur "J\'ai oublié mon mot de passe..." (vous avez 10 minutes pour créer un nouveau mot de passe)'
+            );
+            return $this->redirectToRoute('security_login');
         }
 
         $passwordModify = new PasswordModify();

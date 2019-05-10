@@ -1,9 +1,13 @@
 @import "variables";
 
 #add-photo {
-  background-color: #000;
+  background: no-repeat center url("../../public/images/bg-add-photo.jpg");
+  background-size: cover;
 
   .container {
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 0.25rem;
+
     form {
       .custom-file {
         .custom-file-input {

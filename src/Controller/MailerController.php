@@ -26,10 +26,18 @@ class MailerController extends AbstractController
             $fromEmail = $from;
             $toEmail = $userRepository->find($to)->getEmail();
             $returnPath = 'admin_members';
+            $this->addFlash(
+                'success',
+                'Message bien envoyé à '.$userRepository->find($to)->getUsername()
+            );
         } elseif ($currentPath == 'footer') {
             $fromEmail = $userRepository->find($from)->getEmail();
             $toEmail = $to;
             $returnPath = 'home';
+            $this->addFlash(
+                'success',
+                'Merci de nous avoir contacté, nous vous répondrons dans les plus brefs délais'
+            );
         }
 
         $message = (new \Swift_Message($subject))
@@ -76,8 +84,8 @@ class MailerController extends AbstractController
 
         $mailer->send($message);
         $this->addFlash(
-            'notice',
-            'Votre message a bien été envoyé à l\'adresse : '.$toEmail
+            'success',
+            'Votre photo a bien été envoyé à l\'adresse : '.$toEmail
         );
         if ($currentPath == 'all-photos') {
             $returnPath = 'image_all_photos';
@@ -99,11 +107,15 @@ class MailerController extends AbstractController
     function sendMailPasswordAction(Request $request, UserRepository $userRepository, TokenGeneratorInterface $tokenGenerator, Swift_Mailer $mailer, ObjectManager $manager)
     {
         $requestEmail = $request->request->get('email');
-        $user = $userRepository->findBy(['email' => $requestEmail])[0];
+        $user = $userRepository->findBy(['email' => $requestEmail]);
         if ($user == null) {
-            //gerer erreur pas de compte
-            dump('nulo'); die();
+            $this->addFlash(
+                'danger',
+                'Cette adresse email est inconnue'
+            );
+            return $this->redirectToRoute('security_forgot_password');
         }else {
+            $user = $user[0];
             $user->setPasswordToken($tokenGenerator->generateToken());
             $user->setPasswordTokenCreatedAt(new \Datetime());
             $manager->persist($user);
@@ -113,7 +125,7 @@ class MailerController extends AbstractController
             $userName = $user->getUsername();
 
             $message = (new \Swift_Message('Réinitialiser votre mot de passe Triphotos !'))
-                ->setFrom('triphoto.contact@gmail.com')
+                ->setFrom(getenv('ADMIN_MAIL'))
                 ->setTo($userEmail)
                 ->setBody(
                     $this->renderView('emails/linkToModifyPassword.html.twig', [
@@ -125,7 +137,7 @@ class MailerController extends AbstractController
 
             $mailer->send($message);
             $this->addFlash(
-                'notice',
+                'success',
                 'Un email vient de vous être envoyé pour réinitialiser votre mot de passe'
             );
 

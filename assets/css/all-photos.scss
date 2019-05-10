@@ -1,11 +1,29 @@
 @import "variables";
 
 #all-photos {
-  background: #FFF;
+  background: no-repeat center url("../../public/images/bg-photo.jpg");
+  background-size: cover;
 
   .container {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 0.25rem;
+
+    &.alert-success {
+      background-color: #d8f0d3;;
+    }
+
+    &.alert-danger {
+      background-color: #f5cccc;
+    }
+
     h1 {
       color: $primary;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      color: $primary;
+      margin-bottom: 2rem;
     }
 
     .container-photos {
@@ -55,8 +73,18 @@
             background: none;
           }
 
-          small {
+          .original-name {
+            text-align: left;
             color: #FFF;
+            text-shadow: 2px 2px 2px #000;
+            max-width: 75%;
+            margin-left: 0.5rem;
+            white-space: nowrap;
+            overflow: hidden;
+
+            &:hover {
+              white-space: normal;
+            }
           }
 
           a.link-photo {
@@ -228,6 +256,8 @@
     }
 
     .filter {
+      color: $primary;
+
       i, svg {
         color: $star;
 

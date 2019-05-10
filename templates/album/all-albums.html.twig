@@ -50,7 +50,9 @@
                             </a>
                         </div>
                         <div class="card-body body-carousel">
-                            <h5 class="card-title">Toutes mes photos <span>({{ photos|length }})</span></h5>
+                            <h5 class="card-title">Toutes mes photos</h5>
+                            <p class="card-number">({{ photos|length }}
+                                photo{% if photos|length > 1 %}s{% endif %})</p>
                             <p class="card-text">Cet album créé automatiquement contient toutes vos photos</p>
                             <a href="{{ path('image_all_photos') }}" class="btn btn-info">Voir toutes mes photos</a>
                         </div>
@@ -73,8 +75,9 @@
                             </div>
                         {% endif %}
                         <div class="card-body">
-                            <h5 class="card-title">{{ album.title }} <span>({{ album.photos|length }}
-                                    photo{% if album.photos|length > 1 %}s{% endif %})</span></h5>
+                            <h5 class="card-title">{{ album.title }}</h5>
+                            <p class="card-number">({{ album.photos|length }}
+                                photo{% if album.photos|length > 1 %}s{% endif %})</p>
                             <p class="card-text">{{ album.description }}</p>
                             <div class="card-buttons">
                                 {% if album.photos|length != 0 %}

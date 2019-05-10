@@ -1,28 +1,42 @@
 @import "variables";
 
 #login {
-  background: #000;
+  background: no-repeat center url("../../public/images/bg-login.jpg");
+  background-size: cover;
 
-  small {
-    display: block;
-    text-align: right;
+  .container {
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 0.25rem;
 
-    a {
-      color: $body-color;
+    &.alert-success {
+      background-color: #d8f0d3;;
     }
-  }
 
-  .submit {
-    .btn {
-      width: 20rem;
-      margin-top: 2rem;
+    &.alert-danger {
+      background-color: #f5cccc;
     }
-  }
 
-  .container-section {
-    label {
+    small {
       display: block;
-      margin-top: 2rem;
+      text-align: right;
+
+      a {
+        color: $gray-400;
+      }
+    }
+
+    .submit {
+      .btn {
+        width: 20rem;
+        margin-top: 2rem;
+      }
+    }
+
+    .container-section {
+      label {
+        display: block;
+        margin-top: 2rem;
+      }
     }
   }
 }

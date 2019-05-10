@@ -11,7 +11,7 @@
         </div>
         <div class="diaporama-header">
             <h1>Diaporama Toutes mes photos</h1>
-            <small>{{ allphotos|length }} photo{% if allphotos|length > 1 %}s{% endif %}</small>
+            <p>{{ allphotos|length }} photo{% if allphotos|length > 1 %}s{% endif %}</p>
         </div>
         <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
@@ -22,7 +22,7 @@
             <div class="carousel-inner">
                 {% for userPhotos in allphotos %}
                     <div class="carousel-item {% if photo.id == userPhotos.id %}active{% endif %}">
-                        <p>{{ userPhotos.originalName }}</p>
+                        <p>{{ userPhotos.originalName }}{% if userPhotos.album is not null %}<i> album "{{ userPhotos.album.title }}"</i>{% endif %}</p>
                         <img src="{{ path('file_download', {'id' :userPhotos.id}) }}" alt="...">
                         <div class="rating">
                             {% set currentPath = 'onePhoto' %}
