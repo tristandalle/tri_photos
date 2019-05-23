@@ -39,6 +39,11 @@ class Album
      */
     private $author;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $albumToken;
+
     public function __construct()
     {
         $this->photos = new ArrayCollection();
@@ -112,6 +117,18 @@ class Album
     public function setAuthor(?User $author): self
     {
         $this->author = $author;
+
+        return $this;
+    }
+
+    public function getAlbumToken(): ?string
+    {
+        return $this->albumToken;
+    }
+
+    public function setAlbumToken(?string $albumToken): self
+    {
+        $this->albumToken = $albumToken;
 
         return $this;
     }

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controller;
+use App\Repository\AlbumRepository;
 use App\Repository\PhotoRepository;
 use App\Repository\UserRepository;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -99,6 +100,39 @@ class MailerController extends AbstractController
         } else {
             return $this->redirectToRoute('home');
         }
+    }
+
+    /**
+     * @Route("/mailer-link/{from}/{albumId}/{currentPath}", name="mailer_link_album")
+     */
+    public function sendLinkAlbumAction($from = null, $albumId = null, $currentPath = null, Request $request, UserRepository $userRepository, AlbumRepository $albumRepository, Swift_Mailer $mailer)
+    {
+        $fromEmail = $userRepository->find($from)->getEmail();
+        $fromName = $userRepository->find($from)->getUsername();
+        $toEmail = $request->request->get('to-email');
+        $content = $request->request->get('content');
+        $linkToSend = 'http://127.0.0.1:8000/shared-album/'.$albumId.'/'.$albumRepository->find($albumId)->getAlbumToken();
+        $albumTitle = $albumRepository->find($albumId)->getTitle();
+
+        $message = (new Swift_Message());
+        $message->setSubject($fromName.' vous partage un album via Triphotos');
+        $message->setFrom($fromEmail);
+        $message->setTo($toEmail);
+        $message->setBody(
+            '<html>' .
+            ' <body>' .
+            '  <p><strong>' .$fromName. '</strong> vous partage cet album : <a href="'.$linkToSend.'">'.$albumTitle.'</a></p>' .
+            ' <i>' . $content . '</i> <p>Vous aussi profitez de vos photos sur <a href="">Triphotos</a></p>' .
+            ' </body>' .
+            '</html>',
+            'text/html'
+        );
+        $mailer->send($message);
+        $this->addFlash(
+            'success',
+            'Le lien vers votre album a bien été envoyé à l\'adresse : '.$toEmail
+        );
+        return $this->redirectToRoute($currentPath);
     }
 
     /**

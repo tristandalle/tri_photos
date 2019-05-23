@@ -168,6 +168,35 @@
               }
             }
           }
+
+          &.hover-photo-album-shared {
+            a {
+              position: absolute;
+              top: 0;
+              right: 0;
+              bottom: 0;
+              left: 0;
+
+              &.download-photo {
+                position: absolute;
+                top: inherit;
+                right: 0.5rem;
+                bottom: 0.5rem;
+                left: inherit;
+                display: flex;
+                height: 2rem;
+                width: 2rem;
+                align-items: center;
+                border-radius: 50%;
+                background-color: rgba(255, 255, 255, .2);
+
+                i, svg {
+                  margin: auto;
+                  color: #FFF;
+                }
+              }
+            }
+          }
         }
 
         .loader {
@@ -284,6 +313,17 @@
             textarea {
               width: 100%;
             }
+          }
+        }
+      }
+
+      #SliderModalCenter {
+        .modal-dialog {
+          @media (min-width: 576px) {
+            max-width: 50%;
+          }
+          h5 {
+            width: 100%;
           }
         }
       }

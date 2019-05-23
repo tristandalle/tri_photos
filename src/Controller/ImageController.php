@@ -21,6 +21,11 @@ class ImageController extends AbstractController
      */
     public function addPhotoAction(Request $request, ObjectManager $manager, AlbumRepository $albumRepository)
     {
+        $currentUser = $this->getUser();
+        if ($currentUser == null) {
+            http_response_code(401);
+            die();
+        }
         $form = $this->createForm(PhotoType::class);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
@@ -84,13 +89,26 @@ class ImageController extends AbstractController
     }
 
     /**
-     * @Route("/download/{id}", name="file_download")
+     * @Route("/download/{id}/{token}", name="file_download")
      */
-    function downloadForDisplayPhoto($id, PhotoRepository $photoRepository)
+    function downloadForDisplayPhoto($id, $token = null, PhotoRepository $photoRepository)
     {
-        $fileName = $photoRepository->find($id)->getFile();
-        $filePath = $this->getParameter('thumbnails_directory') . '/mini_' . $fileName;
-        return $this->file($filePath);
+        $currentUser = $this->getUser();
+        $photo = $photoRepository->find($id);
+        $photoAuthor = $photo->getAuthor();
+        if ($photo->getAlbum() != null) {
+            $albumToken = $photo->getAlbum()->getAlbumToken();
+        } else {
+            $albumToken = 'noToken';
+        }
+        if ($currentUser == $photoAuthor || $token == $albumToken) {
+            $fileName = $photoRepository->find($id)->getFile();
+            $filePath = $this->getParameter('thumbnails_directory') . '/mini_' . $fileName;
+            return $this->file($filePath);
+        } else {
+            http_response_code(401);
+            die();
+        }
     }
 
     /**
@@ -99,6 +117,10 @@ class ImageController extends AbstractController
     public function showAllPhotosAction($filter, $page, Paginator $paginator, PhotoRepository $photoRepository)
     {
         $currentUser = $this->getUser();
+        if ($currentUser == null) {
+            http_response_code(401);
+            die();
+        }
         $paginator->setEntityClass(Photo::class)
             ->setCurrentPage($page)
             ->setLimit(20)
@@ -132,8 +154,7 @@ class ImageController extends AbstractController
         $userAlbums = $albumRepository->findBy([
             'author' => $currentUser
         ]);
-        $author = $allUserPhotos[0]->getAuthor();
-        if ($currentUser != $author) {
+        if ($currentUser == null || $currentUser != $photoToEdit->getAuthor()) {
             http_response_code(401);
             die();
         }
@@ -149,13 +170,19 @@ class ImageController extends AbstractController
      */
     public function removePhotoAction($id, $currentPath = 'undefined', ObjectManager $manager, PhotoRepository $photoRepository, AlbumRepository $albumRepository)
     {
+        $currentUser = $this->getUser();
         $photoToRemove = $photoRepository->find($id);
+        if ($currentUser == null || $currentUser =! $photoToRemove->getAuthor()) {
+            http_response_code(401);
+            die();
+        }
         $currentAlbum = $photoToRemove->getAlbum();
         $idPhotoToRemove = $photoToRemove->getId();
         $currentUser = $this->getUser();
         $allUserPhotos = $photoRepository->findBy(
             array('author' => $currentUser)
         );
+
         if ($currentAlbum != null) {
             $idCurrentAlbum = $currentAlbum->getId();
         }
@@ -181,9 +208,14 @@ class ImageController extends AbstractController
      */
     public function addPhotoToAlbumAction($photoId, $currentPath = 'undefined', $idCurrentAlbum = 'undefined', Request $request, PhotoRepository $photoRepository, AlbumRepository $albumRepository, ObjectManager $manager)
     {
+        $currentUser = $this->getUser();
+        $photoToAdd = $photoRepository->find($photoId);
+        if ($currentUser == null || $currentUser =! $photoToAdd->getAuthor()) {
+            http_response_code(401);
+            die();
+        }
         $albumCompletedId = $request->request->get("select-album");
         $albumCompleted = $albumRepository->find($albumCompletedId);
-        $photoToAdd = $photoRepository->find($photoId);
         $photoToAdd->setAlbum($albumCompleted);
         $manager->persist($photoToAdd);
         $manager->flush();

@@ -5,6 +5,7 @@
 {% block body %}
 
     <section id="all-albums">
+        {% include 'partials/flash-messages.html.twig' %}
         <div class="container">
             <div class="return">
                 <a href="{{ path('home') }}" class="btn btn-warning" type="button"><i class="fas fa-caret-left"></i>
@@ -59,7 +60,7 @@
                     </div>
                 {% endif %}
                 {% for album in albums %}
-                    <div class="card">
+                    <div class="card {% if album.albumToken is not null %}card_shared{% endif %}">
                         {% if album.photos|length == 0 %}
                             <div class="empty-album">
                                 <a href="{{ path('image_add') }}">
@@ -75,7 +76,8 @@
                             </div>
                         {% endif %}
                         <div class="card-body">
-                            <h5 class="card-title">{{ album.title }}</h5>
+                            <h5 class="card-title">{{ album.title }}{% if album.albumToken is not null %}<i
+                                        class="fas fa-share-alt" title="cet album est partagé"></i>{% endif %}</h5>
                             <p class="card-number">({{ album.photos|length }}
                                 photo{% if album.photos|length > 1 %}s{% endif %})</p>
                             <p class="card-text">{{ album.description }}</p>
@@ -83,8 +85,10 @@
                                 {% if album.photos|length != 0 %}
                                     <a href="{{ path('album_one_album', {'id' :album.id}) }}" class="btn btn-primary">Voir
                                         l'album</a>
+                                    <a href="" class="btn btn-info" title="Options de partage" data-toggle="modal"
+                                       data-target="#SharingModalCenter{{ album.id }}"><i class="fas fa-share-alt"></i></a>
                                 {% endif %}
-                                <a href="" class="btn btn-danger"
+                                <a href="" class="btn btn-danger {% if album.photos|length == 0 %}ml-auto{% endif %}"
                                    title="Supprimer l'album (les photos ne seront pas supprimées)" data-toggle="modal"
                                    data-target="#ConfirmationModalCenter{{ album.id }}"><i class="far fa-trash-alt"></i></a>
                             </div>
@@ -110,6 +114,72 @@
                             </div>
                         </div>
                     </div>
+                    <div class="modal fade" id="SharingModalCenter{{ album.id }}" tabindex="-1" role="dialog"
+                         aria-labelledby="ModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content ConfirmationModal">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Album : "{{ album.title }}"
+                                        ?</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body SharingModal">
+                                    {% if album.albumToken is not null %}
+                                        <p>Cet album est partagé</p>
+                                        <div>
+                                            <input type="text" value="http://127.0.0.1:8000/shared-album/{{ album.id }}/{{ album.albumToken }}" id="linkInput">
+                                            <button class="btn btn-primary" id="copy-link" onclick="copyLink()" data-container="body" data-toggle="popover" data-placement="top" data-content="Copié !">Copier le lien</button>
+                                            <a href="" title="Envoyer un mail avec le lien" class="btn btn-info" data-toggle="modal"
+                                               data-target="#SendLinkModalCenter{{ album.id }}">Envoyer le lien</a>
+                                        </div>
+                                        <a href="{{ path('album_erase_token', {'id' :album.id}) }}"
+                                           class="btn btn-danger"
+                                           title="ne plus partager cet album">Ne plus partager</a>
+                                    {% else %}
+                                        <p>Cet album est privé</p>
+                                        <a href="{{ path('album_generate_token', {'id' :album.id}) }}"
+                                           class="btn btn-success"
+                                           title="partager cet album">Partager cet album</a>
+                                    {% endif %}
+                                    <a href="" class="btn btn-warning" data-dismiss="modal">Annuler</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="SendLinkModalCenter{{ album.id }}" tabindex="-1" role="dialog"
+                         aria-labelledby="ModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content SendLinkModal">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Envoyez un lien vers cet album :
+                                        "{{ album.title }}"</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    {% set currentPath = 'album_all_albums' %}
+                                    <form action="{{ path('mailer_link_album', {'from' :app.user.id, 'albumId' : album.id, 'currentPath' : currentPath }) }}"
+                                          method="post">
+                                        <div class="form-group">
+                                            <label for="to-email">Adresse email du destinataire :</label>
+                                            <input type="text" name="to-email" id="to-email" required="required">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="content">Message
+                                                <small>(facultatif)</small>
+                                                :</label>
+                                            <textarea name="content" id="content" cols="30" rows="10"></textarea>
+                                        </div>
+                                        <button class="btn btn-danger" data-dismiss="modal">Annuler</button>
+                                        <button class="btn btn-success" type="submit">Envoyer</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 {% endfor %}
             </div>
             <div class="buttons">
@@ -122,5 +192,5 @@
 {% block javascripts %}
     {{ parent() }}
     <script src="/js/carousel.js"></script>
+    <script src="/js/copy-clipboard.js"></script>
 {% endblock %}
-

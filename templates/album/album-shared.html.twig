@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Album partagé{% endblock %}
+
+{% block body %}
+
+    <section id="one-album">
+        {% include 'partials/flash-messages.html.twig' %}
+        <div class="container">
+            {% if album is defined %}
+                <p><span>{{ author }}</span> vous partage cet album :</p>
+                <h1>{{ album.title }}</h1>
+                <p>{{ album.description }}</p>
+                <div class="container-photos">
+                    {% for photo in album.photos %}
+                        <div class="container-photo">
+                            <img src="{{ path('file_download', {'id' :photo.id, 'token' : token}) }}" alt="{{ photo.originalName }}">
+                            <div class="hover-photo hover-photo-album-shared">
+                                <p class="original-name"><small>{{ photo.originalName }}</small></p>
+                                <a href="" data-toggle="modal" data-target="#SliderModalCenter" id="{{ photo.id }}"></a>
+                                <a href="{{ path('file_download', {'id' :photo.id, 'token' : token}) }}" download="{{ photo.originalName }}" class="download-photo" title="Télécharger cette photo"><i class="fas fa-download"></i></a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <div class="modal fade" id="SliderModalCenter" tabindex="-1" role="dialog"
+                         aria-labelledby="ModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered SliderModalCenter" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Album : "{{ album.title }}" partagé par "{{ album.author.username }}"</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                                        <div class="carousel-inner">
+                                            {% for photo in album.photos %}
+                                                <div class="carousel-item {{ photo.id }}">
+                                                    <img class="d-block w-100" src="{{ path('file_download', {'id' :photo.id, 'token' : token}) }}" alt="{{ photo.originalName }}">
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+                                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">Previous</span>
+                                        </a>
+                                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">Next</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <p><span>{{ author }}</span> ne partage plus cet album, demandez lui un nouveau lien.</p>
+            {% endif %}
+        </div>
+    </section>
+
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+
+    </script>
+{% endblock %}

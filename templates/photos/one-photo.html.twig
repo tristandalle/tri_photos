@@ -5,6 +5,7 @@
  {% block body %}
 
 <section id="one-photo">
+    {% include 'partials/flash-messages.html.twig' %}
     <div class="container">
         <div class="return">
             <a href="{{ path('image_all_photos') }}" class="btn btn-warning"><i class="fas fa-caret-left"></i> Mes photos</a>

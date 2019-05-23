@@ -53,6 +53,24 @@ html {
             width: 100%;
           }
         }
+
+        &.SharingModal {
+          div {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 2rem;
+
+            .btn {
+              width: 45%;
+            }
+
+            #linkInput {
+              position: absolute;
+              z-index: -1;
+              opacity: 0;
+            }
+          }
+        }
       }
     }
   }

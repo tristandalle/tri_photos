@@ -12,6 +12,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Csrf\TokenGenerator\TokenGeneratorInterface;
 
 class AlbumController extends AbstractController
 {
@@ -119,6 +120,68 @@ class AlbumController extends AbstractController
         $manager->remove($albumToRemove);
         $manager->flush();
         return $this->redirectToRoute('album_all_albums');
+    }
+
+    /**
+     * @Route("/generate-token/{id}", name="album_generate_token")
+     */
+    public function generateTokenSharedAlbumAction($id, AlbumRepository $albumRepository, ObjectManager $manager, TokenGeneratorInterface $tokenGenerator)
+    {
+        $token = $tokenGenerator->generateToken();
+        $sharedAlbum = $albumRepository->find($id);
+        $sharedAlbum->setAlbumToken($token);
+        $manager->persist($sharedAlbum);
+        $manager->flush();
+        $this->addFlash(
+            'success',
+            'Vous pouvez maintenant partager cet album'
+        );
+
+        return $this->redirectToRoute('album_all_albums');
+    }
+
+    /**
+     * @Route("/erase-token/{id}", name="album_erase_token")
+     */
+    public function eraseTokenSharedAlbumAction($id, AlbumRepository $albumRepository, ObjectManager $manager)
+    {
+        $sharedAlbum = $albumRepository->find($id);
+        $sharedAlbum->setAlbumToken(null);
+        $manager->persist($sharedAlbum);
+        $manager->flush();
+        $this->addFlash(
+            'danger',
+            'Cet album n\'est plus partagé'
+        );
+
+        return $this->redirectToRoute('album_all_albums');
+    }
+
+    /**
+     * @route("/shared-album/{id}/{token}", name="album_shared")
+     */
+    public function sharedAlbumAction($id, $token = null, AlbumRepository $albumRepository)
+    {
+        $sharedAlbum = $albumRepository->find($id);
+        $sharedAlbumAuthorName = $sharedAlbum->getAuthor()->getUsername();
+        if ($sharedAlbum->getAlbumToken() == $token) {
+            return $this->render('album/album-shared.html.twig', [
+                'album' => $sharedAlbum,
+                'author' => $sharedAlbumAuthorName,
+                'token' => $token
+            ]);
+        } else {
+            $this->addFlash(
+                'danger',
+                'Cet album n\'est plus partagé'
+            );
+            return $this->render('album/album-shared.html.twig', [
+                'author' => $sharedAlbumAuthorName,
+                'token' => $token
+            ]);
+        }
+
+
     }
 
 }
