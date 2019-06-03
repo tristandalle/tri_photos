@@ -63,7 +63,7 @@
                     <div class="card {% if album.albumToken is not null %}card_shared{% endif %}">
                         {% if album.photos|length == 0 %}
                             <div class="empty-album">
-                                <a href="{{ path('image_add') }}">
+                                <a href="{{ path('image_add', {'albumId' : album.id}) }}">
                                     <i class="fas fa-download"></i>
                                 </a>
                             </div>

@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\Album;
 use App\Entity\PasswordModify;
 use App\Entity\User;
 use App\Form\LoginType;
@@ -11,7 +10,6 @@ use App\Form\RegistrationType;
 use App\Repository\UserRepository;
 use Doctrine\Common\Persistence\ObjectManager;
 use Swift_Mailer;
-use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -61,14 +59,16 @@ class SecurityController extends AbstractController
     }
 
     /**
-     * @Route("/connexion", name="security_login")
+     * @Route("/connexion", name="security_login", methods={"GET", "POST"})
      */
     public function login(AuthenticationUtils $authenticationUtils)
     {
         $error = $authenticationUtils->getLastAuthenticationError();
+        $lastUsername = $authenticationUtils->getLastUsername();
 
         return $this->render('security/login.html.twig', [
-            'error' => $error
+            'error' => $error,
+            'last_username' => $lastUsername
         ]);
     }
 

@@ -8,6 +8,7 @@ use App\Repository\AlbumRepository;
 use App\Repository\PhotoRepository;
 use App\Service\Paginator;
 use Doctrine\Common\Persistence\ObjectManager;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,15 +18,11 @@ use Intervention\Image\ImageManagerStatic as Image;
 class ImageController extends AbstractController
 {
     /**
-     * @Route("/add", name="image_add")
+     * @Route("/add/{albumId}", name="image_add")
+     * @IsGranted("ROLE_USER")
      */
-    public function addPhotoAction(Request $request, ObjectManager $manager, AlbumRepository $albumRepository)
+    public function addPhotoAction($albumId = null, Request $request, ObjectManager $manager, AlbumRepository $albumRepository)
     {
-        $currentUser = $this->getUser();
-        if ($currentUser == null) {
-            http_response_code(401);
-            die();
-        }
         $form = $this->createForm(PhotoType::class);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
@@ -77,7 +74,8 @@ class ImageController extends AbstractController
             return $this->redirectToRoute('image_all_photos');
         }
         return $this->render('photos/add-photo.html.twig', [
-            'formPhoto' => $form->createView()
+            'formPhoto' => $form->createView(),
+            'albumId' => $albumId
         ]);
     }
 
@@ -113,14 +111,11 @@ class ImageController extends AbstractController
 
     /**
      * @Route("/photos/{filter}/{page<\d+>?1}", defaults={"filter"=0}, name="image_all_photos")
+     * @IsGranted("ROLE_USER")
      */
     public function showAllPhotosAction($filter, $page, Paginator $paginator, PhotoRepository $photoRepository)
     {
         $currentUser = $this->getUser();
-        if ($currentUser == null) {
-            http_response_code(401);
-            die();
-        }
         $paginator->setEntityClass(Photo::class)
             ->setCurrentPage($page)
             ->setLimit(20)
@@ -143,6 +138,7 @@ class ImageController extends AbstractController
 
     /**
      * @Route("/edit/{id}", name="image_one_photo")
+     * @IsGranted("ROLE_USER")
      */
     public function showOnePhotoAction($id, PhotoRepository $photoRepository, AlbumRepository $albumRepository)
     {
@@ -154,7 +150,7 @@ class ImageController extends AbstractController
         $userAlbums = $albumRepository->findBy([
             'author' => $currentUser
         ]);
-        if ($currentUser == null || $currentUser != $photoToEdit->getAuthor()) {
+        if ($currentUser != $photoToEdit->getAuthor()) {
             http_response_code(401);
             die();
         }
@@ -167,6 +163,7 @@ class ImageController extends AbstractController
 
     /**
      * @Route("/remove/{id}/{currentPath}", name="image_remove_photo")
+     * @IsGranted("ROLE_USER")
      */
     public function removePhotoAction($id, $currentPath = 'undefined', ObjectManager $manager, PhotoRepository $photoRepository, AlbumRepository $albumRepository)
     {
@@ -205,6 +202,7 @@ class ImageController extends AbstractController
 
     /**
      * @Route("/add_album/{photoId}/{currentPath}/{idCurrentAlbum}", name="image_add_to_album")
+     * @IsGranted("ROLE_USER")
      */
     public function addPhotoToAlbumAction($photoId, $currentPath = 'undefined', $idCurrentAlbum = 'undefined', Request $request, PhotoRepository $photoRepository, AlbumRepository $albumRepository, ObjectManager $manager)
     {
@@ -234,10 +232,17 @@ class ImageController extends AbstractController
 
     /**
      * @Route("/remove_album/{id}/{albumId}", name="image_remove_to_album")
+     * @IsGranted("ROLE_USER")
      */
     public function removePhotoToAlbumAction($id, PhotoRepository $photoRepository, ObjectManager $manager, $albumId)
     {
+        $currentUser = $this->getUser();
         $photoToRemoveFromAlbum = $photoRepository->find($id);
+        $photoAuthor = $photoToRemoveFromAlbum->getAuthor();
+        if ($currentUser != $photoAuthor) {
+            http_response_code(401);
+            die();
+        }
         $photoToRemoveFromAlbum->setAlbum(null);
         $manager->persist($photoToRemoveFromAlbum);
         $manager->flush();
@@ -249,10 +254,17 @@ class ImageController extends AbstractController
 
     /**
      * @Route("/rating/{id}/{rating}/{currentPath}", name="image_rating")
+     * @IsGranted("ROLE_USER")
      */
     public function ratingPhotoAction($id, $rating, $currentPath, PhotoRepository $photoRepository, ObjectManager $manager)
     {
+        $currentUser = $this->getUser();
         $photoToRating = $photoRepository->find($id);
+        $photoAuthor = $photoToRating->getAuthor();
+        if ($currentUser != $photoAuthor) {
+            http_response_code(401);
+            die();
+        }
         $photoActualRating = $photoToRating->getRating();
         if ($rating == $photoActualRating) {
             $rating--;
@@ -302,6 +314,4 @@ class ImageController extends AbstractController
             ]);
         }
     }
-
-
 }

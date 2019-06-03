@@ -22,7 +22,7 @@
                     <select name="select-album" id="select-album">
                         <option value="" selected>Non</option>
                         {% for album in app.user.albums %}
-                            <option value="{{ album.id }}">Album : {{ album.title }}</option>
+                            <option value="{{ album.id }}" {% if album.id == albumId %}selected{% endif %}>Album : {{ album.title }}</option>
                         {% endfor %}
                     </select>
                 </div>

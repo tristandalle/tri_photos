@@ -5,6 +5,7 @@ use App\Repository\AlbumRepository;
 use App\Repository\PhotoRepository;
 use App\Repository\UserRepository;
 use Doctrine\Common\Persistence\ObjectManager;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Swift_Attachment;
 use Swift_Image;
 use Swift_Mailer;
@@ -18,6 +19,7 @@ class MailerController extends AbstractController
 {
     /**
      * @Route("/mailer/{from}/{to}/{currentPath}", name="mailer_contact")
+     * @IsGranted("ROLE_USER")
      */
     public function contactAction($from = null, $to = null, $currentPath = null, Request $request, UserRepository $userRepository, Swift_Mailer $mailer)
     {
@@ -54,6 +56,7 @@ class MailerController extends AbstractController
 
     /**
      * @Route("/mailer-photo/{from}/{photoId}/{currentPath}", name="mailer_photo")
+     * @IsGranted("ROLE_USER")
      */
     public function sendPhotoAction($from = null, $photoId = null, $currentPath = null, Request $request, UserRepository $userRepository, PhotoRepository $photoRepository, Swift_Mailer $mailer)
     {
@@ -104,6 +107,7 @@ class MailerController extends AbstractController
 
     /**
      * @Route("/mailer-link/{from}/{albumId}/{currentPath}", name="mailer_link_album")
+     * @IsGranted("ROLE_USER")
      */
     public function sendLinkAlbumAction($from = null, $albumId = null, $currentPath = null, Request $request, UserRepository $userRepository, AlbumRepository $albumRepository, Swift_Mailer $mailer)
     {
@@ -178,6 +182,5 @@ class MailerController extends AbstractController
             return $this->redirectToRoute('security_forgot_password');
 
         }
-
     }
 }

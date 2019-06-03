@@ -15,10 +15,10 @@
             <hr>
             <div class="container-form col-lg-6">
                 {{ form_start(formRegistration, {'attr' : {'class':'flex-column'}}) }}
+                {{ form_row(formRegistration.email, {'label':'Votre adresse email', 'attr' : {'placeholder':'adresse email ...'}}) }}
                 {{ form_row(formRegistration.username, {'label':'Votre pseudo', 'attr' : {'placeholder':'pseudo ...'}}) }}
                 {{ form_row(formRegistration.firstname, {'label':'Votre prénom', 'attr' : {'placeholder':'prénom ...'}}) }}
                 {{ form_row(formRegistration.lastname, {'label':'Votre nom', 'attr' : {'placeholder':'nom ...'}}) }}
-                {{ form_row(formRegistration.email, {'label':'Votre adresse email', 'attr' : {'placeholder':'adresse email ...'}}) }}
                 {{ form_row(formRegistration.password, {'label':'Votre mot de passe', 'attr' : {'placeholder':'mot de passe ...'}}) }}
                 {{ form_row(formRegistration.confirm_password, {'label':'Confirmation de votre mot de passe', 'attr' : {'placeholder':'répétez votre mot de passe ...'}}) }}
                 <div class="submit">

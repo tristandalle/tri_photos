@@ -9,6 +9,8 @@ use App\Repository\AlbumRepository;
 use App\Repository\PhotoRepository;
 use App\Service\Paginator;
 use Doctrine\Common\Persistence\ObjectManager;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -18,6 +20,7 @@ class AlbumController extends AbstractController
 {
     /**
      * @Route("/add/album", name="album_add")
+     * @IsGranted("ROLE_USER")
      */
     public function addAlbumAction(Request $request, ObjectManager $manager)
     {
@@ -42,6 +45,7 @@ class AlbumController extends AbstractController
 
     /**
      * @Route("/albums", name="album_all_albums")
+     * @IsGranted("ROLE_USER")
      */
     public function showAlbumsAction(AlbumRepository $albumRepository, PhotoRepository $photoRepository)
     {
@@ -60,43 +64,52 @@ class AlbumController extends AbstractController
     }
 
     /**
-     * @Route("/album/{id}/{filter}/{page<\d+>?1}", defaults={"filter"=0}, name="album_one_album")
+     * @Route("/album/{id<\d+>}/{filter<\d+>}/{page<\d+>?1}", defaults={"filter"=0}, name="album_one_album")
+     * @Security("is_granted('ROLE_USER') and user === album.getAuthor()", message="Vous n'avez pas les droits d'accès pour cet album")
      */
-    public function showOneAlbumAction($filter, $id, $page, Paginator $paginator, AlbumRepository $albumRepository)
+    public function showOneAlbumAction(Album $album, $filter, $page, Paginator $paginator, AlbumRepository $albumRepository)
     {
-        $albumToEdit = $albumRepository->find($id);
+        if (count($album->getPhotos()) == 0) {
+            return $this->redirectToRoute('album_all_albums');
+        }
+
         $paginator->setEntityClass(Photo::class)
             ->setCurrentPage($page)
             ->setLimit(20)
-            ->setWhere(['album' => $albumToEdit]);
+            ->setWhere(['album' => $album]);
 
         if ($filter != 0) {
-            $photos = $albumRepository->find($albumToEdit)->getPhotos();
+            $photos = $albumRepository->find($album)->getPhotos();
         } else {
             $photos = $paginator->getData();
         }
 
         return $this->render('album/one-album.html.twig', [
-            'total' => count($albumToEdit->getPhotos()),
+            'total' => count($album->getPhotos()),
             'photos' => $photos,
             'pages' => $paginator->getPages(),
             'page' => $page,
-            'album' => $albumToEdit,
+            'album' => $album,
             'filter' => $filter
         ]);
     }
 
     /**
-     * @Route("/album/{id}/all/{photoId}", name="album_one_album_all_photos")
+     * @Route("/album/{id<\d+>}/all/{photoId<\d+>}", name="album_one_album_all_photos")
+     * @IsGranted("ROLE_USER")
      */
     public function showAllPhotosOfOneAlbumAction($id, $photoId, AlbumRepository $albumRepository)
     {
+        $currentUser = $this->getUser();
         $albumToEdit = $albumRepository->find($id);
+        $albumAuthor = $albumToEdit->getAuthor();
+        if ($currentUser != $albumAuthor) {
+            http_response_code(401);
+            die();
+        }
         $authorAlbums = $albumToEdit->getAuthor()->getAlbums();
         if (count($albumToEdit->getPhotos()) == 0) {
-
-        } else {
-
+            return $this->redirectToRoute('album_all_albums');
         }
         return $this->render('album/one-album-all-photos.html.twig', [
             'album' => $albumToEdit,
@@ -107,13 +120,21 @@ class AlbumController extends AbstractController
 
     /**
      * @Route("/album/remove/{id}", name="album_remove_album")
+     * @IsGranted("ROLE_USER")
      */
     public function removeAlbumAction($id, AlbumRepository $albumRepository, PhotoRepository $photoRepository, ObjectManager $manager)
     {
+        $currentUser = $this->getUser();
         $albumToRemove = $albumRepository->find($id);
+        $albumAuthor = $albumToRemove->getAuthor();
+        if ($currentUser != $albumAuthor) {
+            http_response_code(401);
+            die();
+        }
         $photosFromAlbum = $photoRepository->findBy([
             'album' => $albumToRemove
         ]);
+
         foreach ($photosFromAlbum as $photoFromAlbum) {
             $photoFromAlbum->setAlbum(null);
         }
@@ -124,11 +145,18 @@ class AlbumController extends AbstractController
 
     /**
      * @Route("/generate-token/{id}", name="album_generate_token")
+     * @IsGranted("ROLE_USER")
      */
     public function generateTokenSharedAlbumAction($id, AlbumRepository $albumRepository, ObjectManager $manager, TokenGeneratorInterface $tokenGenerator)
     {
-        $token = $tokenGenerator->generateToken();
+        $currentUser = $this->getUser();
         $sharedAlbum = $albumRepository->find($id);
+        $albumAuthor = $sharedAlbum->getAuthor();
+        if ($currentUser != $albumAuthor) {
+            http_response_code(401);
+            die();
+        }
+        $token = $tokenGenerator->generateToken();
         $sharedAlbum->setAlbumToken($token);
         $manager->persist($sharedAlbum);
         $manager->flush();
@@ -142,10 +170,17 @@ class AlbumController extends AbstractController
 
     /**
      * @Route("/erase-token/{id}", name="album_erase_token")
+     * @IsGranted("ROLE_USER")
      */
     public function eraseTokenSharedAlbumAction($id, AlbumRepository $albumRepository, ObjectManager $manager)
     {
+        $currentUser = $this->getUser();
         $sharedAlbum = $albumRepository->find($id);
+        $albumAuthor = $sharedAlbum->getAuthor();
+        if ($currentUser != $albumAuthor) {
+            http_response_code(401);
+            die();
+        }
         $sharedAlbum->setAlbumToken(null);
         $manager->persist($sharedAlbum);
         $manager->flush();
@@ -180,8 +215,5 @@ class AlbumController extends AbstractController
                 'token' => $token
             ]);
         }
-
-
     }
-
 }
