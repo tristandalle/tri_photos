@@ -7,12 +7,8 @@
      <section id="all-photos">
          {% include 'partials/flash-messages.html.twig' %}
          <div class="container">
-             <div class="return">
-                 <a href="{{ path('home') }}" class="btn btn-warning"><i class="fas fa-home"></i></a>
-             </div>
              <h1>Toutes mes photos</h1>
              <p>{{ total|length }} photo{% if photos|length > 1 %}s{% endif %}</p>
-
              <div class="container-photos">
                  {% for photo in photos %}
                      <div class="container-photo {% if filter != 0 %}{% if photo.rating != filter %}hide{% endif %}{% endif %}">
@@ -140,5 +136,4 @@
              </div>
          </div>
      </section>
-
  {% endblock %}

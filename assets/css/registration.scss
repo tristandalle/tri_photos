@@ -1,3 +1,5 @@
+@import "variables";
+
 #registration {
   background: no-repeat center url("../../public/images/bg-login.jpg");
   background-size: cover;
@@ -10,6 +12,10 @@
       .btn {
         width: 20rem;
         margin-top: 2rem;
+
+        @media all and (max-width: $sm) {
+          width: 100%;
+        }
       }
     }
   }

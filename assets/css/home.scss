@@ -58,6 +58,14 @@
         @media all and (max-width: $lg) {
           margin-bottom: 2rem;
         }
+
+        @media all and (max-width: $xl) and (min-width: $lg){
+          width: 15rem;
+        }
+
+        @media all and (max-width: $sm) {
+          width: 100%;
+        }
       }
     }
   }
