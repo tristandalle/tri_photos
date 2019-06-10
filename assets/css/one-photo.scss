@@ -36,10 +36,22 @@
       img {
         height: 30rem;
         margin: auto;
+
+        @media all and (max-width: $lg) {
+          height: 20rem;
+        }
+
+        @media all and (max-width: $md) {
+          height: 15rem;
+        }
+
+        @media all and (max-width: $sm) {
+          height: 10rem;
+        }
       }
 
       .rating {
-        margin-top: 1rem;
+        margin: 1rem 0;
 
         a {
           color: $star;

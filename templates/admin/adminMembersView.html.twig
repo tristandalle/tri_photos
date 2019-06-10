@@ -6,88 +6,90 @@
         {% include 'partials/flash-messages.html.twig' %}
         <div class="container-fluid">
             <h2>Liste des membres</h2>
-            <table class="table table-hover">
-                <thead>
-                <tr class="table-primary">
-                    <th>Id</th>
-                    <th>Pseudo</th>
-                    <th>Nom</th>
-                    <th>Prénom</th>
-                    <th>Email</th>
-                    <th class="text-center">Photos</th>
-                    <th class="text-center">Albums</th>
-                    <th class="text-center">Action</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for user in users %}
-                    <tr class="table-light">
-                        <td>{{ user.id }}</td>
-                        <td>{{ user.username }}</td>
-                        <td>{{ user.lastname }}</td>
-                        <td>{{ user.firstname }}</td>
-                        <td>{{ user.email }}</td>
-                        <td class="text-center">{{ user.photos|length }}</td>
-                        <td class="text-center">{{ user.albums|length }}</td>
-                        <td class="text-center">
-                            <a href="" class="btn btn-info" title="contacter ce membre" data-toggle="modal"
-                               data-target="#ContactModalCenter{{ user.id }}"><i class="fas fa-envelope"></i></a>
-                            <a href="" class="btn btn-danger" title="Supprimer ce membre" data-toggle="modal"
-                               data-target="#ConfirmationModalCenter{{ user.id }}"><i class="fas fa-trash-alt"></i></a>
-                        </td>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                    <tr class="table-primary">
+                        <th>Id</th>
+                        <th>Pseudo</th>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Email</th>
+                        <th class="text-center">Photos</th>
+                        <th class="text-center">Albums</th>
+                        <th class="text-center">Action</th>
                     </tr>
-                    <div class="modal fade" id="ConfirmationModalCenter{{ user.id }}" tabindex="-1" role="dialog"
-                         aria-labelledby="ModalCenterTitle" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLongTitle">Êtes-vous sûr de vouloir
-                                        supprimer ce membre : "{{ user.username }}"</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <a href="" class="btn btn-warning" data-dismiss="modal">Annuler</a>
-                                    <a href="{{ path('admin_remove_member', {'id' :user.id}) }}" class="btn btn-danger"
-                                       title="Supprimer ce membre">Supprimer</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal fade" id="ContactModalCenter{{ user.id }}" tabindex="-1" role="dialog"
-                         aria-labelledby="ModalCenterTitle" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLongTitle">Contactez : "{{ user.username }}
-                                        "</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    {% set currentPath = 'admin' %}
-                                    <form action="{{ path('mailer_contact', {'from' :'triphoto.contact@gmail.com', 'to' :user.id, 'currentPath' :currentPath }) }}"
-                                          method="post">
-                                        <div class="form-group">
-                                            <label for="subject">Objet du message :</label>
-                                            <input type="text" name="subject" id="subject">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="content">Votre message :</label>
-                                            <textarea name="content" id="content" cols="30" rows="10"></textarea>
-                                        </div>
-                                        <button class="btn btn-danger" data-dismiss="modal">Annuler</button>
-                                        <button class="btn btn-success" type="submit">Envoyer</button>
-                                    </form>
+                    </thead>
+                    <tbody>
+                    {% for user in users %}
+                        <tr class="table-light">
+                            <td>{{ user.id }}</td>
+                            <td>{{ user.username }}</td>
+                            <td>{{ user.lastname }}</td>
+                            <td>{{ user.firstname }}</td>
+                            <td>{{ user.email }}</td>
+                            <td class="text-center">{{ user.photos|length }}</td>
+                            <td class="text-center">{{ user.albums|length }}</td>
+                            <td class="text-center">
+                                <a href="" class="btn btn-info" title="contacter ce membre" data-toggle="modal"
+                                   data-target="#ContactModalCenter{{ user.id }}"><i class="fas fa-envelope"></i></a>
+                                <a href="" class="btn btn-danger" title="Supprimer ce membre" data-toggle="modal"
+                                   data-target="#ConfirmationModalCenter{{ user.id }}"><i class="fas fa-trash-alt"></i></a>
+                            </td>
+                        </tr>
+                        <div class="modal fade" id="ConfirmationModalCenter{{ user.id }}" tabindex="-1" role="dialog"
+                             aria-labelledby="ModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">Êtes-vous sûr de vouloir
+                                            supprimer ce membre : "{{ user.username }}"</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <a href="" class="btn btn-warning" data-dismiss="modal">Annuler</a>
+                                        <a href="{{ path('admin_remove_member', {'id' :user.id}) }}" class="btn btn-danger"
+                                           title="Supprimer ce membre">Supprimer</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                {% endfor %}
-                </tbody>
-            </table>
+                        <div class="modal fade" id="ContactModalCenter{{ user.id }}" tabindex="-1" role="dialog"
+                             aria-labelledby="ModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">Contactez : "{{ user.username }}
+                                            "</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        {% set currentPath = 'admin' %}
+                                        <form action="{{ path('mailer_contact', {'from' :'triphoto.contact@gmail.com', 'to' :user.id, 'currentPath' :currentPath }) }}"
+                                              method="post">
+                                            <div class="form-group">
+                                                <label for="subject">Objet du message :</label>
+                                                <input type="text" name="subject" id="subject">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="content">Votre message :</label>
+                                                <textarea name="content" id="content" cols="30" rows="10"></textarea>
+                                            </div>
+                                            <button class="btn btn-danger" data-dismiss="modal">Annuler</button>
+                                            <button class="btn btn-success" type="submit">Envoyer</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
             {% include 'partials/pagination.html.twig' with {'route': 'admin_members'} %}
         </div>
     </section>

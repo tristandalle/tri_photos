@@ -51,6 +51,15 @@
           margin-bottom: 2rem;
         }
 
+        @media (max-width: $sm) {
+          height: 15rem;
+          min-width: 100%;
+        }
+
+        @media (max-width: 425px) {
+          height: 12rem;
+        }
+
         img {
           height: 100%;
         }
@@ -74,6 +83,7 @@
           }
 
           .original-name {
+            position: absolute;
             text-align: left;
             color: #FFF;
             text-shadow: 2px 2px 2px #000;
@@ -162,6 +172,10 @@
           align-items: center;
           justify-content: center;
           z-index: 1;
+
+          @media (max-width: $lg) {
+            bottom: 200%;
+          }
           ///////
           .lds-roller {
             //display: inline-block;
@@ -287,6 +301,7 @@
 
       .btn {
         width: 20rem;
+        max-width: 100%;
         margin: 1rem auto;
       }
     }

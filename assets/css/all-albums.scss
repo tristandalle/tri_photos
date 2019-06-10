@@ -29,10 +29,7 @@
         border-radius: 0;
         box-shadow: 0 0 0 0.1rem #000;
         margin-bottom: 2rem;
-
-        @media (max-width: $lg) {
-          width: 30rem;
-        }
+        max-width: 95%;
 
         .empty-album, .cover-album {
           max-width: 100%;
@@ -51,8 +48,8 @@
 
             img {
               width: inherit;
-              max-width: 20rem;
-              height: 13.3rem;
+              max-width: 100%;
+              max-height: 100%;
               margin: auto;
             }
 

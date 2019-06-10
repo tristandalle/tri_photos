@@ -18,7 +18,7 @@
              <div class="diaporama-header">
                  <h1>Diaporama album {{ album.title }}</h1>
                  <p>{{ album.description }}</p>
-                 <small>{{ album.photos|length }} photo{% if album.photos|length > 1 %}s{% endif %}</small>
+                 <p><small>{{ album.photos|length }} photo{% if album.photos|length > 1 %}s{% endif %}</small></p>
              </div>
              {% if album.photos|length == 0 %}
              <p>Cette album est vide, retournez à <a href="{{ path('album_all_albums') }}">vos albums</a></p>

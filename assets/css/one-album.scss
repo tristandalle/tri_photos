@@ -49,10 +49,19 @@
         overflow: hidden;
 
         @media (max-width: $lg) {
-          height: 30rem;
-          width: 45rem;
+          height: 20rem;
+          width: 30rem;
           margin: auto;
           margin-bottom: 2rem;
+        }
+
+        @media (max-width: $sm) {
+          height: 15rem;
+          min-width: 100%;
+        }
+
+        @media (max-width: 425px) {
+          height: 12rem;
         }
 
         img {
@@ -75,10 +84,10 @@
           @media (max-width: $lg) {
             display: block;
             background: none;
-            font-size: 2em;
           }
 
           .original-name {
+            position: absolute;
             text-align: left;
             color: #FFF;
             text-shadow: 2px 2px 2px #000;
@@ -109,11 +118,6 @@
             background-color: rgba(255, 255, 255, .2);
             text-decoration: none;
 
-            @media (max-width: $lg) {
-              height: 4rem;
-              width: 4rem;
-            }
-
             i, svg {
               color: #FFF;
               margin: auto;
@@ -137,11 +141,6 @@
             border-radius: 50%;
             background-color: rgba(255, 255, 255, .2);
             text-decoration: none;
-
-            @media (max-width: $lg) {
-              height: 4rem;
-              width: 4rem;
-            }
 
             i, svg {
               color: #FFF;
@@ -207,6 +206,10 @@
           align-items: center;
           justify-content: center;
           z-index: 1;
+
+          @media (max-width: $lg) {
+            bottom: 200%;
+          }
           ///////
           .lds-roller {
             //display: inline-block;
@@ -361,6 +364,7 @@
 
       .btn {
         width: 20rem;
+        max-width: 100%;
         margin: 1rem auto;
       }
     }
