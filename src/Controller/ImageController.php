@@ -6,6 +6,7 @@ use App\Entity\Photo;
 use App\Form\PhotoType;
 use App\Repository\AlbumRepository;
 use App\Repository\PhotoRepository;
+use App\Repository\UserRepository;
 use App\Service\Paginator;
 use Doctrine\Common\Persistence\ObjectManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
@@ -89,9 +90,10 @@ class ImageController extends AbstractController
     /**
      * @Route("/download/{id}/{token}", name="file_download")
      */
-    function downloadForDisplayPhoto($id, $token = null, PhotoRepository $photoRepository)
+    function downloadForDisplayPhoto($id, $token = null, PhotoRepository $photoRepository, UserRepository $userRepository)
     {
         $currentUser = $this->getUser();
+        $userAdmin = $userRepository->find(1);
         $photo = $photoRepository->find($id);
         $photoAuthor = $photo->getAuthor();
         if ($photo->getAlbum() != null) {
@@ -99,7 +101,7 @@ class ImageController extends AbstractController
         } else {
             $albumToken = 'noToken';
         }
-        if ($currentUser == $photoAuthor || $token == $albumToken) {
+        if ($currentUser == $photoAuthor || $currentUser == $userAdmin || $token == $albumToken) {
             $fileName = $photoRepository->find($id)->getFile();
             $filePath = $this->getParameter('thumbnails_directory') . '/mini_' . $fileName;
             return $this->file($filePath);
