@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}erreur{% endblock %}
+
+{% block body %}
+    <section id="error">
+        <div class="container alert-primary">
+            <h1>Oups ! erreur {{ status_code }}, Quelque chose n'a pas fonctionné correctement.</h1>
+            <p>Merci de réessayer...</p>
+
+            <a href="{{ path('home') }}" class="btn btn-primary"><i class="fas fa-home"></i> retourner à la page d'accueil</a>
+        </div>
+    </section>
+{% endblock %}

@@ -1,5 +1,5 @@
 {
-  "build/js/app.css": "/build/js/app.e20bf67b.css",
+  "build/js/app.css": "/build/js/app.41a7e410.css",
   "build/js/app.js": "/build/js/app.a4960525.js",
   "build/runtime.js": "/build/runtime.be789d2f.js",
   "build/fonts/LuckiestGuy-Regular.woff2": "/build/fonts/LuckiestGuy-Regular.08010c3c.woff2",
@@ -21,6 +21,7 @@
   "build/images/bg-home.jpg": "/build/images/bg-home.4d6bdac9.jpg",
   "build/images/bg-login.jpg": "/build/images/bg-login.f1bef693.jpg",
   "build/images/bg-photo.jpg": "/build/images/bg-photo.5b3a77cb.jpg",
+  "build/images/construction.png": "/build/images/construction.e162448b.png",
   "build/images/fa-brands-400.svg": "/build/images/fa-brands-400.5bf14553.svg",
   "build/images/fa-regular-400.svg": "/build/images/fa-regular-400.5eb754ab.svg",
   "build/images/fa-solid-900.svg": "/build/images/fa-solid-900.49279363.svg"

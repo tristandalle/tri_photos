@@ -2,10 +2,10 @@
     <div class="container-fluid row">
         <div class="footer-links">
             <ul>
-                <li><a href="">Comment ça marche ?</a></li>
-                <li><a href="">Conditions générales d'utilisation</a></li>
+                <li><a href="{{ path('home_construction') }}">Comment ça marche ?</a></li>
+                <li><a href="{{ path('home_construction') }}">Conditions générales d'utilisation</a></li>
                 {% if not app.user %}
-                <li><a href="{{ path('security_login') }}">Connectez-vous pour nous contacter</a></li>
+                <li><a href="mailto:triphoto.contact@gmail.com">Contactez Triphotos</a></li>
                 {% else %}
                 <li><a href="" data-toggle="modal" data-target="#ContactModalCenter">Nous contacter</a></li>
                 <div class="modal fade" id="ContactModalCenter" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">
@@ -43,9 +43,9 @@
         </div>
         <div class="footer-rs">
             <ul class="rs-links">
-                <li><a href=""><i class="fab fa-instagram"></i></a></li>
-                <li><a href=""><i class="fab fa-facebook"></i></a></li>
-                <li><a href=""><i class="fab fa-twitter-square"></i></a></li>
+                <li><a href="{{ path('home_construction') }}"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="{{ path('home_construction') }}"><i class="fab fa-facebook"></i></a></li>
+                <li><a href="{{ path('home_construction') }}"><i class="fab fa-twitter-square"></i></a></li>
             </ul>
         </div>
         <div class="footer-copyright">

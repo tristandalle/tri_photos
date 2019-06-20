@@ -18,4 +18,12 @@ class HomeController extends AbstractController
             "user" => $user
         ]);
     }
+
+    /**
+     * @Route("/under-construction", name="home_construction")
+     */
+    public function construction()
+    {
+        return $this->render('home/under-construction.html.twig');
+    }
 }

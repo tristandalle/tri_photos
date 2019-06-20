@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}page non trouvée{% endblock %}
+
+{% block body %}
+    <section id="error">
+        <div class="container alert-primary">
+            <h1>Aïe ! erreur {{ status_code }}, cette page n'existe pas !</h1>
+            <p>La page que vous essayez d'afficher n'existe pas...</p>
+            <a href="{{ path('home') }}" class="btn btn-primary"><i class="fas fa-home"></i> retourner à la page d'accueil</a>
+        </div>
+    </section>
+{% endblock %}

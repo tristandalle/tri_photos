@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}accès refusé{% endblock %}
+
+{% block body %}
+    <section id="error">
+        <div class="container alert-primary">
+            <h1>Accès refusé ! erreur {{ status_code }}, vous n'avez pas le droit d'être ici !</h1>
+            <p>Vous n'avez pas les droits pour afficher cette page...</p>
+            <a href="{{ path('home') }}" class="btn btn-primary"><i class="fas fa-home"></i> retourner à la page d'accueil</a>
+        </div>
+    </section>
+{% endblock %}

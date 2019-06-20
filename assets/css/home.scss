@@ -1,5 +1,22 @@
 @import "variables";
 
+#construction {
+  background: no-repeat center url("../../public/images/construction.png");
+  background-size: contain;
+}
+
+#error {
+  background-color: #000;
+
+  .container {
+    border-radius: 0.25rem;
+
+    h1 {
+      color: $primary;
+    }
+  }
+}
+
 #home {
   background: no-repeat center url("../../public/images/bg-home.jpg");
   background-size: cover;
