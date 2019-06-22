@@ -66,12 +66,12 @@ class MailerController extends AbstractController
         $content = $request->request->get('content');
         $fileToSend = $photoRepository->find($photoId)->getFile();
         $fileName = $photoRepository->find($photoId)->getOriginalName();
-        $attachment =  Swift_Attachment::fromPath(getcwd().'\..\assets\uploads\images\thumbnails\mini_'.$fileToSend)
+        $attachment =  Swift_Attachment::fromPath(getcwd().'/../assets/uploads/images/thumbnails/mini_'.$fileToSend)
             ->setFilename($fileName)
             ->setDisposition('inline');
 
         $message = (new Swift_Message());
-            $cid = $message->embed(Swift_Image::fromPath(getcwd().'\..\assets\uploads\images\thumbnails\mini_'.$fileToSend)->setFilename($fileName));
+            $cid = $message->embed(Swift_Image::fromPath(getcwd().'/../assets/uploads/images/thumbnails/mini_'.$fileToSend)->setFilename($fileName));
             $message->setSubject($fromName.' vous envoie une photo via Triphotos');
             $message->setFrom($fromEmail);
             $message->setTo($toEmail);
