@@ -2,138 +2,141 @@
 
 {% block title %}Toutes mes photos{% endblock %}
 
- {% block body %}
+{% block body %}
 
-     <section id="all-photos">
-         {% include 'partials/flash-messages.html.twig' %}
-         <div class="container">
-             <h1>Toutes mes photos</h1>
-             <p>{{ total|length }} photo{% if photos|length > 1 %}s{% endif %}</p>
-             <div class="container-photos">
-                 {% for photo in photos %}
-                     <div class="container-photo {% if filter != 0 %}{% if photo.rating != filter %}hide{% endif %}{% endif %}">
-                         <a href="{{ path('image_one_photo', {'id' :photo.id}) }}" class="link-container-photo">
-                             <img src="{{ path('file_download', {'id' :photo.id}) }}" alt="{{ photo.originalName }}">
-                         </a>
-                         <div class="hover-photo">
-                             <p class="original-name"><small>{{ photo.originalName }}</small></p>
-                             <a href="{{ path('image_one_photo', {'id' :photo.id}) }}" class="link-photo"></a>
-                             <a href="" class="link-send-photo" data-toggle="modal"
-                                data-target="#SendFileModalCenter{{ photo.id }}"><i class="fas fa-share-alt"></i></a>
-                             <a href="" class="link-erase-photo" data-toggle="modal"
-                                data-target="#ConfirmationModalCenter{{ photo.id }}"><i
-                                         class="far fa-trash-alt"></i></a>
-                             <div class="rating">
-                                 {% set currentPath = path(app.request.attributes.get('_route')) %}
-                                 <a href="{{ path('image_rating', {'id' :photo.id, 'rating' :1, 'currentPath' :currentPath|trim('/')}) }}"><i
-                                             class="{% if photo.rating >= 1 %}fas{% else %}far{% endif %} fa-star "></i></a>
-                                 <a href="{{ path('image_rating', {'id' :photo.id, 'rating' :2, 'currentPath' :currentPath|trim('/')}) }}"><i
-                                             class="{% if photo.rating >= 2 %}fas{% else %}far{% endif %} fa-star "></i></a>
-                                 <a href="{{ path('image_rating', {'id' :photo.id, 'rating' :3, 'currentPath' :currentPath|trim('/')}) }}"><i
-                                             class="{% if photo.rating == 3 %}fas{% else %}far{% endif %} fa-star "></i></a>
-                             </div>
-                         </div>
-                         <div class="loader">
-                             <div class="lds-roller">
-                                 <div></div>
-                                 <div></div>
-                                 <div></div>
-                                 <div></div>
-                                 <div></div>
-                                 <div></div>
-                                 <div></div>
-                                 <div></div>
-                             </div>
+ <section id="all-photos">
+     {% include 'partials/flash-messages.html.twig' %}
+     <div class="container">
+         <h1>Toutes mes photos</h1>
+         {% if filter == 0 %}<p>{{ total|length }} photo{% if photos|length > 1 %}s{% endif %}</p>
+            {% elseif filter == 1 %} <p>(classées 1 étoile)</p>
+                {% elseif filter == 2 %} <p>(classées 2 étoiles)</p>
+                    {% elseif filter == 3 %} <p>(classées 3 étoiles)</p>
+         {% endif %}
+         <div class="container-photos">
+             {% for photo in photos %}
+                 <div class="container-photo {% if filter != 0 %}{% if photo.rating != filter %}hide{% endif %}{% endif %}">
+                     <a href="{{ path('image_one_photo', {'id' :photo.id}) }}" class="link-container-photo">
+                         <img src="{{ path('file_download', {'id' :photo.id}) }}" alt="{{ photo.originalName }}">
+                     </a>
+                     <div class="hover-photo">
+                         <p class="original-name"><small>{{ photo.originalName }}</small></p>
+                         <a href="{{ path('image_one_photo', {'id' :photo.id}) }}" class="link-photo"></a>
+                         <a href="" class="link-send-photo" title="partager cette photo par mail" data-toggle="modal"
+                            data-target="#SendFileModalCenter{{ photo.id }}"><i class="fas fa-share-alt"></i></a>
+                         <a href="" class="link-erase-photo" title="supprimer cette photo" data-toggle="modal"
+                            data-target="#ConfirmationModalCenter{{ photo.id }}"><i
+                                     class="far fa-trash-alt"></i></a>
+                         <div class="rating">
+                             {% set currentPath = path(app.request.attributes.get('_route')) %}
+                             <a href="{{ path('image_rating', {'id' :photo.id, 'rating' :1, 'currentPath' :currentPath|trim('/')}) }}" class="{% if photo.rating >= 1 %}active{% endif %}"><i class="fas fa-star"></i></a>
+                             <a href="{{ path('image_rating', {'id' :photo.id, 'rating' :2, 'currentPath' :currentPath|trim('/')}) }}" class="{% if photo.rating >= 2 %}active{% endif %}"><i class="fas fa-star"></i></a>
+                             <a href="{{ path('image_rating', {'id' :photo.id, 'rating' :3, 'currentPath' :currentPath|trim('/')}) }}" class="{% if photo.rating == 3 %}active{% endif %}"><i class="fas fa-star"></i></a>
                          </div>
                      </div>
-                     <div class="modal fade" id="ConfirmationModalCenter{{ photo.id }}" tabindex="-1" role="dialog"
-                          aria-labelledby="ModalCenterTitle" aria-hidden="true">
-                         <div class="modal-dialog modal-dialog-centered" role="document">
-                             <div class="modal-content ConfirmationModal">
-                                 <div class="modal-header">
-                                     <h5 class="modal-title" id="exampleModalLongTitle">Êtes-vous sûr de vouloir
-                                         supprimer la photo "{{ photo.originalName }}"</h5>
-                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                         <span aria-hidden="true">&times;</span>
-                                     </button>
-                                 </div>
-                                 <div class="modal-body">
-                                     <a href="" class="btn btn-warning" data-dismiss="modal">Annuler</a>
-                                     <a href="{{ path('image_remove_photo', {'id' :photo.id}) }}" class="btn btn-danger"
-                                        title="Supprimer cette photo">Supprimer</a>
-                                 </div>
-                             </div>
+                     <div class="loader">
+                         <div class="lds-roller">
+                             <div></div>
+                             <div></div>
+                             <div></div>
+                             <div></div>
+                             <div></div>
+                             <div></div>
+                             <div></div>
+                             <div></div>
                          </div>
                      </div>
-                     <div class="modal fade" id="SendFileModalCenter{{ photo.id }}" tabindex="-1" role="dialog"
-                          aria-labelledby="ModalCenterTitle" aria-hidden="true">
-                         <div class="modal-dialog modal-dialog-centered" role="document">
-                             <div class="modal-content SendFileModal">
-                                 <div class="modal-header">
-                                     <h5 class="modal-title" id="exampleModalLongTitle">Partagez la photo
-                                         "{{ photo.originalName }}" par email</h5>
-                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                         <span aria-hidden="true">&times;</span>
-                                     </button>
-                                 </div>
-                                 <div class="modal-body">
-                                     {% set currentPath = 'all-photos' %}
-                                     <form action="{{ path('mailer_photo', {'from' :app.user.id, 'photoId' : photo.id, 'currentPath' : currentPath }) }}"
-                                           method="post">
-                                         <div class="form-group">
-                                             <label for="to-email">Adresse email du destinataire :</label>
-                                             <input type="email" name="to-email" id="to-email" required="required">
-                                         </div>
-                                         <div class="form-group">
-                                             <label for="content">Message
-                                                 <small>(facultatif)</small>
-                                                 :</label>
-                                             <textarea name="content" id="content" cols="30" rows="10"></textarea>
-                                         </div>
-                                         <button class="btn btn-danger" data-dismiss="modal">Annuler</button>
-                                         <button class="btn btn-success" type="submit">Envoyer</button>
-                                     </form>
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                 {% endfor %}
-             </div>
-             {% if total|length > 20 and filter == 0 %}
-                 {% include 'partials/pagination.html.twig' with {'route': 'image_all_photos'} %}
-             {% endif %}
-             {% if photos|length >= 1 %}
-                 <div class="filter">
-                     Filtrer :
-                     {% if  filter != 0 %}
-                         <a href="{{ path('filter_rating', {'rating' :1}) }}"
-                            title="Afficher seulement les photos classées 1 étoile"><i
-                                     class="{% if filter >= 1 %}fas{% else %}far{% endif %} fa-star "></i></a>
-                         <a href="{{ path('filter_rating', {'rating' :2}) }}"
-                            title="Afficher seulement les photos classées 2 étoiles"><i
-                                     class="{% if filter >= 2 %}fas{% else %}far{% endif %} fa-star "></i></a>
-                         <a href="{{ path('filter_rating', {'rating' :3}) }}"
-                            title="Afficher seulement les photos classées 3 étoiles"><i
-                                     class="{% if filter == 3 %}fas{% else %}far{% endif %} fa-star "></i></a>
-                         <a href="{{ path('filter_rating', {'rating' :0}) }}" title="Supprimer le filtre"><i
-                                     class="fas fa-filter"></i></a>
-                     {% else %}
-                         <a href="{{ path('filter_rating', {'rating' :1}) }}"
-                            title="Afficher seulement les photos classées 1 étoile"><i
-                                     class="fas fa-star drunk"></i></a>
-                         <a href="{{ path('filter_rating', {'rating' :2}) }}"
-                            title="Afficher seulement les photos classées 2 étoiles"><i
-                                     class="fas fa-star drunk"></i></a>
-                         <a href="{{ path('filter_rating', {'rating' :3}) }}"
-                            title="Afficher seulement les photos classées 3 étoiles"><i
-                                     class="fas fa-star drunk"></i></a>
-                     {% endif %}
                  </div>
-             {% endif %}
-             <div class="buttons">
-                 <a class="btn btn-primary" href="{{ path('album_all_albums') }}">Voir mes albums</a>
-                 <a class="btn btn-secondary" href="{{ path('image_add') }}">Ajouter des photos</a>
-             </div>
+                 <div class="modal fade" id="ConfirmationModalCenter{{ photo.id }}" tabindex="-1" role="dialog"
+                      aria-labelledby="ModalCenterTitle" aria-hidden="true">
+                     <div class="modal-dialog modal-dialog-centered" role="document">
+                         <div class="modal-content ConfirmationModal">
+                             <div class="modal-header">
+                                 <h5 class="modal-title" id="exampleModalLongTitle">Êtes-vous sûr de vouloir
+                                     supprimer la photo "{{ photo.originalName }}"</h5>
+                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                     <span aria-hidden="true">&times;</span>
+                                 </button>
+                             </div>
+                             <div class="modal-body">
+                                 <a href="" class="btn btn-warning" data-dismiss="modal">Annuler</a>
+                                 <a href="{{ path('image_remove_photo', {'id' :photo.id}) }}" class="btn btn-danger"
+                                    title="Supprimer cette photo">Supprimer</a>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="modal fade" id="SendFileModalCenter{{ photo.id }}" tabindex="-1" role="dialog"
+                      aria-labelledby="ModalCenterTitle" aria-hidden="true">
+                     <div class="modal-dialog modal-dialog-centered" role="document">
+                         <div class="modal-content SendFileModal">
+                             <div class="modal-header">
+                                 <h5 class="modal-title" id="exampleModalLongTitle">Partagez la photo
+                                     "{{ photo.originalName }}" par email</h5>
+                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                     <span aria-hidden="true">&times;</span>
+                                 </button>
+                             </div>
+                             <div class="modal-body">
+                                 {% set currentPath = 'all-photos' %}
+                                 <form action="{{ path('mailer_photo', {'from' :app.user.id, 'photoId' : photo.id, 'currentPath' : currentPath }) }}"
+                                       method="post">
+                                     <div class="form-group">
+                                         <label for="to-email">Adresse email du destinataire :</label>
+                                         <input type="email" name="to-email" id="to-email" required="required">
+                                     </div>
+                                     <div class="form-group">
+                                         <label for="content">Message
+                                             <small>(facultatif)</small>
+                                             :</label>
+                                         <textarea name="content" id="content" cols="30" rows="10"></textarea>
+                                     </div>
+                                     <button class="btn btn-danger" data-dismiss="modal">Annuler</button>
+                                     <button class="btn btn-success" type="submit">Envoyer</button>
+                                 </form>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             {% endfor %}
          </div>
-     </section>
- {% endblock %}
+         {% if total|length > 20 and filter == 0 %}
+             {% include 'partials/pagination.html.twig' with {'route': 'image_all_photos'} %}
+         {% endif %}
+         {% if photos|length >= 1 %}
+             <div class="filter">
+                 Filtrer :
+                 {% if  filter != 0 %}
+                     <a href="{{ path('filter_rating', {'rating' :1}) }}"
+                        title="Afficher seulement les photos classées 1 étoile" class="{% if filter >= 1 %}active{% endif %}"><i class="fas fa-star"></i></a>
+                     <a href="{{ path('filter_rating', {'rating' :2}) }}"
+                        title="Afficher seulement les photos classées 2 étoiles" class="{% if filter >= 2 %}active{% endif %}"><i class="fas fa-star"></i></a>
+                     <a href="{{ path('filter_rating', {'rating' :3}) }}"
+                        title="Afficher seulement les photos classées 3 étoiles" class="{% if filter == 3 %}active{% endif %}"><i class="fas fa-star"></i></a>
+                     <a href="{{ path('filter_rating', {'rating' :0}) }}" title="Supprimer le filtre"><i
+                                 class="fas fa-filter"></i></a>
+                 {% else %}
+                     <a href="{{ path('filter_rating', {'rating' :1}) }}"
+                        title="Afficher seulement les photos classées 1 étoile"><i
+                                 class="fas fa-star"></i></a>
+                     <a href="{{ path('filter_rating', {'rating' :2}) }}"
+                        title="Afficher seulement les photos classées 2 étoiles"><i
+                                 class="fas fa-star"></i></a>
+                     <a href="{{ path('filter_rating', {'rating' :3}) }}"
+                        title="Afficher seulement les photos classées 3 étoiles"><i
+                                 class="fas fa-star"></i></a>
+                 {% endif %}
+             </div>
+         {% endif %}
+         <div class="buttons">
+             <a class="btn btn-primary" href="{{ path('album_all_albums') }}">Voir mes albums</a>
+             <a class="btn btn-secondary" href="{{ path('image_add') }}">Ajouter des photos</a>
+         </div>
+     </div>
+ </section>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/rating-stars-hover.js') }}"></script>
+{% endblock %}

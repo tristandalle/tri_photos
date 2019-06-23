@@ -155,10 +155,14 @@
             left: 0.5rem;
 
             a {
-              color: $star;
+              color: gray;
 
-              &:hover {
-                color: $warning;
+              &.active {
+                color: $star;
+              }
+
+              &.hover {
+                color: $star;
               }
             }
           }
@@ -272,19 +276,23 @@
     .filter {
       color: $primary;
 
-      i, svg {
-        color: $star;
+      a {
+        color: gray;
 
-        &.drunk {
-          color: gray;
-
-          &:hover {
-            color: $warning;
-          }
+        &.active {
+          color: $star;
         }
 
-        &.fa-filter {
-          color: $danger;
+        &.hover {
+          color: $star;
+        }
+
+        .fa-filter {
+          color: $success;
+
+          &:hover {
+            color: gray;
+          }
         }
       }
     }

@@ -5,6 +5,7 @@
  {% block body %}
 
      <section id="one-album-all-photos">
+         {% include 'partials/flash-messages.html.twig' %}
          <div class="container">
              {% if album.photos|length == 0 %}
                  <div class="return">
@@ -18,7 +19,7 @@
              <div class="diaporama-header">
                  <h1>Diaporama album {{ album.title }}</h1>
                  <p>{{ album.description }}</p>
-                 <p><small>{{ album.photos|length }} photo{% if album.photos|length > 1 %}s{% endif %}</small></p>
+                 <p class="details"><small>{{ album.photos|length }} photo{% if album.photos|length > 1 %}s{% endif %}</small></p>
              </div>
              {% if album.photos|length == 0 %}
              <p>Cette album est vide, retournez à <a href="{{ path('album_all_albums') }}">vos albums</a></p>
@@ -36,12 +37,13 @@
                              <img src="{{ path('file_download', {'id' :albumPhotos.id}) }}" alt="...">
                              <div class="rating">
                                  {% set currentPath = 'albumAllPhotos' %}
-                                 <a href="{{ path('image_rating', {'id' :albumPhotos.id, 'rating' :1, 'currentPath' :currentPath}) }}"><i class="{% if albumPhotos.rating >= 1 %}fas{% else %}far{% endif %} fa-star "></i></a>
-                                 <a href="{{ path('image_rating', {'id' :albumPhotos.id, 'rating' :2, 'currentPath' :currentPath}) }}"><i class="{% if albumPhotos.rating >= 2 %}fas{% else %}far{% endif %} fa-star "></i></a>
-                                 <a href="{{ path('image_rating', {'id' :albumPhotos.id, 'rating' :3, 'currentPath' :currentPath}) }}"><i class="{% if albumPhotos.rating == 3 %}fas{% else %}far{% endif %} fa-star "></i></a>
+                                 <a href="{{ path('image_rating', {'id' :albumPhotos.id, 'rating' :1, 'currentPath' :currentPath}) }}" class="{% if albumPhotos.rating >= 1 %}active{% endif %}"><i class="fas fa-star"></i></a>
+                                 <a href="{{ path('image_rating', {'id' :albumPhotos.id, 'rating' :2, 'currentPath' :currentPath}) }}" class="{% if albumPhotos.rating >= 2 %}active{% endif %}"><i class="fas fa-star"></i></a>
+                                 <a href="{{ path('image_rating', {'id' :albumPhotos.id, 'rating' :3, 'currentPath' :currentPath}) }}" class="{% if albumPhotos.rating == 3 %}active{% endif %}"><i class="fas fa-star"></i></a>
                              </div>
                              <div class="edition">
                                  <a href="" class="btn btn-primary" title="déplacer cette photo dans un autre album" data-toggle="modal" data-target="#ModalCenter{{ albumPhotos.id }}"><i class="fas fa-images"></i></a>
+                                 <a href="" class="btn btn-info" title="partager cette photo par mail" data-toggle="modal" data-target="#SendFileModalCenter{{ albumPhotos.id }}"><i class="fas fa-share-alt"></i></a>
                                  <a href="" class="btn btn-danger" title="Supprimer cette photo" data-toggle="modal" data-target="#ConfirmationModalCenter{{ albumPhotos.id }}"><i class="far fa-trash-alt"></i></a>
                              </div>
                          </div>
@@ -73,6 +75,38 @@
                                                      <button type="submit" class="btn btn-success">Valider</button>
                                                  </div>
                                              </div>
+                                         </form>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="modal fade" id="SendFileModalCenter{{ albumPhotos.id }}" tabindex="-1" role="dialog"
+                              aria-labelledby="ModalCenterTitle" aria-hidden="true">
+                             <div class="modal-dialog modal-dialog-centered" role="document">
+                                 <div class="modal-content SendFileModal">
+                                     <div class="modal-header">
+                                         <h5 class="modal-title" id="exampleModalLongTitle">Partagez la photo
+                                             "{{ albumPhotos.originalName }}" par email</h5>
+                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                             <span aria-hidden="true">&times;</span>
+                                         </button>
+                                     </div>
+                                     <div class="modal-body">
+                                         {% set currentPath = 'album_one_album_all_photos' %}
+                                         <form action="{{ path('mailer_photo', {'from' :app.user.id, 'photoId' : albumPhotos.id, 'currentPath' : currentPath }) }}"
+                                               method="post">
+                                             <div class="form-group">
+                                                 <label for="to-email">Adresse email du destinataire :</label>
+                                                 <input type="email" name="to-email" id="to-email" required="required">
+                                             </div>
+                                             <div class="form-group">
+                                                 <label for="content">Message
+                                                     <small>(facultatif)</small>
+                                                     :</label>
+                                                 <textarea name="content" id="content" cols="30" rows="10"></textarea>
+                                             </div>
+                                             <button class="btn btn-danger" data-dismiss="modal">Annuler</button>
+                                             <button class="btn btn-success" type="submit">Envoyer</button>
                                          </form>
                                      </div>
                                  </div>
@@ -118,4 +152,5 @@
 {% block javascripts %}
     {{ parent() }}
     <script src="/js/carousel-init.js"></script>
+    <script src="{{ asset('js/rating-stars-hover.js') }}"></script>
 {% endblock %}

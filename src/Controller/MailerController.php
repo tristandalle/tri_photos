@@ -66,9 +66,9 @@ class MailerController extends AbstractController
         $content = $request->request->get('content');
         $fileToSend = $photoRepository->find($photoId)->getFile();
         $fileName = $photoRepository->find($photoId)->getOriginalName();
-        $attachment =  Swift_Attachment::fromPath(getcwd().'/../assets/uploads/images/thumbnails/mini_'.$fileToSend)
+        /*$attachment =  Swift_Attachment::fromPath(getcwd().'/../assets/uploads/images/thumbnails/mini_'.$fileToSend)
             ->setFilename($fileName)
-            ->setDisposition('inline');
+            ->setDisposition('inline');*/
 
         $message = (new Swift_Message());
             $cid = $message->embed(Swift_Image::fromPath(getcwd().'/../assets/uploads/images/thumbnails/mini_'.$fileToSend)->setFilename($fileName));
@@ -78,13 +78,13 @@ class MailerController extends AbstractController
             $message->setBody(
                 '<html>' .
                 ' <body>' .
-                '  <p>Voici la photo que <strong>' .$fromName. '</strong> vous envoie : <img src="' . $cid . '"/></p>' .
-                ' <i>' . $content . '</i> <p>Vous aussi profitez de vos photos sur <a href="">Triphotos</a></p>' .
+                '  <p>Voici la photo que <strong>' .$fromName. '</strong> vous envoie : </p><img src="' . $cid . '"/>' .
+                ' <p>' . $content . '</p> <p>Vous aussi profitez de vos photos sur <a href="">Triphotos</a></p>' .
                 ' </body>' .
                 '</html>',
                 'text/html'
             );
-            $message->attach($attachment);
+//            $message->attach($attachment);
 
         $mailer->send($message);
         $this->addFlash(
@@ -94,11 +94,23 @@ class MailerController extends AbstractController
         if ($currentPath == 'all-photos') {
             $returnPath = 'image_all_photos';
             return $this->redirectToRoute($returnPath);
+        } elseif ($currentPath == 'one-photos') {
+            $returnPath = 'image_one_photo';
+            return $this->redirectToRoute($returnPath, [
+                "id" => $photoId
+            ]);
         } elseif ($currentPath == 'one-album') {
             $albumId = $photoRepository->find($photoId)->getAlbum()->getId();
             $returnPath = 'album_one_album';
             return $this->redirectToRoute($returnPath, [
                 "id" => $albumId
+            ]);
+        } elseif ($currentPath == 'album_one_album_all_photos') {
+            $albumId = $photoRepository->find($photoId)->getAlbum()->getId();
+            $returnPath = 'album_one_album_all_photos';
+            return $this->redirectToRoute($returnPath, [
+                "id" => $albumId,
+                "photoId" => $photoId
             ]);
         } else {
             return $this->redirectToRoute('home');

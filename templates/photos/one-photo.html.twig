@@ -27,12 +27,13 @@
                         <img src="{{ path('file_download', {'id' :userPhotos.id}) }}" alt="...">
                         <div class="rating">
                             {% set currentPath = 'onePhoto' %}
-                            <a href="{{ path('image_rating', {'id' :userPhotos.id, 'rating' :1, 'currentPath' :currentPath}) }}"><i class="{% if userPhotos.rating >= 1 %}fas{% else %}far{% endif %} fa-star "></i></a>
-                            <a href="{{ path('image_rating', {'id' :userPhotos.id, 'rating' :2, 'currentPath' :currentPath}) }}"><i class="{% if userPhotos.rating >= 2 %}fas{% else %}far{% endif %} fa-star "></i></a>
-                            <a href="{{ path('image_rating', {'id' :userPhotos.id, 'rating' :3, 'currentPath' :currentPath}) }}"><i class="{% if userPhotos.rating == 3 %}fas{% else %}far{% endif %} fa-star "></i></a>
+                            <a href="{{ path('image_rating', {'id' :userPhotos.id, 'rating' :1, 'currentPath' :currentPath}) }}" class="{% if userPhotos.rating >= 1 %}active{% endif %}"><i class="fas fa-star"></i></a>
+                            <a href="{{ path('image_rating', {'id' :userPhotos.id, 'rating' :2, 'currentPath' :currentPath}) }}" class="{% if userPhotos.rating >= 2 %}active{% endif %}"><i class="fas fa-star"></i></a>
+                            <a href="{{ path('image_rating', {'id' :userPhotos.id, 'rating' :3, 'currentPath' :currentPath}) }}" class="{% if userPhotos.rating == 3 %}active{% endif %}"><i class="fas fa-star"></i></a>
                         </div>
                         <div class="edition">
                             <a href="" class="btn btn-primary" title="déplacer cette photo dans un album" data-toggle="modal" data-target="#ModalCenter{{ userPhotos.id }}"><i class="fas fa-images"></i></a>
+                            <a href="" class="btn btn-info" title="partager cette photo par mail" data-toggle="modal" data-target="#SendFileModalCenter{{ userPhotos.id }}"><i class="fas fa-share-alt"></i></a>
                             <a href="" class="btn btn-danger" title="Supprimer cette photo" data-toggle="modal" data-target="#ConfirmationModalCenter{{ userPhotos.id }}"><i class="far fa-trash-alt"></i></a>
                         </div>
                     </div>
@@ -64,6 +65,38 @@
                                                 <button type="submit" class="btn btn-success">Valider</button>
                                             </div>
                                         </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="SendFileModalCenter{{ userPhotos.id }}" tabindex="-1" role="dialog"
+                         aria-labelledby="ModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content SendFileModal">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Partagez la photo
+                                        "{{ userPhotos.originalName }}" par email</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    {% set currentPath = 'one-photos' %}
+                                    <form action="{{ path('mailer_photo', {'from' :app.user.id, 'photoId' : userPhotos.id, 'currentPath' : currentPath }) }}"
+                                          method="post">
+                                        <div class="form-group">
+                                            <label for="to-email">Adresse email du destinataire :</label>
+                                            <input type="email" name="to-email" id="to-email" required="required">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="content">Message
+                                                <small>(facultatif)</small>
+                                                :</label>
+                                            <textarea name="content" id="content" cols="30" rows="10"></textarea>
+                                        </div>
+                                        <button class="btn btn-danger" data-dismiss="modal">Annuler</button>
+                                        <button class="btn btn-success" type="submit">Envoyer</button>
                                     </form>
                                 </div>
                             </div>
@@ -101,3 +134,7 @@
 
 {% endblock %}
 
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/rating-stars-hover.js') }}"></script>
+{% endblock %}

@@ -13,6 +13,11 @@
             </div>
             <h1>{{ album.title }}</h1>
             <p>{{ album.description }}</p>
+            {% if filter == 0 %}<p class="details">{{ total }} photo{% if total > 1 %}s{% endif %}</p>
+            {% elseif filter == 1 %} <p class="details">(classées 1 étoile)</p>
+            {% elseif filter == 2 %} <p class="details">(classées 2 étoiles)</p>
+            {% elseif filter == 3 %} <p class="details">(classées 3 étoiles)</p>
+            {% endif %}
             <div class="container-photos">
                 {% for photo in photos %}
                     <div class="container-photo {% if filter != 0 %}{% if photo.rating != filter %}hide{% endif %}{% endif %}">
@@ -32,12 +37,9 @@
                                         class="fas fa-folder-minus"></i></a>
                             <div class="rating">
                                 {% set currentPath = 'album' %}
-                                <a href="{{ path('image_rating', {'id' :photo.id, 'rating' :1, 'currentPath' :currentPath}) }}"><i
-                                            class="{% if photo.rating >= 1 %}fas{% else %}far{% endif %} fa-star "></i></a>
-                                <a href="{{ path('image_rating', {'id' :photo.id, 'rating' :2, 'currentPath' :currentPath}) }}"><i
-                                            class="{% if photo.rating >= 2 %}fas{% else %}far{% endif %} fa-star "></i></a>
-                                <a href="{{ path('image_rating', {'id' :photo.id, 'rating' :3, 'currentPath' :currentPath}) }}"><i
-                                            class="{% if photo.rating == 3 %}fas{% else %}far{% endif %} fa-star "></i></a>
+                                <a href="{{ path('image_rating', {'id' :photo.id, 'rating' :1, 'currentPath' :currentPath}) }}" class="{% if photo.rating >= 1 %}active{% endif %}"><i class="fas fa-star"></i></a>
+                                <a href="{{ path('image_rating', {'id' :photo.id, 'rating' :2, 'currentPath' :currentPath}) }}" class="{% if photo.rating >= 2 %}active{% endif %}"><i class="fas fa-star"></i></a>
+                                <a href="{{ path('image_rating', {'id' :photo.id, 'rating' :3, 'currentPath' :currentPath}) }}" class="{% if photo.rating == 3 %}active{% endif %}"><i class="fas fa-star"></i></a>
                             </div>
                         </div>
                         <div class="loader">
@@ -70,7 +72,7 @@
                                           method="post">
                                         <div class="form-group">
                                             <label for="to-email">Adresse email du destinataire :</label>
-                                            <input type="text" name="to-email" id="to-email" required="required">
+                                            <input type="email" name="to-email" id="to-email" required="required">
                                         </div>
                                         <div class="form-group">
                                             <label for="content">Message
@@ -114,15 +116,12 @@
                 <div class="filter">
                     Filtrer :
                     {% if  filter != 0 %}
-                        <a href="{{ path('filter_rating', {'rating': 1, 'currentPath': 'album_one_album', 'albumId': album.id}) }}"
-                           title="Afficher seulement les photos classées 1 étoile"><i
-                                    class="{% if filter >= 1 %}fas{% else %}far{% endif %} fa-star "></i></a>
-                        <a href="{{ path('filter_rating', {'rating': 2, 'currentPath': 'album_one_album', 'albumId': album.id}) }}"
-                           title="Afficher seulement les photos classées 2 étoiles"><i
-                                    class="{% if filter >= 2 %}fas{% else %}far{% endif %} fa-star "></i></a>
-                        <a href="{{ path('filter_rating', {'rating': 3, 'currentPath': 'album_one_album', 'albumId': album.id}) }}"
-                           title="Afficher seulement les photos classées 3 étoiles"><i
-                                    class="{% if filter == 3 %}fas{% else %}far{% endif %} fa-star "></i></a>
+                        <a href="{{ path('filter_rating', {'rating' :1}) }}"
+                           title="Afficher seulement les photos classées 1 étoile" class="{% if filter >= 1 %}active{% endif %}"><i class="fas fa-star"></i></a>
+                        <a href="{{ path('filter_rating', {'rating' :2}) }}"
+                           title="Afficher seulement les photos classées 2 étoiles" class="{% if filter >= 2 %}active{% endif %}"><i class="fas fa-star"></i></a>
+                        <a href="{{ path('filter_rating', {'rating' :3}) }}"
+                           title="Afficher seulement les photos classées 3 étoiles" class="{% if filter == 3 %}active{% endif %}"><i class="fas fa-star"></i></a>
                         <a href="{{ path('filter_rating', {'rating': 0, 'currentPath': 'album_one_album', 'albumId': album.id}) }}" title="Supprimer le filtre"><i
                                     class="fas fa-filter"></i></a>
                     {% else %}
@@ -166,3 +165,8 @@
     </section>
 
 {% endblock %}
+
+ {% block javascripts %}
+     {{ parent() }}
+     <script src="{{ asset('js/rating-stars-hover.js') }}"></script>
+ {% endblock %}

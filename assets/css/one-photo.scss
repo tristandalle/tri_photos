@@ -27,7 +27,6 @@
     .carousel-item {
       background-color: #000;
       padding: 5rem 0;
-      margin-top: 2rem;
 
       p {
         text-align: center;
@@ -54,10 +53,14 @@
         margin: 1rem 0;
 
         a {
-          color: $star;
+          color: gray;
 
-          &:hover {
-            color: $warning;
+          &.active {
+            color: $star;
+          }
+
+          &.hover {
+            color: $star;
           }
         }
       }
