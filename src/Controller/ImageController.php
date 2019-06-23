@@ -11,6 +11,8 @@ use App\Service\Paginator;
 use Doctrine\Common\Persistence\ObjectManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
+use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -187,6 +189,17 @@ class ImageController extends AbstractController
         }
         $manager->remove($photoToRemove);
         $manager->flush();
+
+        $filesystem = new Filesystem();
+
+        try {
+            $thumbnailFilePath = getcwd().'/../assets/uploads/images/thumbnails/mini_'. $photoToRemove->getFile();
+            $filePath = getcwd().'/../assets/uploads/images/'. $photoToRemove->getFile();
+            $filesystem->remove($thumbnailFilePath);
+            $filesystem->remove($filePath);
+        } catch (IOExceptionInterface $exception) {
+            echo "An error occurred while creating your directory at ".$exception->getPath();
+        }
         $idOfOneUserPhoto = $allUserPhotos[0]->getId();
         if ($currentPath == 'albumAllPhotos') {
             return $this->redirectToRoute('album_one_album_all_photos', [

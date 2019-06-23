@@ -127,7 +127,7 @@ class MailerController extends AbstractController
         $fromName = $userRepository->find($from)->getUsername();
         $toEmail = $request->request->get('to-email');
         $content = $request->request->get('content');
-        $linkToSend = 'http://127.0.0.1:8000/shared-album/'.$albumId.'/'.$albumRepository->find($albumId)->getAlbumToken();
+        $linkToSend = 'http://triphotos.tristandalle.fr/shared-album/'.$albumId.'/'.$albumRepository->find($albumId)->getAlbumToken();
         $albumTitle = $albumRepository->find($albumId)->getTitle();
 
         $message = (new Swift_Message());

@@ -11,6 +11,8 @@ use App\Service\Paginator;
 use Doctrine\Common\Persistence\ObjectManager;
 use Swift_Mailer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
+use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Routing\Annotation\Route;
 
 class AdminController extends AbstractController
@@ -94,6 +96,17 @@ class AdminController extends AbstractController
         $photoToRemove = $photoRepository->find($id);
         $manager->remove($photoToRemove);
         $manager->flush();
+        $filesystem = new Filesystem();
+
+        try {
+            $thumbnailFilePath = getcwd().'/../assets/uploads/images/thumbnails/mini_'. $photoToRemove->getFile();
+            $filePath = getcwd().'/../assets/uploads/images/'. $photoToRemove->getFile();
+            $filesystem->remove($thumbnailFilePath);
+            $filesystem->remove($filePath);
+        } catch (IOExceptionInterface $exception) {
+            echo "An error occurred while creating your directory at ".$exception->getPath();
+        }
+
         return $this->redirectToRoute('admin_photos');
     }
 }
