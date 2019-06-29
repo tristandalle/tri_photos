@@ -5,8 +5,10 @@
 {% block body %}
     <section id="error">
         <div class="container alert-primary">
-            <h1>Accès refusé ! erreur {{ status_code }}, vous n'avez pas le droit d'être ici !</h1>
-            <p>Vous n'avez pas les droits pour afficher cette page...</p>
+            <h1>Qu'est-ce que vous faîtes ici ?!</h1>
+            <p><small>Accès refusé ! erreur {{ status_code }}</small>... </p>
+            <p>Vous n'avez pas les droits pour voir cette page, ou vous essayez d'afficher des photos qui ne vous appartiennent pas...</p>
+            <p><b>Faîtes demi-tour !</b></p>
             <a href="{{ path('home') }}" class="btn btn-primary"><i class="fas fa-home"></i> retourner à la page d'accueil</a>
         </div>
     </section>

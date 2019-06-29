@@ -104,8 +104,7 @@ class AlbumController extends AbstractController
         $albumToEdit = $albumRepository->find($id);
         $albumAuthor = $albumToEdit->getAuthor();
         if ($currentUser != $albumAuthor) {
-            http_response_code(401);
-            die();
+            throw $this->createAccessDeniedException();
         }
         $authorAlbums = $albumToEdit->getAuthor()->getAlbums();
         if (count($albumToEdit->getPhotos()) == 0) {
@@ -128,8 +127,7 @@ class AlbumController extends AbstractController
         $albumToRemove = $albumRepository->find($id);
         $albumAuthor = $albumToRemove->getAuthor();
         if ($currentUser != $albumAuthor) {
-            http_response_code(401);
-            die();
+            throw $this->createAccessDeniedException();
         }
         $photosFromAlbum = $photoRepository->findBy([
             'album' => $albumToRemove
@@ -153,8 +151,7 @@ class AlbumController extends AbstractController
         $sharedAlbum = $albumRepository->find($id);
         $albumAuthor = $sharedAlbum->getAuthor();
         if ($currentUser != $albumAuthor) {
-            http_response_code(401);
-            die();
+            throw $this->createAccessDeniedException();
         }
         $token = $tokenGenerator->generateToken();
         $sharedAlbum->setAlbumToken($token);
@@ -178,8 +175,7 @@ class AlbumController extends AbstractController
         $sharedAlbum = $albumRepository->find($id);
         $albumAuthor = $sharedAlbum->getAuthor();
         if ($currentUser != $albumAuthor) {
-            http_response_code(401);
-            die();
+            throw $this->createAccessDeniedException();
         }
         $sharedAlbum->setAlbumToken(null);
         $manager->persist($sharedAlbum);

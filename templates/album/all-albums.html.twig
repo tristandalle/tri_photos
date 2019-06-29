@@ -129,7 +129,7 @@
                                     {% if album.albumToken is not null %}
                                         <p>Cet album est partagé</p>
                                         <div>
-                                            <input type="text" value="http://triphotos.tristandalle.fr/shared-album/{{ album.id }}/{{ album.albumToken }}" id="linkInput">
+                                            <input type="text" value="https://triphotos.tristandalle.fr/shared-album/{{ album.id }}/{{ album.albumToken }}" id="linkInput">
                                             <button class="btn btn-primary" id="copy-link" onclick="copyLink()" data-container="body" data-toggle="popover" data-placement="top" data-content="Copié !">Copier le lien</button>
                                             <a href="" title="Envoyer un mail avec le lien" class="btn btn-info" data-toggle="modal"
                                                data-target="#SendLinkModalCenter{{ album.id }}">Envoyer le lien</a>

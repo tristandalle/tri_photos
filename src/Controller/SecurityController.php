@@ -50,6 +50,10 @@ class SecurityController extends AbstractController
 
             $mailer->send($message);
 
+            $this->addFlash(
+                'success',
+                'Félicitations, vous êtes désormais inscrit ! Connectez-vous !');
+
             return $this->redirectToRoute('security_login');
         }
 
@@ -58,6 +62,22 @@ class SecurityController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/check-ajax-email", name="security_registration_check_email")
+     */
+    public function checkEmailAjax(UserRepository $userRepository)
+    {
+        if (isset($_POST['email_check'])) {
+            $email = $_POST['email'];
+            $checkmail = $userRepository->findBy(['email' => $email]);
+            if ($checkmail == true) {
+                echo "taken";
+            }else{
+                echo 'not_taken';
+            }
+            exit();
+        }
+    }
     /**
      * @Route("/connexion", name="security_login", methods={"GET", "POST"})
      */

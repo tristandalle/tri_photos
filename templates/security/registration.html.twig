@@ -13,6 +13,7 @@
             <div class="container-form col-lg-6">
                 {{ form_start(formRegistration, {'attr' : {'class':'flex-column'}}) }}
                 {{ form_row(formRegistration.email, {'label':'Votre adresse email', 'attr' : {'placeholder':'adresse email ...'}}) }}
+                <div class="ajax-error invalid-feedback mb-3" style="display: none"><span class="form-error-icon badge badge-danger text-uppercase">Erreur</span> <span class="form-error-message">Cet email est déjà utilisé !</span></div>
                 {{ form_row(formRegistration.username, {'label':'Votre pseudo', 'attr' : {'placeholder':'pseudo ...'}}) }}
                 {{ form_row(formRegistration.firstname, {'label':'Votre prénom', 'attr' : {'placeholder':'prénom ...'}}) }}
                 {{ form_row(formRegistration.lastname, {'label':'Votre nom', 'attr' : {'placeholder':'nom ...'}}) }}
@@ -27,4 +28,9 @@
     </section>
 
 {% endblock %}
+
+ {% block javascripts %}
+     {{ parent() }}
+     <script src="{{ asset('js/registration-check-uniq_email.js') }}"></script>
+ {% endblock %}
 

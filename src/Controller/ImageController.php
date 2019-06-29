@@ -108,8 +108,7 @@ class ImageController extends AbstractController
             $filePath = $this->getParameter('thumbnails_directory') . '/mini_' . $fileName;
             return $this->file($filePath);
         } else {
-            http_response_code(401);
-            die();
+            throw $this->createAccessDeniedException();
         }
     }
 
@@ -155,8 +154,7 @@ class ImageController extends AbstractController
             'author' => $currentUser
         ]);
         if ($currentUser != $photoToEdit->getAuthor()) {
-            http_response_code(401);
-            die();
+            throw $this->createAccessDeniedException();
         }
         return $this->render('photos/one-photo.html.twig', [
             'photo' => $photoToEdit,
@@ -174,8 +172,7 @@ class ImageController extends AbstractController
         $currentUser = $this->getUser();
         $photoToRemove = $photoRepository->find($id);
         if ($currentUser == null || $currentUser =! $photoToRemove->getAuthor()) {
-            http_response_code(401);
-            die();
+            throw $this->createAccessDeniedException();
         }
         $currentAlbum = $photoToRemove->getAlbum();
         $idPhotoToRemove = $photoToRemove->getId();
@@ -224,8 +221,7 @@ class ImageController extends AbstractController
         $currentUser = $this->getUser();
         $photoToAdd = $photoRepository->find($photoId);
         if ($currentUser == null || $currentUser =! $photoToAdd->getAuthor()) {
-            http_response_code(401);
-            die();
+            throw $this->createAccessDeniedException();
         }
         $albumCompletedId = $request->request->get("select-album");
         $albumCompleted = $albumRepository->find($albumCompletedId);
@@ -255,8 +251,7 @@ class ImageController extends AbstractController
         $photoToRemoveFromAlbum = $photoRepository->find($id);
         $photoAuthor = $photoToRemoveFromAlbum->getAuthor();
         if ($currentUser != $photoAuthor) {
-            http_response_code(401);
-            die();
+            throw $this->createAccessDeniedException();
         }
         $photoToRemoveFromAlbum->setAlbum(null);
         $manager->persist($photoToRemoveFromAlbum);
@@ -277,8 +272,7 @@ class ImageController extends AbstractController
         $photoToRating = $photoRepository->find($id);
         $photoAuthor = $photoToRating->getAuthor();
         if ($currentUser != $photoAuthor) {
-            http_response_code(401);
-            die();
+            throw $this->createAccessDeniedException();
         }
         $photoActualRating = $photoToRating->getRating();
         if ($rating == $photoActualRating) {
