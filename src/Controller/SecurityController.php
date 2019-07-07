@@ -67,14 +67,10 @@ class SecurityController extends AbstractController
      */
     public function checkEmailAjax(UserRepository $userRepository)
     {
-        if (isset($_POST['email_check'])) {
+        if (isset($_POST['email'])) {
             $email = $_POST['email'];
-            $checkmail = $userRepository->findBy(['email' => $email]);
-            if ($checkmail == true) {
-                echo "taken";
-            }else{
-                echo 'not_taken';
-            }
+            $checkmail = count($userRepository->findBy(['email' => $email]));
+            echo json_encode(["taken" => $checkmail]);
             exit();
         }
     }
