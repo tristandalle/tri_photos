@@ -1,10 +1,10 @@
 <h3>Hello <b>{{ name }}</b> ! C'est tout bon ! Tu es inscrit !</h3>
 
-<p>Bravo ! Tu as maintenant un compte <a href="{{ path('home') }}"><b>Triphotos</b></a></p>
+<p>Bravo ! Tu as maintenant un compte <a href="{{ absolute_url(path('home')) }}"><b>Triphotos</b></a></p>
 
-<p><a href="{{ path('security_login') }}"><b>Connecte toi</b></a> et profite de tes photos !</p>
+<p><a href="{{ absolute_url(path('security_login')) }}"><b>Connecte toi</b></a> et profite de tes photos !</p>
 
 <p>Merci !</p>
 
-<p>L'équipe <a href="{{ path('home') }}"><b>Triphotos</b></a></p>
+<p>L'équipe <a href="{{ absolute_url(path('home')) }}"><b>Triphotos</b></a></p>
 
