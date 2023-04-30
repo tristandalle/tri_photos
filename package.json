@@ -19,6 +19,6 @@
         "encore": "encore"
     },
     "dependencies": {
-        "npm": "^6.7.0"
+        "npm": "^9.6.5"
     }
 }
